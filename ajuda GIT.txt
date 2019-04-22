@@ -1,1 +1,12 @@
 git init -inicializar o git repo
+
+git log --oneline
+shows commits
+
+git remote add origin <link-here>
+
+git push - enviar po github
+
+git pull - sacar project
+
+git revert <commit-id para tirar>
