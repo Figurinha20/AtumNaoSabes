@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Quiz</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container-fluid bg-light">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id=question><span id="questionNumber">1. </span>(Question goes here)</h3> <button id="difficulty"
+            input="button" class="btn btn-primary" disabled>Dificuldade</button>
+        </div>
+        <div class="form-check-inline">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text bg-warning">
+                <input type="radio" id="opt1">
+              </div>
+            </div>
+            <input id="A" type="text" class="form-control" value="Option A" readonly>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text bg-warning ">
+                <input type="radio" id="opt2">
+              </div>
+            </div>
+            <input id="B" type="text" class="form-control" value="Option B" readonly>
+          </div>
+        </div>
+        <div class="form-check-inline">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text bg-warning ">
+                <input type="radio" id="opt3">
+              </div>
+            </div>
+            <input id="C" type="text" class="form-control" value="Option C" readonly>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text bg-warning">
+                <input type="radio" id="opt4">
+              </div>
+            </div>
+            <input id="D" type="text" class="form-control" value="Option D" readonly>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <script type="model" src="/js/quiz.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
