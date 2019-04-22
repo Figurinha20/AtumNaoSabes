@@ -10,3 +10,5 @@ git push - enviar po github
 git pull - sacar project
 
 git revert <commit-id para tirar>
+
+yay mundo <3
