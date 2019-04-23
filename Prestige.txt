@@ -1,0 +1,11 @@
+1-4 <> Isca
+5-9 <> Peixe Palhaço
+10-14 <> Sardinha
+15-19 <> Faneca
+20-24 <> Carapau
+25-29 <> Dourada
+30-34 <> Tamboril
+35-39 <> Lula
+40-44 <> Espadarte
+45-49 <> Tubarão
+50 <> Atum
