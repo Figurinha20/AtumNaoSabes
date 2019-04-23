@@ -12,3 +12,5 @@ git pull - sacar project
 git revert <commit-id para tirar>
 
 yay mundo <3
+
+O luís gosta de uma boa peça de fruta
