@@ -1,4 +1,4 @@
-import {newQuestion} from "./models/newQuestion.js"
+import {newQuestion} from "../models/newQuestion.js"
 
 const myForm = document.querySelector("form")
 myForm.addEventListener("submit", function (event) {
