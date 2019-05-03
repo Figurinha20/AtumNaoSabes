@@ -5,7 +5,23 @@
     border-right-style: solid;
     border-bottom-style: solid;
     border-left-style: solid;
+    height: 150px;
     }
+
+#navCatalog {
+    height: 150px;
+    border-left-style: solid;
+}
+
+#navQuiz {
+    height: 150px;
+    border-left-style: solid;
+}
+
+#navSuggest {
+    height: 150px;
+    border-left-style: solid;
+}
 
 body {
     background-color: #e1ebea
