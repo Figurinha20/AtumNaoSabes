@@ -12,7 +12,38 @@
   <body>
       
     <div class="container-fluid">
-        <input type="search" id="searchCard" placeholder="Escreve aqui o nome ou tag!">
+            <div class="container">
+                
+                <p class="lead">
+                    Explora as maravilhas do oceano!
+                </p>
+                <hr class="my-2" />
+
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="sltGenre">Filtros: </label>
+                        <select class="form-control m-2" name="" id="sltGenre">
+                            <option value="1">digamum</option>
+                            <option value="dos">digamum</option>
+                            <option value="3">isto tem de ser inserido por JS</option>
+                            <option value="quatre">ok</option>
+                        </select>
+                    </div>
+                    <div class="form-group m-2">
+                        <label for="txtBand">Band's name:</label>
+                        <input id="txtBand" type="search" class="form-control m-2" />
+                    </div>
+                    <button id="btnFilter" type="button" class="btn btn-primary">
+                        Filtrar
+                    </button>
+                    <button id="btnSort" type="button" class="btn btn-primary m-2">
+                        Procurar
+                    </button>
+                </form>
+                <hr class="my-2" />
+                <p id="myCatalog"></p>
+            </div>
+        
     </div>
 
     <!-- Optional JavaScript -->
