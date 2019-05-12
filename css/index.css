@@ -1,0 +1,48 @@
+#butProfile{
+    background-color: white;
+    background-image: url("/img/User Colored.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border-color: black;
+    border-radius: 20px;
+    height: 275px;
+    width: 550px;
+}
+
+#butQuiz{
+    background-color: white;
+    background-image: url("/img/icon Colored.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border-color: black;
+    border-radius: 20px;
+    height: 275px;
+    width: 550px;
+}
+
+#butCatalog{
+    background-color: white;
+    background-image: url("/img/fish Colored.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border-color: black;
+    border-radius: 20px;
+    height: 275px;
+    width: 550px;
+}
+
+#butSuggest {
+    background-color: white;
+    background-image: url("/img/envelope Colored.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border-color: black;
+    border-radius: 20px;
+    height: 275px;
+    width: 550px;
+}
+
