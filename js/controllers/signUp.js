@@ -1,5 +1,6 @@
 import {newUser} from "../models/newUser.js"
 
+//importar da base de dados
 const users = []
 
 const myForm = document.querySelector("#form")
@@ -18,15 +19,19 @@ console.log(newConfirmPassword)
     }
 
     //Verificar se Utilizador Já existe
-    const result = isUser(newUsername)
-    if (result == true){
+    
+    if (isUser(newUsername) == true){
         alert("Utilizador já existente")
     }
     else{
         const new_user = new newUser(newUsername, newPassword)
     }
     
+    //push para array
     users.push(new_user)
+
+    //armazenamento na base de dados
+
     alert("Sucesso! Bem vindo " + newUsername + "!")
 
     //prevenir que form seja submetido
