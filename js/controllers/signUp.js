@@ -3,7 +3,7 @@ import {newUser} from "../models/newUser.js"
 //importar da base de dados
 const users = []
 
-const myForm = document.querySelector("#form")
+const myForm = document.querySelector("form")
 myForm.addEventListener("submit", function (event) {
     //Receber dados
     newUsername = document.querySelector("#txtUsername").value
