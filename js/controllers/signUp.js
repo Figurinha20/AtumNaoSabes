@@ -2,13 +2,15 @@ import {newUser} from "../models/newUser.js"
 
 const users = []
 
-const myForm = document.querySelector("form")
+const myForm = document.querySelector("#form")
 myForm.addEventListener("submit", function (event) {
     //Receber dados
     newUsername = document.querySelector("#txtUsername").value
     newPassword = document.querySelector("#txtPassword").value
     newConfirmPassword = document.querySelector("#txtConfirmPassword").value
-
+console.log(newUsername)
+console.log(newPassword)
+console.log(newConfirmPassword)
     //Verificar se as duas passwords são iguais
     if (newPassword != newConfirmPassword) {
         alert("As passwords não são iguais")
