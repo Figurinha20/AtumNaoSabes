@@ -10,58 +10,61 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- My CSS -->
+    <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="/css/card.css">
+
     <!-- Estava a tentar adicionar uma border ao título mas não funciona -->
 </head>
 
 <body>
-        <div class="container-fluid">
-                <div class="row">
-                  <div id="userLog" class="col-sm-4">
-                    <div class="form-group">
-                      <label for="userName">Nome</label>
-                      <input type="text" id="userName" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="text" id="password" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-dark">Login</button>
-                    <a name="" id="signUp" class="btn btn-dark" href="signUp.html" role="button">Sign Up</a>
-                  </div>
-                  <div class="col-sm-1">
-                    
-                  </div>
-                  <div class="col-sm-7">
-                      <nav id="navbar" class="navbar navbar-expand-sm navbar navbar-light" style="background-color: #fff;">
-                          <a class="navbar-brand" href="METERAQUILINKAPARAHOME">
-                              <img src="../img/Home page icon-1.png" width="80" height="80" class="d-inline-block align-top" alt="Home">
-                          </a>
-                          <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                              aria-expanded="false" aria-label="Toggle navigation">
-                              <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse" id="collapsibleNavId" style="justify-content: center">
-                              <ul class="navbar-nav nav-fill w-100">
-                                  <li class="nav-item active">
-                                      <a id="navCatalog" class="nav-link" href="LINK_PARA_CATALOGO">Catálogo <span class="sr-only">testeticulos</span></a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a id="navQuiz" class="nav-link" href="LINK_PRAQUIZ">Quiz</a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a id="navSuggest" class="nav-link" href="LINK_PRAsuggest">Sugestões</a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </nav>
-                  </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="userLog" class="col-sm-4">
+                <div class="form-group">
+                    <label for="logUserName">Nome</label>
+                    <input type="text" id="logUserName" class="form-control">
                 </div>
-              </div>
+                <div class="form-group">
+                    <label for="logPassword">Password</label>
+                    <input type="text" id="logPassword" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-dark">Login</button>
+                <a name="" id="signUp" class="btn btn-dark" href="signUp.html" role="button">Sign Up</a>
             </div>
+            <div class="col-sm-1">
 
+            </div>
+            <div class="col-sm-7">
+                <nav id="navbar" class="navbar navbar-expand-sm navbar navbar-light" style="background-color: #fff;">
+                    <a class="navbar-brand" href="METERAQUILINKAPARAHOME">
+                        <img src="../img/Home page icon-1.png" width="80" height="80" class="d-inline-block align-top"
+                            alt="Home">
+                    </a>
+                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId" style="justify-content: center">
+                        <ul class="navbar-nav nav-fill w-100">
+                            <li class="nav-item active">
+                                <a id="navCatalog" class="nav-link" href="LINK_PARA_CATALOGO">Catálogo <span
+                                        class="sr-only">testeticulos</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="navQuiz" class="nav-link" href="LINK_PRAQUIZ">Quiz</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="navSuggest" class="nav-link" href="LINK_PRAsuggest">Sugestões</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    </div>
 
 
 
@@ -70,7 +73,7 @@
 
 
     <div class="container">
-        <hr>   
+        <hr>
         <div class="row">
             <div class="col-sm-4">
                 <div class="card border-dark mb-3" style="width: 18rem;">
@@ -84,39 +87,42 @@
                     </div>
                 </div>
             </div>
-                <div class="col-sm-8">
-                    <h3>Isto é a descrição ou lá o que é</h3>
-                    <h6>E isto seria para sons, videos, imagens, etc...</h6>
-                </div>
+            <div class="col-sm-8">
+                <h3>Isto é a descrição ou lá o que é</h3>
+                <h6>E isto seria para sons, videos, imagens, etc...</h6>
             </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-1">
+                <img id="imgComment1"
+                    src="https://cdn.discordapp.com/attachments/158606760444297216/568771480285085696/a8e9b37e6750e4ea5d8eb83b2bf0f0ec60c758c1_full.jpg"
+                    height="60x" width="60px">
+            </div>
+            <div class="col-sm-3">
+                <h6 id="userComment1">Figurinha</h6>
+                <p id="txtComment1">Que peixe de bosta</p>
+            </div>
+            <div class="col-sm-8">
+            </div>
+        </div>
+        <div class="row">
             <hr>
-            <div class="row">
-                <div class="col-sm-1">
-                    <img id="imgComment1" src="https://cdn.discordapp.com/attachments/158606760444297216/568771480285085696/a8e9b37e6750e4ea5d8eb83b2bf0f0ec60c758c1_full.jpg" height="60x" width="60px">
-                </div>
-                <div class="col-sm-3">
-                    <h6 id="userComment1">Figurinha</h6>
-                    <p id="txtComment1">Que peixe de bosta</p>                    
-                </div>
-                <div class="col-sm-8">                    
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <img id="imgComment2" src="https://i.kym-cdn.com/entries/icons/original/000/021/909/motivation.png"
+                    height="60x" width="60px">
             </div>
-            <div class="row">
-                <hr>
-            </div>  
-            <div class="row">
-                    <div class="col-sm-1">
-                        <img id="imgComment2" src="https://i.kym-cdn.com/entries/icons/original/000/021/909/motivation.png" height="60x" width="60px">
-                    </div>
-                    <div class="col-sm-3">
-                        <h6 id="userComment2">TheBingeEater</h6>
-                        <p id="txtComment2">@Figurinha Tu é que és</p>                    
-                    </div>
-                    <div class="col-sm-8">                    
-                    </div>
-                </div>           
+            <div class="col-sm-3">
+                <h6 id="userComment2">TheBingeEater</h6>
+                <p id="txtComment2">@Figurinha Tu é que és</p>
+            </div>
+            <div class="col-sm-8">
+            </div>
+        </div>
     </div>
-    
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
