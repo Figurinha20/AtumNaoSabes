@@ -1,2 +1,31 @@
-h5.dotted {border-style: dotted;}
+@font-face {
+    font-family: Lobster;
+    src: url(/fonts/Lobster_1.3.otf);
+ }
 
+.card-img-top{
+    padding: 5px 5px 0;
+    border-radius: 5px;
+}
+
+.card-title{
+    text-align:center;
+    position: relative;
+    border:2px solid black;
+	border-radius:3px;
+	padding:10px 0px;
+    margin:10px 10px;
+    font-family: Lobster;
+    font-size: 25px;
+}
+
+.card-body{
+    border:1px solid black;
+	border-radius:10px;
+	padding:10px 10px;
+	margin:10px 10px;
+}
+
+#cardBtn{
+    width: 100%;
+}
