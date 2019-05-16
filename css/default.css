@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Lobster;
+    src: url(/fonts/Lobster_1.3.otf);
+ }
+
 #navbar {
     background-color: #fff;
     border-bottom-left-radius: 12px;
@@ -6,21 +11,34 @@
     border-bottom-style: solid;
     border-left-style: solid;
     height: 150px;
+    font-family: Lobster;
     }
 
 #navCatalog {
     height: 150px;
     border-left-style: solid;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
 }
 
 #navQuiz {
     height: 150px;
     border-left-style: solid;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
 }
 
 #navSuggest {
     height: 150px;
     border-left-style: solid;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
 }
 
 body {

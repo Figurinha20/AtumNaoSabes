@@ -8,6 +8,7 @@
     border-radius: 20px;
     height: 275px;
     width: 550px;
+    background-size: 30%;
 }
 
 #butQuiz{
@@ -20,6 +21,7 @@
     border-radius: 20px;
     height: 275px;
     width: 550px;
+    background-size: 30%;
 }
 
 #butCatalog{
@@ -32,6 +34,7 @@
     border-radius: 20px;
     height: 275px;
     width: 550px;
+    background-size: 30%;
 }
 
 #butSuggest {
@@ -44,5 +47,6 @@
     border-radius: 20px;
     height: 275px;
     width: 550px;
+    background-size: 30%;
 }
 
