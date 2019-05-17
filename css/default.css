@@ -4,7 +4,7 @@
  }
 
 #navbar {
-    background-color: #fff;
+    background-color: #FFF;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     border-right-style: solid;
@@ -42,5 +42,17 @@
 }
 
 body {
-    background-color: #e1ebea
+    background-color: #cbeaf0;
+}
+
+#navCatalog text {
+    color: #485AB5;    
+}
+
+#navQuiz text {
+    color: #B856D4;    
+}
+
+#navSuggest text {
+    color: #C9C34A;    
 }
