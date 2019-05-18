@@ -14,63 +14,63 @@
 </head>
 
 <body>
-        <div class="container-fluid">
-                <div class="row">
-                    <div id="userLog" class="col-sm-4">
-                        <div class="form-group">
-                            <label for="logUserName">Nome</label>
-                            <input type="text" id="logUserName" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="logPassword">Password</label>
-                            <input type="text" id="logPassword" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-dark">Login</button>
-                        <a name="" id="signUp" class="btn btn-dark" href="signUp.html" role="button">Sign Up</a>
-                    </div>
-                    <div class="col-sm-1">
-        
-                    </div>
-                    <div class="col-sm-7">
-                        <nav id="navbar" class="navbar navbar-expand-sm navbar navbar-light" style="background-color: #fff;">
-                            <a class="navbar-brand" href="/index.html">
-                                <img src="../img/Home page icon-1.png" width="115" height="115" class="d-inline-block align-top"
-                                    alt="Home">
-                            </a>
-                            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
-                                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="collapsibleNavId" style="justify-content: center">
-                                <ul class="navbar-nav nav-fill w-100">
-                                    <li class="nav-item active">
-                                        <a id="navCatalog" class="nav-link" href="/html/catalog.html"><text>Catálogo</text> </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a id="navQuiz" class="nav-link" href="/html/quiz.html"><text>Quiz</text></a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a id="navSuggest" class="nav-link" href="/html/suggest.html"><text>Sugestões</text></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="userLog" class="col-sm-4">
+                <div class="form-group">
+                    <label for="logUserName">Nome</label>
+                    <input type="text" id="logUserName" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label for="logPassword">Password</label>
+                    <input type="text" id="logPassword" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-dark">Login</button>
+                <a name="" id="signUp" class="btn btn-dark" href="signUp.html" role="button">Sign Up</a>
             </div>
+            <div class="col-sm-1">
+
             </div>
-            
+            <div class="col-sm-7">
+                <nav id="navbar" class="navbar navbar-expand-sm navbar navbar-light" style="background-color: #fff;">
+                    <a class="navbar-brand" href="/index.html">
+                        <img src="../img/Home page icon-1.png" width="115" height="115" class="d-inline-block align-top"
+                            alt="Home">
+                    </a>
+                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId" style="justify-content: center">
+                        <ul class="navbar-nav nav-fill w-100">
+                            <li class="nav-item active">
+                                <a id="navCatalog" class="nav-link" href="/html/catalog.html"><text>Catálogo</text> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="navQuiz" class="nav-link" href="/html/quiz.html"><text>Quiz</text></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="navSuggest" class="nav-link" href="/html/suggest.html"><text>Sugestões</text></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    </div>
+
 
 
 
 
     <div class="container-fluid">
         <div class="container">
-
-            <p class="lead">
+            <hr class="my-2" />
+            <h1>
                 Explora as maravilhas do oceano!
-            </p>
+            </h1>
             <hr class="my-2" />
 
             <form class="form-inline">
@@ -84,7 +84,7 @@
                     </select>
                 </div>
                 <div class="form-group m-2">
-                    <label for="txtBand">Band's name:</label>
+                    <label for="txtBand">Pesquisa:</label>
                     <input id="txtBand" type="search" class="form-control m-2" />
                 </div>
                 <button id="btnFilter" type="button" class="btn btn-primary">
@@ -97,6 +97,131 @@
             <hr class="my-2" />
             <p id="myCatalog"></p>
         </div>
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1">
+
+            </div>
+
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                            <h5 id="cardName" class="card-title text-center font-weight-bold">Nome do Peixe</h5>
+                            <img id="cardImg" class="card-img-top"
+                                src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p id="cardText" class="card-text">[Filtros]</p>
+                                <hr>
+                                <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                            <h5 id="cardName" class="card-title text-center font-weight-bold">Nome do Peixe</h5>
+                            <img id="cardImg" class="card-img-top"
+                                src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p id="cardText" class="card-text">[Filtros]</p>
+                                <hr>
+                                <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                            <h5 id="cardName" class="card-title text-center font-weight-bold">Nome do Peixe</h5>
+                            <img id="cardImg" class="card-img-top"
+                                src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p id="cardText" class="card-text">[Filtros]</p>
+                                <hr>
+                                <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-sm-1">
+
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1">
+
+            </div>
+
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                            <h5 id="cardName" class="card-title text-center font-weight-bold">Nome do Peixe</h5>
+                            <img id="cardImg" class="card-img-top"
+                                src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p id="cardText" class="card-text">[Filtros]</p>
+                                <hr>
+                                <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                            <h5 id="cardName" class="card-title text-center font-weight-bold">Nome do Peixe</h5>
+                            <img id="cardImg" class="card-img-top"
+                                src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p id="cardText" class="card-text">[Filtros]</p>
+                                <hr>
+                                <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                            <h5 id="cardName" class="card-title text-center font-weight-bold">Nome do Peixe</h5>
+                            <img id="cardImg" class="card-img-top"
+                                src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p id="cardText" class="card-text">[Filtros]</p>
+                                <hr>
+                                <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-sm-1">
+
+            </div>
+
+
+        </div>
+
+
 
     </div>
 
