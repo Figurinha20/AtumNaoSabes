@@ -1,4 +1,4 @@
-import {newQuestion} from "../models/newQuestion.js"
+import {Questions} from "../models/newQuestion.js"
 let questions = []
 
 
@@ -8,18 +8,18 @@ let questions = []
 const myForm = document.querySelector("form")
 myForm.addEventListener("submit", function (event) {
     //Receber dados
-    newQuestion = document.querySelector("#txtQuestion").value
-    newQuestionOpt1 = document.querySelector("#txtOption1").value
-    newQuestionOpt2 = document.querySelector("#txtOption2").value
-    newQuestionOpt3 = document.querySelector("#txtOption3").value
-    newQuestionOpt4 = document.querySelector("#txtOption4").value
-    newQuestionCatalog = document.querySelector("#sltCatalog").value
-    newQuestionType = document.querySelector("#sltType").value
-    newQuestionDifficulty = document.querySelector("#sltDificulty").value
-    newCorrectOpt = document.querySelector("#sltCorrect").value
-    newHint = document.querySelector("#txtHint").value
+    let newQuestion = document.querySelector("#txtQuestion").value
+    let newQuestionOpt1 = document.querySelector("#txtOption1").value
+    let newQuestionOpt2 = document.querySelector("#txtOption2").value
+    let newQuestionOpt3 = document.querySelector("#txtOption3").value
+    let newQuestionOpt4 = document.querySelector("#txtOption4").value
+    let newQuestionCatalog = document.querySelector("#sltTags").value
+    let newQuestionType = document.querySelector("#sltType").value
+    let newQuestionDifficulty = document.querySelector("#sltDificulty").value
+    let newCorrectOpt = document.querySelector("#sltCorrect").value
+    let newHint = document.querySelector("#txtHint").value
 
-    alert(newHint)
+    alert(newQuestion)
     
     //Verificar se pergunta já existe
     const result = isQuestion(newQuestion)
@@ -27,11 +27,11 @@ myForm.addEventListener("submit", function (event) {
         alert("Pergunta já existente")
     }
     else{
-        const new_question = new newQuestion(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
+        let new_question = new Questions(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
             newQuestionCatalog,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
         alert("SUCC")
         questions.push(new_question)
-        alert(questions )
+        alert(questions)
     }
     
     event.preventDefault()
@@ -41,7 +41,7 @@ myForm.addEventListener("submit", function (event) {
 //Função para verificar se o utilizador já existe
 function isQuestion(newQuestion) {
     for (const question of questions) {
-        if (questions.question === newQuestion) {
+        if (questions.question.question === newQuestion) {
             return true;
         }
     }
