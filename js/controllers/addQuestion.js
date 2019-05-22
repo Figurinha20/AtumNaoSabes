@@ -1,4 +1,9 @@
 import {newQuestion} from "../models/newQuestion.js"
+let questions = []
+
+
+//DON'T FORGET TO IMPORT THE DATABASE INTO THE ARRAY!!!
+
 
 const myForm = document.querySelector("form")
 myForm.addEventListener("submit", function (event) {
@@ -12,7 +17,9 @@ myForm.addEventListener("submit", function (event) {
     newQuestionType = document.querySelector("#sltType").value
     newQuestionDifficulty = document.querySelector("#sltDificulty").value
     newCorrectOpt = document.querySelector("#sltCorrect").value
+    newHint = document.querySelector("#txtHint").value
 
+    alert(newHint)
     
     //Verificar se pergunta já existe
     const result = isQuestion(newQuestion)
@@ -21,16 +28,20 @@ myForm.addEventListener("submit", function (event) {
     }
     else{
         const new_question = new newQuestion(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
-            newQuestionCatalog,newQuestionType,newQuestionDifficulty, newCorrectOpt)
+            newQuestionCatalog,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
+        alert("SUCC")
+        questions.push(new_question)
+        alert(questions )
     }
-
+    
+    event.preventDefault()
 })
 
     
 //Função para verificar se o utilizador já existe
 function isQuestion(newQuestion) {
-    for (const question of questiond) {
-        if (question.question === newQuestion) {
+    for (const question of questions) {
+        if (questions.question === newQuestion) {
             return true;
         }
     }
