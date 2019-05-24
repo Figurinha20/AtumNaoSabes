@@ -1,21 +1,23 @@
-import {newUser} from "../models/newUser.js"
+//import {newUser} from "../models/newUser.js"
 
 //importar da base de dados
-const users = []
+let users = []
 
 const myForm = document.querySelector("form")
 myForm.addEventListener("submit", function (event) {
+
+    let formValid = true;
     //Receber dados
-    newUsername = document.querySelector("#txtUsername").value
-    newPassword = document.querySelector("#txtPassword").value
-    newConfirmPassword = document.querySelector("#txtConfirmPassword").value
+    let newUsername = document.querySelector("#txtUsername").value
+    let newPassword = document.querySelector("#txtPassword").value
+    let newConfirmPassword = document.querySelector("#txtConfirmPassword").value
 console.log(newUsername)
 console.log(newPassword)
 console.log(newConfirmPassword)
-    //Verificar se as duas passwords são iguais
+   ///Verificar se as duas passwords são iguais
     if (newPassword != newConfirmPassword) {
         alert("As passwords não são iguais")
-        return
+       formValid = false
     }
 
     //Verificar se Utilizador Já existe
@@ -33,21 +35,23 @@ console.log(newConfirmPassword)
     //armazenamento na base de dados
 
     alert("Sucesso! Bem vindo " + newUsername + "!")
-
+ 
     //prevenir que form seja submetido
     event.preventDefault()
 
     alert(users)
+
+    return formValid;
 })
 
 
 
 //Função para verificar se o utilizador já existe
-function isUser(newUsername) {
+ function isUser(newUsername) {
     for (const user of users) {
-        if (user.username === newUsername) {
+        if (newUser.username === newUsername) {
             return true;
         }
     }
-    return false;
-}
+    return false;   
+}   
