@@ -7,5 +7,6 @@ export class newCard{
         this.description = description
         this.etc = etc 
         this.comments = newComment
+        
     }
 }

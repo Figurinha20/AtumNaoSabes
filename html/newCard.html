@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Editor de Cartas</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/card.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="userLog" class="col-sm-4">
+                <div class="form-group">
+                    <label for="logUserName">Nome</label>
+                    <input type="text" id="logUserName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="logPassword">Password</label>
+                    <input type="text" id="logPassword" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-dark">Login</button>
+                <a name="" id="signUp" class="btn btn-dark" href="signUp.html" role="button">Sign Up</a>
+            </div>
+            <div class="col-sm-1">
+
+            </div>
+            <div class="col-sm-7">
+                <nav id="navbar" class="navbar navbar-expand-sm navbar navbar-light" style="background-color: #fff;">
+                    <a class="navbar-brand" href="METERAQUILINKAPARAHOME">
+                        <img src="../img/Home page icon-1.png" width="80" height="80" class="d-inline-block align-top"
+                            alt="Home">
+                    </a>
+                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId" style="justify-content: center">
+                        <ul class="navbar-nav nav-fill w-100">
+                            <li class="nav-item active">
+                                <a id="navCatalog" class="nav-link" href="/html/catalog.html">Catálogo <span
+                                        class="sr-only">testeticulos</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="navQuiz" class="nav-link" href="/html/quiz.html">Quiz</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="navSuggest" class="nav-link" href="/html/suggest.html">Sugestões</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+    <form>
+
+        <div class="row">
+            <hr>
+        </div>
+
+
+        <div id="simpleContainer" class="container border border-dark">
+            <div class="row">
+                <hr>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <label for="txtName">Nome:</label>
+                    <input id="txtName" type="text" class="form-control" id="txtName" aria-describedby="helpId"
+                        placeholder="Nome da entidade">
+                </div>
+
+                <div class="col-sm-6">
+
+                </div>
+
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="txtName">Imagem:</label>
+                    <input id="txtName" type="text" class="form-control" id="txtName" aria-describedby="helpId"
+                        placeholder="Url para a imagem">
+                </div>
+                <div class="col-sm-6">
+
+                </div>
+
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="txtTags">Filtros:</label>
+                    <input id="txtTags" type="text" class="form-control" id="txtTags" aria-describedby="helpId"
+                        placeholder="Palavras chave para filtros">
+                </div>
+                <div class="col-sm-6">
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="txtDescription">Description:</label>
+                    <input id="txtDescription" type="text" class="form-control" id="txtDescription"
+                        aria-describedby="helpId" placeholder="Insira aqui a descrição da entidade">
+                </div>
+
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="txtDescription">Links adicionais:</label>
+                    <input id="txtDescription" type="text" class="form-control" id="txtDescription"
+                        aria-describedby="helpId" placeholder="Adicione media adiconal no formato 'audio'/'vid'=(link)">
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <hr>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-4">
+
+                </div>
+                <div class="col-sm-4">
+                    <label for="preview">Preview</label>
+                    <div class="container-fluid" id="preview">
+                        <div class="col-sm-1">
+
+                        </div>
+
+                        <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                                        <h5 id="cardName" class="card-title text-center font-weight-bold">Nome do Peixe
+                                        </h5>
+                                        <img id="cardImg" class="card-img-top"
+                                            src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                            alt="Card image cap">
+                                        <div class="card-body">
+                                            <p id="cardText" class="card-text">[Filtros]</p>
+                                            <hr>
+                                            <a id="cardBtn" href="#" class="btn btn-dark" disabled>Ver Mais</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                                        <h5 id="cardName" class="card-title text-center font-weight-bold">Nome do Peixe
+                                        </h5>
+                                        <img id="cardImg" class="card-img-top"
+                                            src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                            alt="Card image cap">
+                                        <div class="card-body">
+                                            <p id="cardText" class="card-text">[Filtros]</p>
+                                            <hr>
+                                            <a id="cardBtn" href="#" class="btn btn-dark" disabled>Ver Mais</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                                        <h5 id="cardName" class="card-title text-center font-weight-bold">Nome do Peixe
+                                        </h5>
+                                        <img id="cardImg" class="card-img-top"
+                                            src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                            alt="Card image cap">
+                                        <div class="card-body">
+                                            <p id="cardText" class="card-text">[Filtros]</p>
+                                            <hr>
+                                            <a id="cardBtn" href="#" class="btn btn-dark" disabled>Ver Mais</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-1">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <hr>
+            </div>
+
+        </div>
+        </div>
+        </div>
+    </form>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
