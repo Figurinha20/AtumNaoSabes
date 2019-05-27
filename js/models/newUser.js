@@ -1,6 +1,6 @@
-export class newUser {
-    constructor(userName, password,adminStat=false) {
-        this.userName = userName
+export default class newUser {
+    constructor(username, password,adminStat=false) {
+        this.username = username
         this.password = password
         this.adminStat = adminStat
         this.experience = 0

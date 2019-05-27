@@ -20,6 +20,8 @@ console.log(newConfirmPassword)
        formValid = false
     }
 
+    
+
     //Verificar se Utilizador Já existe
     
     if (isUser(newUsername) == true){
