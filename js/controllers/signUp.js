@@ -1,3 +1,5 @@
+import newUser from "../models/newUser.js";
+
 //import {newUser} from "../models/newUser.js"
 
 //importar da base de dados
@@ -32,7 +34,7 @@ console.log(newConfirmPassword)
     }
     
     //push para array
-    users.push(new_user)
+    users.push(new newUser)
 
     //armazenamento na base de dados
 
