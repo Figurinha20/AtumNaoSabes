@@ -20,7 +20,7 @@ if (localStorage.users) {
     localStorage.setItem("users", JSON.stringify(users))
 }
  
-const myForm = document.querySelector("#logForm")
+const myForm = document.querySelector("#userLog")
 myForm.addEventListener("submit", function (event) {
 
 
