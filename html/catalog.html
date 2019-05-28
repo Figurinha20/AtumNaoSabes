@@ -17,6 +17,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
+            <form id="logForm">
             <div id="userLog" class="col-sm-4">
                 <div class="form-group">
                     <label for="logUserName">Nome</label>
@@ -29,6 +30,7 @@
                 <button type="submit" class="btn btn-dark">Login</button>
                 <a name="" id="signUp" class="btn btn-dark" href="signUp.html" role="button">Sign Up</a>
             </div>
+            </form>
             <div class="col-sm-1">
 
             </div>
@@ -83,7 +85,7 @@
 
                 <form class="form-inline">
                     <div class="form-group">
-                        <label for="sltGenre">Filtros: </label>
+                        <label for="sltFilter">Filtros: </label>
                         <select class="form-control m-2" name="" id="sltGenre">
                             <option value="1">digamum</option>
                             <option value="dos">digamum</option>
@@ -92,8 +94,8 @@
                         </select>
                     </div>
                     <div class="form-group m-2">
-                        <label for="txtBand">Pesquisa:</label>
-                        <input id="txtBand" type="search" class="form-control m-2" />
+                        <label for="txtSearch">Pesquisa:</label>
+                        <input id="txtSearch" type="search" class="form-control m-2" />
                     </div>
                     <button id="btnFilter" type="button" class="btn btn-primary">
                         Filtrar
