@@ -1,5 +1,5 @@
 export default class newUser {
-    constructor(username, password,adminStat=false) {
+    constructor(username, password,adminStat) {
         this.username = username
         this.password = password
         this.adminStat = adminStat
