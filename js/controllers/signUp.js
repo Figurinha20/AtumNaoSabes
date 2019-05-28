@@ -2,11 +2,6 @@ import newUser from "../models/newUser.js";
 
 //import {newUser} from "../models/newUser.js"
 
-//importar da base de dados(não está a importar)
-let users = []
-
-
-import User from "../models/userModel.js"
 
 // Define um array para guardar os objetos User
 export let users = []
