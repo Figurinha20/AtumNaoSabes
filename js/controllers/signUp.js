@@ -2,7 +2,7 @@ import newUser from "../models/newUser.js";
 
 //import {newUser} from "../models/newUser.js"
 
-//importar da base de dados
+//importar da base de dados(não está a importar)
 let users = []
 
 const myForm = document.querySelector("form")
@@ -56,9 +56,11 @@ myForm.addEventListener("submit", function (event) {
 //Função para verificar se o utilizador já existe
 function isUser(newUsername) {
     for (const user of users) {
-        if (newUser.username === newUsername) {
+        if (user.username === newUsername) {
             return true;
         }
     }
     return false;
 }
+
+//se esta função funciona
