@@ -86,3 +86,7 @@ h4 {
 #profilePicture {
     border:4px solid;
 }
+
+.progress{
+    border: 3px solid;
+}
