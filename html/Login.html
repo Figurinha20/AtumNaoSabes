@@ -16,7 +16,9 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div id="userLog" class="col-sm-4">
+     
+      <div  class="col-sm-4">
+          <form id="userLog">
         <div class="form-group">
           <label for="logUserName">Nome</label>
           <input type="text" id="logUserName" class="form-control">
@@ -25,9 +27,12 @@
           <label for="logPassword">Password</label>
           <input type="text" id="logPassword" class="form-control">
         </div>
-        <button type="submit" class="btn btn-dark">Login</button>
+        <input type="submit" value="login" class="btn btn-dark">
         <a name="" id="signUp" class="btn btn-dark" href="signUp.html" role="button">Sign Up</a>
+
+      </form>
       </div>
+      
       <div class="col-sm-1">
 
       </div>
@@ -61,6 +66,7 @@
   </div>
 
   <!-- Optional JavaScript -->
+  <script type="module" src="../js/controllers/login.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

@@ -2,17 +2,31 @@ import newUser from "../models/newUser.js";
 
 //import {newUser} from "../models/newUser.js"
 
-//importar da base de dados
-let users = [] 
+
+
+// Define um array para guardar os objetos User
+export let users = []
+// Caso já exista uma chave users na LocalStorage é carregado tudo para o array
+// Caso contrário são guardadas no array, vários objetos User inseridos manualmente
+if (localStorage.users) {
+    users = JSON.parse(localStorage.users)
+} else {
+    const user1 = new newUser("Ricardo", "atum", false)
+    const user2 = new newUser("Maria", "atum", false)
+    const user3 = new newUser("Gandatum", "atum", true)
+
+    //this.adminStat = adminStat this.experience = 0 this.level = 1 this.profilePicture = "" this.cardCollection = []
+    users.push(user1, user2, user3)
+    localStorage.setItem("users", JSON.stringify(users))
+}
  
- 
-const myForm = document.querySelector("#logForm")
+const myForm = document.querySelector("#userLog")
 myForm.addEventListener("submit", function (event) {
 
 
     //Receber dados
-    let logUsername = document.querySelector("#txtUsername").value
-    let logPassword = document.querySelector("#txtPassword").value
+    let logUsername = document.querySelector("#logUserName").value
+    let logPassword = document.querySelector("#logPassword").value
     
     console.log(logUsername)
     console.log(logPassword)
@@ -25,9 +39,10 @@ myForm.addEventListener("submit", function (event) {
         
         alert("Biene venido " + logUsername)
 
+
     //alterar userController para alterar NavBar
 
-        return;
+        
        
     } else {
 
@@ -40,7 +55,7 @@ myForm.addEventListener("submit", function (event) {
 
     console.log(users)
 
-    return;
+    
 })
 
 
