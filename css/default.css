@@ -70,3 +70,19 @@ body {
 h1 {
     font-family: Lobster;
 }
+
+h2 {
+    font-family: Lobster;
+}
+
+h3 {
+    font-family: Lobster;
+}
+
+h4 {
+    font-family: Lobster;
+}
+
+#profilePicture {
+    border:4px solid;
+}
