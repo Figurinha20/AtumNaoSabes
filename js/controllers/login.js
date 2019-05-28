@@ -25,8 +25,8 @@ myForm.addEventListener("submit", function (event) {
 
 
     //Receber dados
-    let logUsername = document.querySelector("#txtUsername").value
-    let logPassword = document.querySelector("#txtPassword").value
+    let logUsername = document.querySelector("#logUserName").value
+    let logPassword = document.querySelector("#logPassword").value
     
     console.log(logUsername)
     console.log(logPassword)
@@ -42,7 +42,7 @@ myForm.addEventListener("submit", function (event) {
 
     //alterar userController para alterar NavBar
 
-        return;
+        
        
     } else {
 
@@ -55,7 +55,7 @@ myForm.addEventListener("submit", function (event) {
 
     console.log(users)
 
-    return;
+    
 })
 
 
