@@ -1,11 +1,26 @@
-import newCard from "../models/newCard.js";
+import {newCard} from "../models/newCard.js";
 
 //import {newCard} from "../models/newCard.js"
 
-//importar da base de dados(não está a importar)
-let cards = []
 
-const myForm = document.querySelector("form")
+// Define um array para guardar os objetos User
+export let cards = []
+// Caso já exista uma chave users na LocalStorage é carregado tudo para o array
+// Caso contrário são guardadas no array, vários objetos User inseridos manualmente
+if (localStorage.cards) {
+    cards = JSON.parse(localStorage.cards)
+} else {
+    const card1 = new newCard("Atum", "www.image1.com","Rapido Colorido","Um peixe unico","www.linkadicional1.com")
+    const card2 = new newCard("Peixe Palhaço", "www.image2.com","Engraçado,diferente","Um peixe do nemo","www.linkadicional2.com")
+    const card3 = new newCard("Faneca", "www.image2.com","Feroz e mau","o rei do oceano","www.linkadicional3.com")
+
+    //this.adminStat = adminStat this.experience = 0 this.level = 1 this.profilePicture = "" this.cardCollection = []
+    cards.push(card1, card2, card3)
+    localStorage.setItem("cards", JSON.stringify(cards))
+}
+ 
+
+const myForm = document.querySelector("#cardForm")
 myForm.addEventListener("submit", function (event) {
 
     //Receber dados
@@ -22,16 +37,38 @@ myForm.addEventListener("submit", function (event) {
 
     //Verificar se o nome da carta já existe
 
-    if (isUser(newName) == true) {
+    if (isCard(newName) == true) {
         alert("Essa carta já existe ")
-        return;
+        
     } else {
 
-        alert("Carta criada!")
+        
         //push para array
-        users.push(new newCard(newName, newImage, newTags, newDescription, newLinks))
+        cards.push(new newCard(newName, newImage, newTags, newDescription, newLinks))
 
     }
     //armazenamento na base de dados
     localStorage.setItem("cards", JSON.stringify(cards))
+
+
+
+    alert("Carta criada!")
+
+
+    //prevenir que form seja subemetido
+    
+    event.preventDefault()
+
+    console.log(cards)
+
+    return;
 })
+//Função para verificar se o utilizador já existe
+function isCard(newName) {
+    for (const card of cards) {
+        if (card.name === newName) {
+            return true;
+        }
+    }
+    return false;
+}
