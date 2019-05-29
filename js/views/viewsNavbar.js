@@ -1,4 +1,4 @@
-import newUser from "../models/newUser.js";
+import newUser from "../models/User.js";
 
 //import {newUser} from "../models/newUser.js"
 

@@ -1,4 +1,4 @@
-import {newCard} from "../models/newCard.js";
+import {newCard} from "../models/Card.js/index.js";
 
 //import {newCard} from "../models/newCard.js"
 

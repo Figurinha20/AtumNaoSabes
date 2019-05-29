@@ -1,5 +1,5 @@
-import {newCard} from "../models/newCard.js";
-import {cards} from "../controllers/addCard.js";
+import {newCard} from "../models/Card.js/index.js";
+import {cards} from "../controllers/editCards.js/index.js";
 
 // Define um array para guardar os objetos User
 export let cards = []
@@ -17,5 +17,5 @@ if (localStorage.cards) {
     localStorage.setItem("cards", JSON.stringify(cards))
 }
 
-+=
+
 

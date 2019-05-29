@@ -1,5 +1,5 @@
-import {newUser} from "../models/newUser"
-import {newQuestion} from "../models/newQuestion";
+import {newUser} from "../models/User"
+import {newQuestion} from "../models/Question";
 
 //get array de perguntas da base de dados e shuffle à ordem
 
