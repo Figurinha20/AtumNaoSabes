@@ -36,3 +36,8 @@
     border-width: 5px;
     border-radius:10px;
 }
+
+#cardImg{
+    width: 100%;
+    height: 11vw;
+}
