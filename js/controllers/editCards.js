@@ -44,15 +44,18 @@ myForm.addEventListener("submit", function (event) {
 
         
         //push para array
-        cards.push(new Card(newName, newImage, newTags, newDescription, newLinks))
+        cards.push(new Card(newName, newImage, newTags, newDescription, newLinks))   
+        //armazenamento na base de dados
+        localStorage.setItem("cards", JSON.stringify(cards))
 
+        alert("Carta criada!")
     }
-    //armazenamento na base de dados
-    localStorage.setItem("cards", JSON.stringify(cards))
 
 
 
-    alert("Carta criada!")
+
+
+
 
 
     //prevenir que form seja subemetido
