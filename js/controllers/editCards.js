@@ -1,4 +1,4 @@
-import {newCard} from "../models/Card.js/index.js";
+import {Card} from "../models/Card.js";
 
 //import {newCard} from "../models/newCard.js"
 
@@ -10,16 +10,16 @@ export let cards = []
 if (localStorage.cards) {
     cards = JSON.parse(localStorage.cards)
 } else {
-    const card1 = new newCard("Atum", "www.image1.com","Rapido Colorido","Um peixe unico","www.linkadicional1.com")
-    const card2 = new newCard("Peixe Palhaço", "www.image2.com","Engraçado,diferente","Um peixe do nemo","www.linkadicional2.com")
-    const card3 = new newCard("Faneca", "www.image2.com","Feroz e mau","o rei do oceano","www.linkadicional3.com")
+    const card1 = new Card("Atum", "www.image1.com","Rapido Colorido","Um peixe unico","www.linkadicional1.com")
+    const card2 = new Card("Peixe Palhaço", "www.image2.com","Engraçado,diferente","Um peixe do nemo","www.linkadicional2.com")
+    const card3 = new Card("Faneca", "www.image2.com","Feroz e mau","o rei do oceano","www.linkadicional3.com")
 
     //this.adminStat = adminStat this.experience = 0 this.level = 1 this.profilePicture = "" this.cardCollection = []
     cards.push(card1, card2, card3)
     localStorage.setItem("cards", JSON.stringify(cards))
 }
  
-
+//listener para salvar/substituir falta criar função para substituir
 const myForm = document.querySelector("#cardForm")
 myForm.addEventListener("submit", function (event) {
 
@@ -28,7 +28,7 @@ myForm.addEventListener("submit", function (event) {
     let newImage = document.querySelector("#txtImage").value
     let newTags = document.querySelector("#txtTags").value
     let newDescription = document.querySelector("#txtDescription").value
-    let newLinks = document.querySelector("#txtLink").value
+    let newLinks = document.querySelector("#txtLinks").value
     console.log(newName)
     console.log(newImage)
     console.log(newTags)
@@ -44,7 +44,7 @@ myForm.addEventListener("submit", function (event) {
 
         
         //push para array
-        cards.push(new newCard(newName, newImage, newTags, newDescription, newLinks))
+        cards.push(new Card(newName, newImage, newTags, newDescription, newLinks))
 
     }
     //armazenamento na base de dados
@@ -63,6 +63,37 @@ myForm.addEventListener("submit", function (event) {
 
     return;
 })
+
+//função e listener para remover
+
+
+// listener para preview
+myForm.addEventListener("keypress", function (event){
+
+    
+
+    let previewName = document.querySelector("#txtName").value
+    let previewImg = document.querySelector("#txtImage").value
+    let previewTag = document.querySelector("#txtTags").value
+
+    document.querySelector("#cardName1").innerHTML = previewName
+    document.querySelector("#cardImg1").src = previewImg
+    document.querySelector("#cardText1").innerHTML = previewTag
+
+    document.querySelector("#cardName2").innerHTML = previewName
+    document.querySelector("#cardImg2").src = previewImg
+    document.querySelector("#cardText2").innerHTML = previewTag
+    
+    document.querySelector("#cardName3").innerHTML = previewName
+    document.querySelector("#cardImg3").src = previewImg
+    document.querySelector("#cardText3").innerHTML = previewTag
+
+})
+
+
+
+
+
 //Função para verificar se o utilizador já existe
 function isCard(newName) {
     for (const card of cards) {

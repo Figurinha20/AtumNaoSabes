@@ -1,12 +1,11 @@
-import {newComment} from "./Comment.js/index.js";
-export class newCard{
-    constructor(name, img, tags, description, etc = [], newComment = []){
+export class Card{
+    constructor(name, img, tags, description, etc, Comment){
         this.name = name
         this.img = img
         this.tags = tags
         this.description = description
-        this.etc = etc 
-        this.comments = newComment
+        this.etc = []
+        this.comments = []
         
     }
 }
