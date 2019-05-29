@@ -20,7 +20,7 @@ if (localStorage.cards) {
 }
  
 
-const myForm = document.querySelector("form")
+const myForm = document.querySelector("#cardForm")
 myForm.addEventListener("submit", function (event) {
 
     //Receber dados
