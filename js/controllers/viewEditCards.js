@@ -1,4 +1,5 @@
 import {Card} from "../models/Card.js";
+import {isCard} from "./controlsEditCards.js"
 
 //import {newCard} from "../models/newCard.js"
 
@@ -38,8 +39,10 @@ myForm.addEventListener("submit", function (event) {
     //Verificar se o nome da carta já existe
 
     if (isCard(newName) == true) {
-        alert("Essa carta já existe ")
-        
+        alert("Essa carta já existe deseja substituir os dados antigos?")
+        //CRIAR MODAL PARA SUBSTITUIR CARTA
+        //CRIAR FUNÇÃO EM CONTROLSEDITCARD PARA SUBSTITUIR DADOS DA CARTA
+
     } else {
 
         
@@ -96,13 +99,3 @@ myForm.addEventListener("keyup", function (event){
 
 
 
-
-//Função para verificar se o utilizador já existe
-function isCard(newName) {
-    for (const card of cards) {
-        if (card.name === newName) {
-            return true;
-        }
-    }
-    return false;
-}

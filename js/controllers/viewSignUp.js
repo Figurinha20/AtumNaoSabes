@@ -1,5 +1,5 @@
 import {User} from "../models/User.js";
-
+import {isUser} from "../controllers/controlsSignUp.js"
 
 // Define um array para guardar os objetos User
 export let users = []
@@ -49,12 +49,17 @@ myForm.addEventListener("submit", function (event) {
         
         //armazenamento na base de dados
         localStorage.setItem("users", JSON.stringify(users))
+
+
+        alert("Conta criada com sucesso! Bem vindo " + newUsername + "!")
+
+        //LOGIN E FECHAR MODAL    AKA    currentUser = newUsername
     }
 
 
 
 
-    alert("Sucesso! Bem vindo " + newUsername + "!")
+   
 
     //prevenir que form seja submetido
     event.preventDefault()
@@ -63,17 +68,3 @@ myForm.addEventListener("submit", function (event) {
 
     return;
 })
-
-
-
-//Função para verificar se o utilizador já existe
-function isUser(newUsername) {
-    for (const user of users) {
-        if (user.username === newUsername) {
-            return true;
-        }
-    }
-    return false;
-}
-
-//se esta função funciona

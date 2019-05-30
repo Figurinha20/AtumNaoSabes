@@ -1,4 +1,5 @@
 import {User} from "../models/User.js";
+import {validLogin} from "./controlsLogin.js"
 
 
 // Define um array para guardar os objetos User
@@ -57,18 +58,3 @@ myForm.addEventListener("submit", function (event) {
 
 
 
-//Função para verificar se o utilizador já existe
-function validLogin(logUsername, logPassword) {
-    for (const user of users) {
-        if (user.username === logUsername && user.password === logPassword) {
-            //caso informação esteja correta
-            return true;
-        }else if (user.username === logUsername && user.password != logPassword){
-            //caso password errada
-            alert("Password incorreta");
-            return false;
-        }
-    }
-    alert("User não encontrado")
-    return false;
-}

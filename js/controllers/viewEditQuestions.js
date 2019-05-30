@@ -1,8 +1,21 @@
 import {Question} from "../models/Question.js"
-let questions = []
+import {isQuestion} from "./controlsEditQuestions.js"
+
+export let questions = []
+
+if (localStorage.questions) {
+    questions = JSON.parse(localStorage.questions)
+} else {
+    const qstn1 = new Question("Qual é o peixe menos inteligente das opções?","Atum","José Pedro","Carpa","Polvo",
+    "GeralPrimeiroQuiz","multiple",1,"Carpa","José Pedro não é um peixe")
+    const qstn2 = new Question(";) bonus",";)",";)",";)",";)",";)",";)",";)",";)",";)")
+    const qstn3 = new Question(";) bonus",";)",";)",";)",";)",";)",";)",";)",";)", "não é o mesmo bonus...")
 
 
-//DON'T FORGET TO IMPORT THE DATABASE INTO THE ARRAY!!!
+    questions.push(qstn1, qstn2, qstn3)
+    localStorage.setItem("questions", JSON.stringify(questions))
+}
+
 
 
 const myForm = document.querySelector("form")
@@ -24,7 +37,9 @@ myForm.addEventListener("submit", function (event) {
     //Verificar se pergunta já existe
     const result = isQuestion(newQuestion)
     if (result == true){
-        alert("Pergunta já existente")
+        alert("Pergunta já existente deseja alterar os dados?")
+
+        //CRIAR MODAL COMO PARA AS CARTAS
     }
     else{
         let new_question = new Question(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
@@ -38,12 +53,3 @@ myForm.addEventListener("submit", function (event) {
 })
 
     
-//Função para verificar se o utilizador já existe
-function isQuestion(newQuestion) {
-    for (const question of questions) {
-        if (question.question === newQuestion) {
-            return true;
-        }
-    }
-    return false;
-}
