@@ -4,8 +4,9 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    border-color: black;
+    border-color: #33729C;
     border-radius: 20px;
+    border-width: 7px;
     height: 275px;
     width: 550px;
     background-size: 30%;
@@ -17,8 +18,9 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    border-color: black;
+    border-color: #33729C;
     border-radius: 20px;
+    border-width: 7px;
     height: 275px;
     width: 550px;
     background-size: 30%;
@@ -30,7 +32,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    border-color: black;
+    border-color: #33729C;
+    border-width: 7px;
     border-radius: 20px;
     height: 275px;
     width: 550px;
@@ -43,7 +46,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    border-color: black;
+    border-color: #33729C;
+    border-width: 7px;
     border-radius: 20px;
     height: 275px;
     width: 550px;

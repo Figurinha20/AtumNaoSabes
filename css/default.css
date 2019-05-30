@@ -10,6 +10,8 @@
     border-right-style: solid;
     border-bottom-style: solid;
     border-left-style: solid;
+    border-color: #33729C;
+    border-width: 7px;
     height: 150px;
     font-family: Lobster;
 }
@@ -18,24 +20,31 @@ label {
     font-family: Lobster;
     padding-bottom: 0px;
     padding-top: 1px;
+    font-size:23px;
+    color:#33729C;
 }
 
-.btn{
+.btn {
     font-family: Lobster;
 }
 
 #navCatalog {
     height: 150px;
     border-left-style: solid;
+    border-color: #33729C;
+    border-width: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 60px;
+
 }
 
 #navQuiz {
     height: 150px;
     border-left-style: solid;
+    border-color: #33729C;
+    border-width: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,6 +54,8 @@ label {
 #navSuggest {
     height: 150px;
     border-left-style: solid;
+    border-color: #33729C;
+    border-width: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,9 +95,33 @@ h4 {
 }
 
 #profilePicture {
-    border:4px solid;
+    border: 4px solid;
 }
 
-.progress{
+.progress {
     border: 3px solid;
+}
+
+#userLog {
+    border: 6px solid;
+    border-radius: 30px;
+    border-color: #33729C;
+}
+
+#logUserName {
+    border: 5px solid;
+    border-radius: 25px;
+    border-color: #33729C;
+}
+
+#logPassword {
+    border: 5px solid;
+    border-radius: 25px;
+    border-color: #33729C;
+}
+
+.btn {
+    background-color: #33729C;
+    border-color:#33729C;
+    width: 49%;
 }
