@@ -1,5 +1,5 @@
 import {Card} from "../models/Card.js";
-import {isCard} from "./controlsEditCards.js"
+import {isCard} from "../controllers/controlsEditCards.js"
 
 //import {newCard} from "../models/newCard.js"
 

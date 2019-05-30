@@ -1,5 +1,5 @@
 import {Question} from "../models/Question.js"
-import {isQuestion} from "./controlsEditQuestions.js"
+import {isQuestion} from "../controllers/controlsEditQuestions.js"
 
 export let questions = []
 

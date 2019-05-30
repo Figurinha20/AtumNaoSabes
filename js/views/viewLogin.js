@@ -1,5 +1,5 @@
 import {User} from "../models/User.js";
-import {validLogin} from "./controlsLogin.js"
+import {validLogin} from "../controllers/controlsLogin.js"
 
 
 // Define um array para guardar os objetos User

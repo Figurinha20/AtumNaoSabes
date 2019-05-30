@@ -1,17 +1,31 @@
-import newUser from "../models/User.js";
-
-//import {newUser} from "../models/newUser.js"
+import {User} from "../models/User.js";
 
 
 
-// Define um array para guardar os objetos User
+
 export let currentUser;
-// Caso já exista uma chave users na LocalStorage é carregado tudo para o array
-// Caso contrário são guardadas no array, vários objetos User inseridos manualmente
+
+document.querySelector("body").addEventListener("load", function (event) {
+
 if (localStorage.currentUser) {
+    //caso um utilizador esteja autenticado vai busca-lo da storage para alterar a navbar
     currentUser = JSON.parse(localStorage.currentUser)
+
+//tirar da local storage dados do utilizador
+
+
+//injetar navbar nohtml com esses dados loged in
+
+
+
 } else {
-    
+    //quando o site abre pela primeira vez adiciona a veriavel na storage para uso
+    currentUser = false;
     localStorage.setItem("currentUser", JSON.stringify(currentUser))
+
+    //injetar navbar default
+
+
 }
 
+})
