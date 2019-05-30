@@ -71,7 +71,7 @@ myForm.addEventListener("submit", function (event) {
 
 
 // listener para preview
-myForm.addEventListener("keypress", function (event){
+myForm.addEventListener("keyup", function (event){
 
     
 
