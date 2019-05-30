@@ -1,4 +1,4 @@
-import {Questions} from "../models/newQuestion.js"
+import {Question} from "../models/Question.js"
 let questions = []
 
 
@@ -27,7 +27,7 @@ myForm.addEventListener("submit", function (event) {
         alert("Pergunta já existente")
     }
     else{
-        let new_question = new Questions(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
+        let new_question = new Question(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
             newQuestionCatalog,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
         alert("SUCC")
         questions.push(new_question)
@@ -41,7 +41,7 @@ myForm.addEventListener("submit", function (event) {
 //Função para verificar se o utilizador já existe
 function isQuestion(newQuestion) {
     for (const question of questions) {
-        if (questions.question.question === newQuestion) {
+        if (question.question === newQuestion) {
             return true;
         }
     }

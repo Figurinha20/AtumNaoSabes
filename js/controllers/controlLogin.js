@@ -1,7 +1,4 @@
-import newUser from "../models/User.js";
-
-//import {newUser} from "../models/newUser.js"
-
+import {User} from "../models/User.js";
 
 
 // Define um array para guardar os objetos User
@@ -11,9 +8,9 @@ export let users = []
 if (localStorage.users) {
     users = JSON.parse(localStorage.users)
 } else {
-    const user1 = new newUser("Ricardo", "atum", false)
-    const user2 = new newUser("Maria", "atum", false)
-    const user3 = new newUser("Gandatum", "atum", true)
+    const user1 = new User("Ricardo", "atum", false)
+    const user2 = new User("Maria", "atum", false)
+    const user3 = new User("Gandatum", "atum", true)
 
     //this.adminStat = adminStat this.experience = 0 this.level = 1 this.profilePicture = "" this.cardCollection = []
     users.push(user1, user2, user3)
