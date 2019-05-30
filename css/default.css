@@ -126,3 +126,12 @@ h4 {
     width: 49%;
     font-size:22px;
 }
+#atumNaoSabes{
+    width: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: fixed;
+}
