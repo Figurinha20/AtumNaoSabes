@@ -1,4 +1,4 @@
-#butProfile{
+#btnProfile{
     background-color: white;
     background-image: url("/img/User Colored.png");
     background-repeat: no-repeat;
@@ -12,7 +12,7 @@
     background-size: 30%;
 }
 
-#butQuiz{
+#btnQuiz{
     background-color: white;
     background-image: url("/img/icon Colored.png");
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@
     background-size: 30%;
 }
 
-#butCatalog{
+#btnCatalog{
     background-color: white;
     background-image: url("/img/fish Colored.png");
     background-repeat: no-repeat;
@@ -40,7 +40,7 @@
     background-size: 30%;
 }
 
-#butSuggest {
+#btnSuggest {
     background-color: white;
     background-image: url("/img/envelope Colored.png");
     background-repeat: no-repeat;

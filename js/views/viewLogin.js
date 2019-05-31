@@ -1,7 +1,6 @@
 import {User} from "../models/User.js";
 import {validLogin} from "../controllers/controlsLogin.js"
 
-
 // Define um array para guardar os objetos User
 export let users = []
 // Caso já exista uma chave users na LocalStorage é carregado tudo para o array
@@ -17,6 +16,7 @@ if (localStorage.users) {
     users.push(user1, user2, user3)
     localStorage.setItem("users", JSON.stringify(users))
 }
+
  
 const myForm = document.querySelector("#userLog")
 myForm.addEventListener("submit", function (event) {

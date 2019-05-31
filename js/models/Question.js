@@ -1,4 +1,4 @@
-export default class Question{
+export class Question{
     constructor(question, opt1, opt2, opt3, opt4, tags, type, difficulty, answer, hint){
         this.question = question
         this.opt1 = opt1
