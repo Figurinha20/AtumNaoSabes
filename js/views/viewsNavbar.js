@@ -36,9 +36,9 @@ let cards = []
 if (localStorage.cards) {
     cards = JSON.parse(localStorage.cards)
 } else {
-    const card1 = new Card("Atum", "www.image1.com","Rapido Colorido","Um peixe unico",null,null)
-    const card2 = new Card("Peixe Palhaço", "www.image2.com","Engraçado,diferente","Um peixe do nemo",null,null)
-    const card3 = new Card("Faneca", "www.image2.com","Feroz e mau","o rei do oceano",null,null)
+    const card1 = new Card("Atum", "www.image1.com","Rapido Colorido","Um peixe unico")
+    const card2 = new Card("Peixe Palhaço", "www.image2.com","Engraçado,diferente","Um peixe do nemo")
+    const card3 = new Card("Faneca", "www.image2.com","Feroz e mau","o rei do oceano")
 
     //this.adminStat = adminStat this.experience = 0 this.level = 1 this.profilePicture = "" this.cardCollection = []
     users.push(card1, card2, card3)
