@@ -1,6 +1,6 @@
 import {User} from "../models/User.js";
 import {validLogin} from "../controllers/controlsLogin.js"
-import {currentUser} from "../views/viewsNavbar.js"
+
 
 
  
@@ -23,7 +23,7 @@ myForm.addEventListener("submit", function (event) {
         
         alert("Biene venido " + logUsername)
 
-        currentUser = logUsername
+        let currentUser = logUsername
 
         localStorage.setItem("currentUser", JSON.stringify(currentUser))
 
