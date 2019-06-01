@@ -40,7 +40,6 @@ if (localStorage.cards) {
     const card2 = new Card("Peixe Palhaço", "www.image2.com","Engraçado,diferente","Um peixe do nemo")
     const card3 = new Card("Faneca", "www.image2.com","Feroz e mau","o rei do oceano")
 
-    //this.adminStat = adminStat this.experience = 0 this.level = 1 this.profilePicture = "" this.cardCollection = []
     users.push(card1, card2, card3)
     localStorage.setItem("cards", JSON.stringify(cards))
 }
@@ -211,7 +210,7 @@ divNavbar.innerHTML= `
                 </div>
                 <div class="form-group">
                     <label for="logPassword">Password</label>
-                    <input type="text" id="logPassword" class="form-control">
+                    <input type="password" id="logPassword" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-dark">Login</button>
                 <a name="" id="signUp" class="btn btn-dark" href="/html/signUp.html" role="button">Sign Up</a>
@@ -247,6 +246,8 @@ divNavbar.innerHTML= `
             </div>
         </div>
     </div>
+
+   
 `
 }
 })
