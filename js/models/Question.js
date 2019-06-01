@@ -13,4 +13,6 @@ export class Question{
     }
 }
 
-export let questions = localStorage.getItem(questions);
+export let questions = []
+
+questions = localStorage.getItem(questions);

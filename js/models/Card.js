@@ -10,4 +10,6 @@ export class Card{
     }
 }
 
-export let cards = localStorage.getItem(cards);
+export let cards = []
+
+cards = localStorage.getItem(cards);

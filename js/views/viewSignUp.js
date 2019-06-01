@@ -34,9 +34,15 @@ myForm.addEventListener("submit", function (event) {
         localStorage.setItem("users", JSON.stringify(users))
 
 
+        
+        currentUser = logUsername
+
+        localStorage.setItem("currentUser", JSON.stringify(currentUser))
+
+    
         alert("Conta criada com sucesso! Bem vindo " + newUsername + "!")
 
-        //LOGIN E FECHAR MODAL    AKA    currentUser = newUsername
+        //FECHAR MODAL    AKA    currentUser = newUsername
         
     }
 

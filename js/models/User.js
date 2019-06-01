@@ -10,4 +10,6 @@ export class User {
     }
 }
 
-export let users = localStorage.getItem(users);
+export let users = [];
+
+users = localStorage.getItem(users);

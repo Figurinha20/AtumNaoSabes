@@ -1,5 +1,6 @@
 import {User} from "../models/User.js";
 import {validLogin} from "../controllers/controlsLogin.js"
+import {currentUser} from "../views/viewsNavbar.js"
 
 
  
@@ -22,9 +23,11 @@ myForm.addEventListener("submit", function (event) {
         
         alert("Biene venido " + logUsername)
 
+        currentUser = logUsername
 
-    //alterar userController para alterar NavBar
+        localStorage.setItem("currentUser", JSON.stringify(currentUser))
 
+    //FAZER RELOAD DA PÁGINA
         
        
     } else {
@@ -35,8 +38,6 @@ myForm.addEventListener("submit", function (event) {
 
     //prevenir que form seja submetido
     event.preventDefault()
-
-    console.log(users)
 
     
 })
