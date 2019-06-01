@@ -12,3 +12,5 @@ export class Question{
         this.hint = hint
     }
 }
+
+export let questions = localStorage.getItem(questions);

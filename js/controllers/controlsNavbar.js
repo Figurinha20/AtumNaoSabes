@@ -1,7 +1,9 @@
 //Função encontra user pelo nome na storage e põe os seus dados num array
-import {users} from "../views/viewsNavbar.js"
-export function getUserData(Username){
 
+export function getUserData(Username){
+    import {users} from "../models/User.js"
+    //import array de users
+    
     let data = [];
     for (const user of users) {
         

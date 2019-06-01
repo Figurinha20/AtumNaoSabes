@@ -5,7 +5,9 @@ export class User {
         this.adminStat = adminStat
         this.experience = 0
         this.level = 1
-        this.profilePicture = ""
+        this.profilePicture = "https://i.imgur.com/X5GQjyT.jpg"
         this.cardCollection = []
     }
 }
+
+export let users = localStorage.getItem(users);

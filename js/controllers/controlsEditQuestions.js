@@ -1,3 +1,5 @@
+import {questions} from "../models/Question.js"
+
 //Função para verificar se o utilizador já existe
 export function isQuestion(newQuestion) {
     for (const question of questions) {

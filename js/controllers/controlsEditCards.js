@@ -1,4 +1,4 @@
-
+import {cards} from "../models/Card.js"
 
 //Função para verificar se a carta já existe
 export function isCard(newName) {

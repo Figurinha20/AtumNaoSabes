@@ -1,21 +1,7 @@
 import {User} from "../models/User.js";
 import {isUser} from "../controllers/controlsSignUp.js"
+import {users} from "../models/User.js"
 
-// Define um array para guardar os objetos User
-export let users = []
-// Caso já exista uma chave users na LocalStorage é carregado tudo para o array
-// Caso contrário são guardadas no array, vários objetos User inseridos manualmente
-if (localStorage.users) {
-    users = JSON.parse(localStorage.users)
-} else {
-    const user1 = new User("Ricardo", "atum", false)
-    const user2 = new User("Maria", "atum", false)
-    const user3 = new User("Gandatum", "atum", true)
-
-    //this.adminStat = adminStat this.experience = 0 this.level = 1 this.profilePicture = "" this.cardCollection = []
-    users.push(user1, user2, user3)
-    localStorage.setItem("users", JSON.stringify(users))
-}
 
 
 const myForm = document.querySelector("form")
@@ -26,10 +12,7 @@ myForm.addEventListener("submit", function (event) {
     let newUsername = document.querySelector("#txtUsername").value
     let newPassword = document.querySelector("#txtPassword").value
     let newConfirmPassword = document.querySelector("#txtConfirmPassword").value
-    console.log(newUsername)
-    console.log(newPassword)
-    console.log(newConfirmPassword)
-
+    
 
     //Verificar se Utilizador Já existe
 
@@ -54,6 +37,7 @@ myForm.addEventListener("submit", function (event) {
         alert("Conta criada com sucesso! Bem vindo " + newUsername + "!")
 
         //LOGIN E FECHAR MODAL    AKA    currentUser = newUsername
+        
     }
 
 
@@ -64,7 +48,6 @@ myForm.addEventListener("submit", function (event) {
     //prevenir que form seja submetido
     event.preventDefault()
 
-    console.log(users)
-
+    
     return;
 })
