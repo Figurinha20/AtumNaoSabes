@@ -13,6 +13,3 @@ export class Question{
     }
 }
 
-export let questions = []
-
-questions = localStorage.getItem(questions);

@@ -1,6 +1,6 @@
 import {User} from "../models/User.js";
 import {isUser} from "../controllers/controlsSignUp.js"
-import {users} from "../models/User.js"
+
 
 
 
@@ -15,6 +15,7 @@ myForm.addEventListener("submit", function (event) {
     
 
     //Verificar se Utilizador Já existe
+    let users = JSON.parse(localStorage.getItem("users"));
 
     if (isUser(newUsername) == true) {
         alert("Utilizador já existente")

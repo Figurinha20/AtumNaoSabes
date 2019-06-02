@@ -6,10 +6,7 @@ export class User {
         this.experience = 0
         this.level = 1
         this.profilePicture = "https://i.imgur.com/X5GQjyT.jpg"
-        this.cardCollection = []
+        this.cardCollection = ["https://i.imgur.com/X5GQjyT.jpg"]
     }
 }
 
-export let users = [];
-
-users = localStorage.getItem(users);

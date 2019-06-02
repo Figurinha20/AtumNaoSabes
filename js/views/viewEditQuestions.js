@@ -6,6 +6,9 @@ import {isQuestion} from "../controllers/controlsEditQuestions.js"
 
 const myForm = document.querySelector("form")
 myForm.addEventListener("submit", function (event) {
+
+    let questions = JSON.parse(localStorage.getItem("questions"));
+
     //Receber dados
     let newQuestion = document.querySelector("#txtQuestion").value
     let newQuestionOpt1 = document.querySelector("#txtOption1").value
@@ -30,9 +33,10 @@ myForm.addEventListener("submit", function (event) {
     else{
         let new_question = new Question(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
             newQuestionCatalog,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
-        alert("SUCC")
+        alert("success")
         questions.push(new_question)
         alert(questions)
+        localStorage.setItem("questions", JSON.stringify(questions))
     }
     
     event.preventDefault()

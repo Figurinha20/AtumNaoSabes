@@ -1,7 +1,9 @@
-import {Card} from "../models/Card.js"
-import {cards} from "../models/Card.js"
+
 
 export function loadCards(){
+
+    let cards = JSON.parse(localStorage.getItem("cards"))
+
     let cardHtml = `<div class="row">
                         <div class="col-sm-1">
 

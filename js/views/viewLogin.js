@@ -1,8 +1,6 @@
-import {User} from "../models/User.js";
-import {validLogin} from "../controllers/controlsLogin.js"
 
 
-
+export function setLoginListener(){
  
 const myForm = document.querySelector("#userLog")
 myForm.addEventListener("submit", function (event) {
@@ -43,4 +41,4 @@ myForm.addEventListener("submit", function (event) {
 })
 
 
-
+}

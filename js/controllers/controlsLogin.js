@@ -1,6 +1,8 @@
 //Função para verificar se pode ser iniciada sessão com uma conta
-import {users} from "../models/User.js"
+
 export function validLogin(logUsername, logPassword) {
+    let users = JSON.parse(localStorage.getItem("users"));
+
     for (const user of users) {
         if (user.username === logUsername && user.password === logPassword) {
             //caso informação esteja correta
