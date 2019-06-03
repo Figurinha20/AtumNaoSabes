@@ -1,5 +1,5 @@
 import {Card} from "../models/Card.js";
-import {isCard} from "../controllers/controlsEditCards.js"
+import {isCard, makeArray, replaceCard} from "../controllers/controlsEditCards.js"
 
 
 
@@ -27,12 +27,14 @@ myForm.addEventListener("submit", function (event) {
         alert("Essa carta já existe deseja substituir os dados antigos?")
         //CRIAR MODAL PARA SUBSTITUIR CARTA
         //CRIAR FUNÇÃO EM CONTROLSEDITCARD PARA SUBSTITUIR DADOS DA CARTA
+        newLinks = makeArray(newLinks)
+        replaceCard(newName, newImage, newTags, newDescription, newLinks)
 
     } else {
-
+        newLinks = makeArray(newLinks)
         
         //push para array
-        cards.push(new Card(newName, newImage, newTags, newDescription, newLinks))   
+        cards.push(new Card(newName, newImage, newTags, newDescription, newLinks, ""))   
         //armazenamento na base de dados
         localStorage.setItem("cards", JSON.stringify(cards))
 
