@@ -8,10 +8,14 @@ export function setLogoutListener(){
     btnLogout.addEventListener("click", function (event) {
         localStorage.removeItem("currentUser")
 
+        //CHANGE LOCATION PARA INDEX.HTML
         location.reload();
     })
 
 }
+
+
+
 export function setLoginListener(){
 
 const myForm = document.querySelector("#userLog")

@@ -23,6 +23,8 @@ export function replaceCard(cardName, newImage, newTags, newDescription, newLink
             card.description = newDescription
             card.img = newImage
             card.tags = newTags
+
+            //AQUI NÃO ESTÁ A SUBSTITUIR
             cards.etc = newLinks
         }
     }
