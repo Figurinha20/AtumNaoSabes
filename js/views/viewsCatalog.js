@@ -1,15 +1,15 @@
 import {Card} from "../models/Card.js";
-import {loadCards} from "../controllers/controlsCatalog.js"
+import {renderCatalog} from "../controllers/controlsCatalog.js"
 
 
 //on load = show all
 window.addEventListener("load", function (event){
-loadCards()
+renderCatalog()
 })
 
 //onseacrh ou onclick = refresh
 document.querySelector("#formSearch").addEventListener("search", function (event){
-    
+renderCatalog()
 })
 
 
