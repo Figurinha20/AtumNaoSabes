@@ -1,7 +1,19 @@
 
 import {validLogin} from "../controllers/controlsLogin.js"
+export function setLogoutListener(){
+    //selecionar butão de logout
+    const btnLogout = document.querySelector("#btnLogout")
+
+    //add listener on click
+    btnLogout.addEventListener("click", function (event) {
+        localStorage.removeItem("currentUser")
+
+        location.reload();
+    })
+
+}
 export function setLoginListener(){
- 
+
 const myForm = document.querySelector("#userLog")
 myForm.addEventListener("submit", function (event) {
 
@@ -25,7 +37,7 @@ myForm.addEventListener("submit", function (event) {
 
         localStorage.setItem("currentUser", currentUser)
 
-    //FAZER RELOAD DA PÁGINA
+    location.reload();
         
        
     } else {

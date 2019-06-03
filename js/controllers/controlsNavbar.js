@@ -55,10 +55,10 @@ let cards = []
 if (localStorage.cards) {
     cards = JSON.parse(localStorage.getItem("cards"))
 } else {
-    const card1 = new Card("Atum", "https://i.imgur.com/X5GQjyT.jpg","Rapido Colorido","Um peixe unico")
-    const card2 = new Card("Peixe Palhaço", "https://i.imgur.com/X5GQjyT.jpg","Engraçado,diferente","Um peixe do nemo")
-    const card3 = new Card("Faneca", "https://i.imgur.com/X5GQjyT.jpg","Feroz e mau","o rei do oceano")
-    const card4 = new Card("Fanhéca", "https://i.imgur.com/X5GQjyT.jpg","Ferox e meow","o lei du uceanu")
+    const card1 = new Card("Atum", "https://i.imgur.com/X5GQjyT.jpg","Rapido Colorido","Um peixe unico","" ,"")
+    const card2 = new Card("Peixe Palhaço", "https://i.imgur.com/X5GQjyT.jpg","Engraçado,diferente","Um peixe do nemo", "", "")
+    const card3 = new Card("Faneca", "https://i.imgur.com/X5GQjyT.jpg","Feroz e mau","o rei do oceano", "", "")
+    const card4 = new Card("Fanhéca", "https://i.imgur.com/X5GQjyT.jpg","Ferox e meow","o lei du uceanu","","")
 
     cards.push(card1, card2, card3,card4)
     localStorage.setItem("cards", JSON.stringify(cards))
