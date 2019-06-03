@@ -108,6 +108,7 @@ h4 {
     border-color: #33729C;
 }
 
+
 #logUserName {
     border: 5px solid;
     border-radius: 25px;
@@ -123,7 +124,7 @@ h4 {
 .btn {
     background-color: #33729C;
     border-color:#33729C;
-    width: 49%;
+    
     font-size:22px;
 }
 #atumNaoSabes{
