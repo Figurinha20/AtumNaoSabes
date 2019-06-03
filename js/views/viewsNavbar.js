@@ -2,7 +2,7 @@
 //funções da navbar
 import {getUserData, checkLocalStorage} from "../controllers/controlsNavbar.js"
 //necessários para login
-import {setLoginListener} from "../views/viewLogin.js";
+import {setLoginListener,setLogoutListener} from "../views/viewLogin.js";
 
 
 
@@ -57,7 +57,7 @@ divNavbar.innerHTML = `
                     <div class="col-sm-4">
                     </div>
                     <div class="col-sm-4">
-                        <a class="mt-2 btn btn-primary" href="#" role="button">Logout</a>
+                        <a class="mt-2 btn btn-primary" href="#" id="btnLogout" role="button">Logout</a>
                     </div>
                     <div class="col-sm-4">
                     </div>
@@ -133,6 +133,8 @@ divNavbar.innerHTML = `
         </div>
     </div>
 ` ;
+
+setLogoutListener()
 
 
 } else {

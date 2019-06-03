@@ -16,3 +16,4 @@ export function validLogin(logUsername, logPassword) {
     alert("User não encontrado")
     return false;
 }
+
