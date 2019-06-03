@@ -19,6 +19,7 @@ myForm.addEventListener("submit", function (event) {
     console.log(newImage)
     console.log(newTags)
     console.log(newDescription)
+    newLinks = makeArray(newLinks)
     console.log(newLinks)
 
     //Verificar se o nome da carta já existe
@@ -27,11 +28,11 @@ myForm.addEventListener("submit", function (event) {
         alert("Essa carta já existe deseja substituir os dados antigos?")
         //CRIAR MODAL PARA SUBSTITUIR CARTA
         //CRIAR FUNÇÃO EM CONTROLSEDITCARD PARA SUBSTITUIR DADOS DA CARTA
-        newLinks = makeArray(newLinks)
+        
         replaceCard(newName, newImage, newTags, newDescription, newLinks)
 
     } else {
-        newLinks = makeArray(newLinks)
+        
         
         //push para array
         cards.push(new Card(newName, newImage, newTags, newDescription, newLinks, ""))   
