@@ -15,48 +15,55 @@
 </head>
 
 <body>
-   
+    
+    <div class="container-fluid" id="navContainer">
 
-
-    <div class="row">
-        <hr>
     </div>
 
-    <div class="container">
+    <form id="formSuggest">
+
+
         <div class="row">
-            <div class="col-sm-1">
-            </div>
-            <div id="suggestText" class="col-sm-10">
-                Sugestões
-            </div>
-            <div class="col-sm-1">
-            </div>
-        </div>
-        <div class="row" id="spacer">
             <hr>
         </div>
 
-        <div class="row">
-            <div class="col-sm-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div id="suggestText" class="col-sm-10">
+                    Sugestões
+                </div>
+                <div class="col-sm-1">
+                </div>
             </div>
-            <div id="niceText" class="col-sm-10">
-                <p id="text1">Dá-nos as tuas sugestões para melhorar o teu local favorito! Desde ideias para perguntas a
-                    novos peixes para adicionar ao catálogo. <br />
-                    Ajuda-nos a evoluir o website!</p>
-                <p id="text2">(Boas sugestões têm direito a xp!)</p>
-                <p id="text3">Mensagem</p>
-                <textarea name="Mensagem" id="txtSuggest" cols="100" rows="10"></textarea>
+            <div class="row" id="spacer">
+                <hr>
+            </div>
 
-                <button id=submitSuggestion type="submit" class="btn btn-dark">Enviar</button>
-            </div>
-            <div class="col-sm-1">
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div id="niceText" class="col-sm-10">
+                    <p id="text1">Dá-nos as tuas sugestões para melhorar o teu local favorito! Desde ideias para
+                        perguntas a
+                        novos peixes para adicionar ao catálogo. <br />
+                        Ajuda-nos a evoluir o website!</p>
+                    <p id="text2">(Boas sugestões têm direito a xp!)</p>
+                    <p id="text3">Mensagem</p>
+                    <textarea name="Mensagem" id="txtSuggest" cols="100" rows="10"></textarea>
+                    <button id=submitSuggestion type="submit" class="btn btn-dark">Enviar</button>
+                </div>
+                <div class="col-sm-1">
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-    <!-- Optional JavaScript -->
+        </div>
+    </form>
 
+    <!-- Optional JavaScript -->
     <script type="module" src="/js/views/viewsNavbar.js"></script>
+    <script type="module" src="/js/views/viewSuggest.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
