@@ -3,6 +3,7 @@
 import {User} from "../models/User.js"
 import {Card} from "../models/Card.js"
 import {Question} from "../models/Question.js"
+import {Suggestion} from "../models/Suggestion.js"
 
 export function getUserData(username){
     let users = JSON.parse(localStorage.getItem("users"))
@@ -78,6 +79,18 @@ if (localStorage.questions) {
 
     questions.push(qstn1, qstn2, qstn3)
     localStorage.setItem("questions", JSON.stringify(questions))
+}
+
+let suggestions = []
+
+if (localStorage.suggestions) {
+    suggestions = JSON.parse(localStorage.getItem("suggestions"))
+} else {
+    const suggest1 = new Suggestion("Figurinha, Adicionem a Lapis please. :^)")
+
+
+    suggestions.push(suggest1)
+    localStorage.setItem("suggestions", JSON.stringify(suggestions))
 }
 
 }
