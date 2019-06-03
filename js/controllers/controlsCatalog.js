@@ -1,7 +1,8 @@
-
+import {Card} from "../models/Card.js"
 
 export function loadCards(){
 
+    let divForCards = document.querySelector("#divForCards");
     let cards = JSON.parse(localStorage.getItem("cards"))
 
     let cardHtml = `<div class="row">
@@ -72,5 +73,7 @@ export function loadCards(){
                 <div class="col-sm-10">
             `
     }
+
+    divForCards.innerHTML = cardHtml
 
 }

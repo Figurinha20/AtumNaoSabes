@@ -1,12 +1,9 @@
-//classes para checkLocalStorage
-import {User} from "../models/User.js"
-import {Card} from "../models/Card.js"
-import {Question} from "../models/Question.js"
+
 //funções da navbar
 import {getUserData, checkLocalStorage} from "../controllers/controlsNavbar.js"
 //necessários para login
 import {setLoginListener} from "../views/viewLogin.js";
-import {validLogin} from "../controllers/controlsLogin.js"
+
 
 
 
@@ -26,16 +23,10 @@ let currentUser;
 if(localStorage.currentUser){
     //caso um utilizador esteja autenticado vai busca-lo da storage para alterar a navbar
 
-    currentUser = JSON.stringify(currentUser)
+    currentUser = localStorage.getItem("currentUser")
+    
 }
-else{
-//quando o site abre pela primeira vez adiciona a veriavel na storage para uso
 
-currentUser = null;
-localStorage.setItem("currentUser", JSON.stringify(currentUser))
-
-
-}
 
 
 let divNavbar = document.querySelector("#navContainer");
@@ -45,6 +36,8 @@ if (currentUser != null) {
 
 //tirar da local storage dados do utilizadorS
 let userDataArray = []
+
+console.log("-" + currentUser + "-");
 
 userDataArray = getUserData(currentUser);
 //[user.adminStat, user.experience, user.level, user.profilePicture ]
@@ -151,7 +144,8 @@ divNavbar.innerHTML= `
                 <div class="col-sm-1">
             
                     </div>
-                      <div id="userLog" class="col-sm-3 pb-2 pt-1 mt-2 " >
+                      <div  class="col-sm-3 pb-2 pt-1 mt-2 " >
+                      <form id="userLog">
                 <div class="form-group">
                     <label for="logUserName">Nome</label>
                     <input type="text" id="logUserName" class="form-control">
@@ -160,8 +154,9 @@ divNavbar.innerHTML= `
                     <label for="logPassword">Password</label>
                     <input type="password" id="logPassword" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-dark">Login</button>
+                <input type="submit" class="btn btn-dark" value="Login">
                 <a name="" id="signUp" class="btn btn-dark" href="/html/signUp.html" role="button">Sign Up</a>
+                </form>
             </div>
             <div class="col-sm-1">
 

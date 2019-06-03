@@ -1,5 +1,5 @@
 
-
+import {validLogin} from "../controllers/controlsLogin.js"
 export function setLoginListener(){
  
 const myForm = document.querySelector("#userLog")
@@ -19,11 +19,11 @@ myForm.addEventListener("submit", function (event) {
 
     if (validLogin(logUsername, logPassword) == true) {
         
-        alert("Biene venido " + logUsername)
+        alert("Bem vindo " + logUsername)
 
         let currentUser = logUsername
 
-        localStorage.setItem("currentUser", JSON.stringify(currentUser))
+        localStorage.setItem("currentUser", currentUser)
 
     //FAZER RELOAD DA PÁGINA
         

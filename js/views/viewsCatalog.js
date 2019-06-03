@@ -1,14 +1,14 @@
-import {Card} from "../models/Card.js/index.js";
-
+import {Card} from "../models/Card.js";
+import {loadCards} from "../controllers/controlsCatalog.js"
 
 
 //on load = show all
 window.addEventListener("load", function (event){
-
+loadCards()
 })
 
 //onseacrh ou onclick = refresh
-document.querySelector("#form-inline").addEventListener("search", function (event){
+document.querySelector("#formSearch").addEventListener("search", function (event){
     
 })
 

@@ -1,12 +1,17 @@
 
+//classes para checkLocalStorage
+import {User} from "../models/User.js"
+import {Card} from "../models/Card.js"
+import {Question} from "../models/Question.js"
 
-export function getUserData(Username){
-    
+export function getUserData(username){
+    let users = JSON.parse(localStorage.getItem("users"))
    
     let data = [];
     for (const user of users) {
-        
-        if (user.username === Username) {
+        console.log(user.username)
+        console.log(username)
+        if (user.username == username) {
             //quando encontrar user
             data = [user.adminStat, user.experience, user.level, user.profilePicture ]
             return data;
@@ -17,6 +22,10 @@ export function getUserData(Username){
 
 }
 
+
+
+
+
 export function checkLocalStorage(){
 
     
@@ -26,7 +35,7 @@ let users = []
 // Caso já exista uma chave users na LocalStorage é carregado tudo para o array
 // Caso contrário são guardadas no array, vários objetos User inseridos manualmente
 if (localStorage.users) {
-    users = JSON.parse(localStorage.users)
+    users = JSON.parse(localStorage.getItem("users"))
 } else {
     const user1 = new User("Ricardo", "atum", false)
     const user2 = new User("Maria", "atum", false)
@@ -44,13 +53,14 @@ let cards = []
 // Caso já exista uma chave cards na LocalStorage é carregado tudo para o array
 // Caso contrário são guardadas no array, vários objetos Card inseridos manualmente
 if (localStorage.cards) {
-    cards = JSON.parse(localStorage.cards)
+    cards = JSON.parse(localStorage.getItem("cards"))
 } else {
-    const card1 = new Card("Atum", "www.image1.com","Rapido Colorido","Um peixe unico")
-    const card2 = new Card("Peixe Palhaço", "www.image2.com","Engraçado,diferente","Um peixe do nemo")
-    const card3 = new Card("Faneca", "www.image2.com","Feroz e mau","o rei do oceano")
+    const card1 = new Card("Atum", "https://i.imgur.com/X5GQjyT.jpg","Rapido Colorido","Um peixe unico")
+    const card2 = new Card("Peixe Palhaço", "https://i.imgur.com/X5GQjyT.jpg","Engraçado,diferente","Um peixe do nemo")
+    const card3 = new Card("Faneca", "https://i.imgur.com/X5GQjyT.jpg","Feroz e mau","o rei do oceano")
+    const card4 = new Card("Fanhéca", "https://i.imgur.com/X5GQjyT.jpg","Ferox e meow","o lei du uceanu")
 
-    users.push(card1, card2, card3)
+    cards.push(card1, card2, card3,card4)
     localStorage.setItem("cards", JSON.stringify(cards))
 }
 
@@ -58,7 +68,7 @@ if (localStorage.cards) {
 let questions = []
 
 if (localStorage.questions) {
-    questions = JSON.parse(localStorage.questions)
+    questions = JSON.parse(localStorage.getItem("questions"))
 } else {
     const qstn1 = new Question("Qual é o peixe menos inteligente das opções?","Atum","José Pedro","Carpa","Polvo",
     "GeralPrimeiroQuiz","multiple","1","Carpa","José Pedro não é um peixe")
