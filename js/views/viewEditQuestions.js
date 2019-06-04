@@ -1,5 +1,5 @@
 import {Question} from "../models/Question.js"
-import {isQuestion} from "../controllers/controlsEditQuestions.js"
+import {isQuestion, replaceQuestion} from "../controllers/controlsEditQuestions.js"
 
 
 
@@ -29,6 +29,9 @@ myForm.addEventListener("submit", function (event) {
         alert("Pergunta já existente deseja alterar os dados?")
 
         //CRIAR MODAL COMO PARA AS CARTAS
+
+        replaceQuestion(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
+            newQuestionCatalog,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
     }
     else{
         let new_question = new Question(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,

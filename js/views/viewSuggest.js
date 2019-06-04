@@ -1,5 +1,5 @@
 //Import the Suggestion Model
-import {Suggestion} from "../models/Suggestion";
+import {Suggestion} from "../models/Suggestion.js";
 
 
 
@@ -25,7 +25,7 @@ myForm.addEventListener("submit", function (event) {
     localStorage.setItem("suggestions", JSON.stringify(suggestions))
 
 
-    alert("Sugestão Recebida! Obrigado" + currentUser + "!")
+    alert("Sugestão Recebida! Obrigado " + currentUser + "!")
 
     //prevenir que form seja submetido
     event.preventDefault()

@@ -94,6 +94,15 @@ h4 {
     font-family: Lobster;
 }
 
+h6 {
+    font-family: Lobster;
+    font-size: 110%
+}
+
+p {
+    font-family: Lobster;
+}
+
 #profilePicture {
     border: 4px solid;
 }

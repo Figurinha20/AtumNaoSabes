@@ -4,7 +4,7 @@ export class Suggestion {
         this.message = message
         
         let today = new Date()
-        let now = today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear()  
+        let now = today.getDate() + "/" + (today.getMonth() + 1)     + "/" + today.getFullYear()  
         this.date = now
         this.approval = false
     }
