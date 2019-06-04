@@ -10,7 +10,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/default.css">
+  <link rel="stylesheet" href="../css/quiz.css">
 </head>
 
 <body>
@@ -19,13 +19,12 @@
 
 
 
-  <div class="container-fluid bg-light">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
+  <div class="container-fluid " >
+    <div class="container" id="quizBox">
+      
           <h3 id=question><span id="questionNumber">1. </span>(Question goes here)</h3> <button id="difficulty"
             input="button" class="btn btn-primary" disabled>Dificuldade</button>
-        </div>
+        
         <div class="form-check-inline">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -43,8 +42,8 @@
             </div>
             <input id="B" type="text" class="form-control" value="Option B" readonly>
           </div>
-        </div>
-        <div class="form-check-inline">
+        
+        
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <div class="input-group-text bg-warning ">
@@ -61,11 +60,9 @@
             </div>
             <input id="D" type="text" class="form-control" value="Option D" readonly>
           </div>
-        </div>
-
-
-      </div>
+      
     </div>
+  </div>
   </div>
 
   <script type="model" src="/js/controllers/controlQuiz.js"></script>
