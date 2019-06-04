@@ -9,7 +9,7 @@ export function setLogoutListener(){
         localStorage.removeItem("currentUser")
 
         //CHANGE LOCATION PARA INDEX.HTML
-        location.reload();
+        location.href="../html/index.html"
     })
 
 }
