@@ -86,10 +86,10 @@ let suggestions = []
 if (localStorage.suggestions) {
     suggestions = JSON.parse(localStorage.getItem("suggestions"))
 } else {
-    const suggest1 = new Suggestion("Figurinha, Adicionem a Lapis please. :^)")
+    const suggest1 = new Suggestion("Gandatum", " Adicionem a Lapis please. :^)")
+    const suggest2 = new Suggestion("Ricardo", " Adicionem a Lapis please. :^)")
 
-
-    suggestions.push(suggest1)
+    suggestions.push(suggest1 , suggest2)
     localStorage.setItem("suggestions", JSON.stringify(suggestions))
 }
 
