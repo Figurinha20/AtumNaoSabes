@@ -12,6 +12,8 @@ export function renderCatalog(){
                         <div class="col-sm-10">
 `
     let counter = 0
+
+    
     for (const card of cards){
         //conta nº carta
         counter++
