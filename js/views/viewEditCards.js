@@ -2,8 +2,9 @@ import {Card} from "../models/Card.js";
 import {isCard, makeArray, replaceCard} from "../controllers/controlsEditCards.js"
 
 
-
 let cards = JSON.parse(localStorage.getItem("cards"))
+
+renderTable(cards)
 
 //listener para salvar/substituir falta criar função para substituir
 const myForm = document.querySelector("#cardForm")
@@ -86,4 +87,36 @@ myForm.addEventListener("keyup", function (event){
 
 
 
+
+function renderTable(cards){
+    
+    let counter = 0
+    let myTable = 
+    `
+<div class="container">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" colspan="3" class="text-center"><h4>Lista de Cartas</h4></th>
+            </tr>
+        </thead>
+        <tbody>`
+
+    for (const card of cards){
+        myTable += `        
+    <tr>
+        <td scope="row" colspan="2">${card.name}</td>
+        <td class="text-right"><a id="btnRemove${counter}" class="btn btn-warning" role="button">Remover</a></td>
+    </tr>`
+
+    counter++
+    }
+
+    myTable += `    
+    </tbody>
+    </table>
+    </div>`
+
+    document.querySelector("#tableContainer").innerHTML = myTable
+}
 
