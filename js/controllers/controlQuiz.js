@@ -35,8 +35,8 @@ function jogar(){
  function jogada(userLevel, level, lifes, bonusCount, exp){
 
    //buscar question;;
-    
-   let currentQuestion = questionSelector(difficulty)
+   
+   let currentQuestion = questionSelector(level)
 
    console.log(currentQuestion);
 
@@ -50,7 +50,9 @@ function jogar(){
    let currentPlay
    let listenerType
    if(type == "multiple"){
-      currentPlay = document.querySelector("#")
+      currentPlay = document.querySelectorAll("#opt")
+      console.log(currentPlay);
+      (currentPlay)
       listenerType = "click"
    }else{
       currentPlay = document.querySelector("#CENA PARA COMPLETA FRASE")
@@ -106,15 +108,21 @@ currentPlay.addEventListener(listenerType, function (event){
 
 
 
- function questionSelector(difficulty){
-    let questios = JSON.parse(localStorage.getItem("questions"))
+ function questionSelector(level){
+    
+   let questions = JSON.parse(localStorage.getItem("questions"))
 
-    let random = Math.random(questions.legnth)
+   console.log(questions.legnth);
+   
+   let random = Math.trunc(Math.random(questions.legnth))
 
-    if (questions[random].difficulty == difficulty) {
+   console.log(random)
+    
+    if (questions[random].difficulty == level) {
+       alert(questions[random].difficulty)
     return questions[random]
     }else {
-        questionSelector(difficulty)
+        questionSelector(level)
     }
  }
 

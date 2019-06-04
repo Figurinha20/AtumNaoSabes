@@ -73,8 +73,8 @@ if (localStorage.questions) {
 } else {
     const qstn1 = new Question("Qual é o peixe menos inteligente das opções?","Atum","José Pedro","Carpa","Polvo",
     "GeralPrimeiroQuiz","multiple","1","Carpa","José Pedro não é um peixe")
-    const qstn2 = new Question(";) bonus",";)",";)",";)",";)",";)",";)","2",";)",";)")
-    const qstn3 = new Question(";) bonus",";)",";)",";)",";)",";)",";)","3","no", "não é o mesmo bonus...")
+    const qstn2 = new Question(";) bonus",";)",";)",";)",";)",";)","multiple","2",";)",";)")
+    const qstn3 = new Question(";) bonus",";)",";)",";)",";)",";)","multiple","3","no", "não é o mesmo bonus...")
 
 
     questions.push(qstn1, qstn2, qstn3)
