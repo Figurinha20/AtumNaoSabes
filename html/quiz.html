@@ -19,16 +19,33 @@
 
 
 
-  <div class="container-fluid " >
-    <div class="container" id="quizBox">
-      
-          <h3 id=question><span id="questionNumber">1. </span>(Question goes here)</h3> <button id="difficulty"
-            input="button" class="btn btn-primary" disabled>Dificuldade</button>
+  <div class="container-fluid "" >
+    <div class="container center" id="quizBox">
+      <div class="row">
+          <hr>
+      <div class="col-sm-9">
+
+        <h3 id="question"> 1.Qual destes peixes é o maior do oceano? </h3> 
+      </div>    
+      <div class="col-sm-1">
+
+          <button id="difficulty" input="button" class="btn btn" disabled>Dificuldade</button>
+         </div> 
+      <div class="col-sm-2">
         
-        <div class="form-check-inline">
+      </div>
+      </div> 
+      <div class="row">
+        <hr>
+      </div> 
+      
+        <div id="options" class="container center">
+          <div class="col-sm-5">
+            
+          
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <div class="input-group-text bg-warning">
+              <div id="buttonA" class="input-group-text">
                 <input type="radio" id="opt1">
               </div>
             </div>
@@ -36,17 +53,20 @@
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <div class="input-group-text bg-warning ">
+              <div id="buttonB" class="input-group-text">
                 <input type="radio" id="opt2">
               </div>
             </div>
             <input id="B" type="text" class="form-control" value="Option B" readonly>
           </div>
-        
-        
+          </div>
+          <div class="col-sm-1">
+            
+          </div>
+        <div class="col-sm-5">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <div class="input-group-text bg-warning ">
+              <div id="buttonC" class="input-group-text">
                 <input type="radio" id="opt3">
               </div>
             </div>
@@ -54,16 +74,20 @@
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <div class="input-group-text bg-warning">
+              <div id="buttonD" class="input-group-text">
                 <input type="radio" id="opt4">
               </div>
             </div>
             <input id="D" type="text" class="form-control" value="Option D" readonly>
           </div>
-      
+          </div>
+          <div class="col-sm-1">
+            
+            </div>
     </div>
   </div>
   </div>
+  
 
   <script type="model" src="/js/controllers/controlQuiz.js"></script>
   <script type="module" src="/js/views/viewsNavbar.js"></script>
