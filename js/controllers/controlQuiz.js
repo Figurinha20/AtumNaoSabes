@@ -6,72 +6,134 @@ import {Question} from "../models/Question.js";
 //selecionar 10 perguntas à sorte do array se existirem menos selecionar todas epor dentro de outro array
 
 //eventlistener selecionar radio button conta como resposta
+jogar();
 
 function jogar(){
 
 
+   //getUserlevel
+   let userLevel = "uma função(currentUser)"
+
     //nivel & game functionalities
     let level = 1;
-    let difficulty = 1;
-    let difficultyCount = 1;
     let lifes = 3;
-    let winingBool= true;
+    let bonusCount = 0;
+    
 
     //reward
     let exp = 0;
- 
-    //buscar question;;
-    
-    let currentQuestion = questionSelector(difficulty)
 
-    injectQuestion(currentQuestion, level)
-    
-    //if para modificar a pagina mediante o type de question, e event listeners respetivos
+    jogada(userLevel, level, lifes, bonusCount, exp)
  
     
-    
-    if("resposta correta"){
-       level++
-       difficultyCount++
 
-       //sobe dificuldade de 3 a 3 perguntas
-       if(difficultyCount%3 === 0 && difficulty != 10){
-          difficulty++
-       }
-
-       exp += 5*level*lifes;
-
-       //Waow!; reset de botoes;  
-
-    }else{
-       winingBool=false
-       //mudar screen para winning screen
-    }
-    
- 
     }
 
-    //atribuir recompensa
-    console.log(`You gained ${exp} exp!`)
+    
+
+
+ function jogada(userLevel, level, lifes, bonusCount, exp){
+
+   //buscar question;;
+    
+   let currentQuestion = questionSelector(difficulty)
+
+   console.log(currentQuestion);
+
+   let type = currentQuestion.type
+   console.log(type);
+
+   //if para modificar a pagina mediante o type de question, e event listeners respetivos
+
+   injectQuestionTypeMultiple(currentQuestion, level)
+   
+   let currentPlay
+   let listenerType
+   if(type == "multiple"){
+      currentPlay = document.querySelector("#")
+      listenerType = "click"
+   }else{
+      currentPlay = document.querySelector("#CENA PARA COMPLETA FRASE")
+      listenerType = "submit"
+   }
+   console.log(currentPlay);
+   console.log(listenerType);
+   
+   
+currentPlay.addEventListener(listenerType, function (event){
+
+   if("resposta correta"){
+      level++
+      bonusCount++
+
+      exp += (5+level+lifes)/userLevel;
+
+      if(bonusCount == 3){
+         alert("Vida  Bónus!")
+         lifes++
+      }
+      
+
+   }else{
+      if(level != 1){
+         level--
+      }
+      exp -= 1;
+      lifes--
+      bonusCount = 0
+   }
+   
+
+   //atribuir recompensa
+   console.log(`You will gain ${exp} exp!`)
+   if(level == 11){
+      //VITORIA
+      console.log("VITORIA");
+      
+   }else{
+      jogada(userLevel, level, lifes, bonusCount, exp)
+   }
+   
+})
+   
+   
+
+
+ }
  
- 
+
+
+
+
 
  function questionSelector(difficulty){
+    let questios = JSON.parse(localStorage.getItem("questions"))
 
     let random = Math.random(questions.legnth)
 
-    if (questions[random].difficulty === difficulty) {
+    if (questions[random].difficulty == difficulty) {
     return questions[random]
     }else {
-        questionSelector()
+        questionSelector(difficulty)
     }
  }
 
- function injectQuestion(question, level){
+ function injectQuestionTypeMultiple(question, level){
 
-    document.querySelector("#question").innerHTML = `<span id="questionNumber">${level}. </span> ${question.question}`
+   
+    document.querySelector("#question").innerHTML = `${level}. ${question.question}`
 
-    document.querySelector("#difficulty").innerHTML = question.difficulty
+    let difficultyTitle;
+    if(question.difficulty < 3 || question.difficulty == 3){
+      difficultyTitle = "Fácil"
+    }else if(3 < question.difficulty<6 || question.difficulty == 6){
+      difficultyTitle = "Normal"
+    }else if(6 < question.difficulty<9 || question.difficulty == 9){
+      difficultyTitle = "Dificil"
+    }else{
+      difficultyTitle = "Desafio Final!"
+    }
+    document.querySelector("#difficulty").innerHTML = difficultyTitle
 
     document.querySelector("#A").value = question.opt1
     document.querySelector("#B").value = question.opt2
