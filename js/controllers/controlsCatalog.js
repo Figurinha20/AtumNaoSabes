@@ -1,116 +1,76 @@
 import {Card} from "../models/Card.js"
 
-export function renderCatalog(){
-
-    let divForCards = document.querySelector("#divForCards");
+export function renderCatalog(filterName, search) {
     let cards = JSON.parse(localStorage.getItem("cards"))
+    const myCatalog = document.querySelector("#divForCards")
+    let result = ""
+    let i = 0
+    for (const card of cards) {
+        // Aplicação do filtro
+        if (search != "" && !card.name.includes(search)) {
+            //search
+            continue;
+        } 
 
-    let cardHtml = `<div class="row">
+        if(filterName != "" && !card.tags.includes(filterName)){
+            //filtros
+            continue;
+        }
+
+        // Criação de linha
+        if (i % 3 === 0) {
+            console.log("abre");
+            result += `<div class="row">
                         <div class="col-sm-1">
 
                         </div>
-                        <div class="col-sm-10">
-`
-    let counter = 0
 
-    
-    for (const card of cards){
-        //conta nº carta
-        counter++
+                        <div class="col-sm-10">
+                            <div class="row">`
+        }
+
         
-        
-        cardHtml +=`
+
+        // Geração do card
+        console.log("gera");
+        result += `
+
+
+
         <div class="col-sm-4">
-        <div id="card" class="card border-dark mb-3" style="width: 18rem;">
-            <h5 id="cardName" class="card-title text-center font-weight-bold">${card.name}</h5>
-            <img id="cardImg" class="card-img-top"
-                src="${card.img}"
-                alt="${card.name} ${card.tags}">
-            <div class="card-body">
-                <p id="cardTags" class="card-text">[${card.tags}]</p>
-                <hr>
-                <a id="cardBtn" href="/viewCard.hmtl" class="btn btn-dark">Ver Mais</a>
+            <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                <h5 id="cardName" class="card-title text-center font-weight-bold">${card.name}</h5>
+                <img id="cardImg" class="card-img-top"
+                    src="${card.img}"
+                    alt="${card.name}">
+                <div class="card-body">
+                    <p id="cardText" class="card-text">[${card.tags}]</p>
+                    <hr>
+                    <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                </div>
             </div>
         </div>
-    </div>
+`
 
-        `
-        //se divisivel por 3 => fecha col 10 faz um col 1 fecha row cria hr abre proxima row cria col 1 abre col 10
-        if(counter%3 === 0){
-            cardHtml +=`
-                </div>
-                <div class="col-sm-1">
-
-                </div>
-
-            </div>
-<div class="row">
-<hr>
-</div>
-            <div class="row">
-                <div class="col-sm-1">
-
-                </div>
-
-                <div class="col-sm-10">
-            `
+        i++
+        // Criação do fecho da linha
+        if (i % 3 === 0) {
+            console.log("fecho");
+            
+            result += `
+                        </div>
+                    </div>
+        
+                    <div class="col-sm-1">
+        
+                    </div>
+        
+            </div>`
         }
+        
+        
     }
 
-
-    //se acabar em numero par acrescenta um col 4 para finalizar e fecha
-
-    if(counter%2 === 0){
-        cardHtml +=`
-                    <div class="col-sm-4">
-
-                    </div>
-                </div>
-                <div class="col-sm-1">
-
-                </div>
-
-            </div>
-<div class="row">
-<hr>
-</div>
-            `
-
-            //se acabar num numero não par não divisivel  acrescenta 2 antes de fechar
-    }else if(counter%3 != 0){
-        cardHtml +=`
-                    <div class="col-sm-4">
-
-                    </div>
-                    <div class="col-sm-4">
-
-                    </div>
-                </div>
-                <div class="col-sm-1">
-
-                </div>
-
-            </div>
-<div class="row">
-<hr>
-</div>
-            `
-            //se acabar em divisivel por 3 fecha
-    }else{
-        cardHtml +=`
-                    
-                </div>
-                <div class="col-sm-1">
-
-                </div>
-
-            </div>
-<div class="row">
-<hr>
-</div>
-            `
-    }
-
-    divForCards.innerHTML = cardHtml
-
+    // Atribuição de todos os cards gerados ao elemento com id myCatalog
+    myCatalog.innerHTML = result
 }
