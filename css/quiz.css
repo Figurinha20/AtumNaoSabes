@@ -14,9 +14,6 @@
 background-color: black;
 }
 
-#A{
-    
-}
 
 #buttonA{
     background-color: #33729C;
@@ -39,3 +36,28 @@ background-color: black;
         justify-content: center;
         align-items: center;
     }
+
+
+      
+      input[type=radio] {
+        
+        padding: 0.7em;
+        -webkit-appearance: none;
+      }
+      
+      input[type=radio]:checked {
+        background: url(/img/fish.png) no-repeat center center;
+        background-size: 20px 20px;
+      }
+      
+      input[type=radio]:focus {
+        outline-color: transparent;
+      }
+      
+#difficulty{
+    color:white;
+}
+
+.hidden{
+    display: none
+}

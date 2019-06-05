@@ -14,15 +14,16 @@ function jogar(){
    //getUserlevel
    let userLevel = 3
 
-    //nivel & game functionalities
+    //nivel & game functionalities set para o começo do quiz
     let level = 1;
     let lifes = 3;
     let bonusCount = 0;
     
 
-    //reward
+    //declarar recompensa
     let exp = 0;
 
+    //iniciar a primeira ronda
     jogada(userLevel, level, lifes, bonusCount, exp)
  
     
@@ -34,58 +35,76 @@ function jogar(){
 
  function jogada(userLevel, level, lifes, bonusCount, exp){
 
-   //buscar question;;
-   
+   //buscar question por dificuldade
    let currentQuestion
    currentQuestion = questionSelector(level)
 
    console.log("currentquestion= " + currentQuestion);
 
+   //ver tipo de question para ver se deve mudar de html
    let type = currentQuestion.type
    console.log(type);
 
    //if para modificar a pagina mediante o type de question, e event listeners respetivos
 
+   //injetarpergunta no html
    injectQuestionTypeMultiple(currentQuestion, level)
    
+   //definir local onde inserir listener
    let currentPlay
    
    if(type == "multiple"){
-      currentPlay = document.querySelector("#formMultiple")
-      
 
-         
+      //esconder HTML "complete" mostrar html "multiple"
+   
+   //definir o local do multiple
+   currentPlay = document.querySelector("#formMultiple")
+      
+   //quando escolher checkbox 
    currentPlay.addEventListener("click", function (event){
 
+      //buscar opção escolhida
       let answer
-      if(document.querySelector("#opt").checked == true){
-
-      }else if(document.querySelector("#opt").checked == true){
-
-      }else if(document.querySelector("#opt").checked == true){
-
-      }else if(document.querySelector("#opt").checked == true){
-
+      if(document.querySelector("#opt1").checked == true){
+         answer = document.querySelector("#A").value
+      }else if(document.querySelector("#opt2").checked == true){
+         answer = document.querySelector("#B").value
+      }else if(document.querySelector("#opt3").checked == true){
+         answer = document.querySelector("#C").value
+      }else if(document.querySelector("#opt4").checked == true){
+         answer = document.querySelector("#D").value
       }
       
-      if("resposta correta"){
+      console.log("answer = " + answer)
+      console.log("resposta de curentquest = " + currentQuestion.question)
+      //testar se resposta correta
+      if(currentQuestion.answer == answer){
+         //avançar no quiz
          level++
+         //contar bonus
          bonusCount++
    
+         //acrescentar na recompensa final
          exp += Math.round((5+level+lifes)/userLevel);
    
-         if(bonusCount == 3){
+         if(bonusCount == 3 && lifes != 4){
+            //se acertar 3 perguntas de seguida e não tiver o maximo de vidas (4) ganha uma vida extra
             alert("Vida  Bónus!")
             lifes++
          }
          
    
       }else{
+         //caso tenha errado na primeira pergunta não desce de nivel
          if(level != 1){
+            //desce nivel
             level--
          }
+         //redução do xp
          exp -= 1;
+         //-1 vida
          lifes--
+         //reset do bonus
          bonusCount = 0
       }
       console.log("lifes= " + lifes);
@@ -96,6 +115,8 @@ function jogar(){
    
       //atribuir recompensa
       console.log(`You will gain ${exp} exp!`)
+
+      //caso passe do nivel de dificuldade 10 ganha senão repete a jogada
       if(level == 11){
          //VITORIA
          console.log("VITORIA");
