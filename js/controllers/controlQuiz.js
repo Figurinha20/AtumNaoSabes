@@ -12,7 +12,7 @@ function jogar(){
 
 
    //getUserlevel
-   let userLevel = "uma função(currentUser)"
+   let userLevel = 3
 
     //nivel & game functionalities
     let level = 1;
@@ -36,9 +36,10 @@ function jogar(){
 
    //buscar question;;
    
-   let currentQuestion = questionSelector(level)
+   let currentQuestion
+   currentQuestion = questionSelector(level)
 
-   console.log(currentQuestion);
+   console.log("currentquestion= " + currentQuestion);
 
    let type = currentQuestion.type
    console.log(type);
@@ -48,55 +49,70 @@ function jogar(){
    injectQuestionTypeMultiple(currentQuestion, level)
    
    let currentPlay
-   let listenerType
+   
    if(type == "multiple"){
-      currentPlay = document.querySelectorAll("#opt")
-      console.log(currentPlay);
-      (currentPlay)
-      listenerType = "click"
+      currentPlay = document.querySelector("#formMultiple")
+      
+
+         
+   currentPlay.addEventListener("click", function (event){
+
+      let answer
+      if(document.querySelector("#opt").checked == true){
+
+      }else if(document.querySelector("#opt").checked == true){
+
+      }else if(document.querySelector("#opt").checked == true){
+
+      }else if(document.querySelector("#opt").checked == true){
+
+      }
+      
+      if("resposta correta"){
+         level++
+         bonusCount++
+   
+         exp += Math.round((5+level+lifes)/userLevel);
+   
+         if(bonusCount == 3){
+            alert("Vida  Bónus!")
+            lifes++
+         }
+         
+   
+      }else{
+         if(level != 1){
+            level--
+         }
+         exp -= 1;
+         lifes--
+         bonusCount = 0
+      }
+      console.log("lifes= " + lifes);
+      console.log("exp= " + exp);
+      console.log("level= " + level);
+      console.log("bonus= " + bonusCount);
+      
+   
+      //atribuir recompensa
+      console.log(`You will gain ${exp} exp!`)
+      if(level == 11){
+         //VITORIA
+         console.log("VITORIA");
+         
+      }else{
+         jogada(userLevel, level, lifes, bonusCount, exp)
+      }
+      
+   })
    }else{
-      currentPlay = document.querySelector("#CENA PARA COMPLETA FRASE")
-      listenerType = "submit"
+      currentPlay = document.querySelector("#formComplete")
+     //listener submit
    }
    console.log(currentPlay);
    console.log(listenerType);
    
    
-currentPlay.addEventListener(listenerType, function (event){
-
-   if("resposta correta"){
-      level++
-      bonusCount++
-
-      exp += (5+level+lifes)/userLevel;
-
-      if(bonusCount == 3){
-         alert("Vida  Bónus!")
-         lifes++
-      }
-      
-
-   }else{
-      if(level != 1){
-         level--
-      }
-      exp -= 1;
-      lifes--
-      bonusCount = 0
-   }
-   
-
-   //atribuir recompensa
-   console.log(`You will gain ${exp} exp!`)
-   if(level == 11){
-      //VITORIA
-      console.log("VITORIA");
-      
-   }else{
-      jogada(userLevel, level, lifes, bonusCount, exp)
-   }
-   
-})
    
    
 
@@ -110,17 +126,25 @@ currentPlay.addEventListener(listenerType, function (event){
 
  function questionSelector(level){
     
-   let questions = JSON.parse(localStorage.getItem("questions"))
+   let questions = []
+   questions = JSON.parse(localStorage.getItem("questions"))
 
-   console.log(questions.legnth);
+   console.log("questions.length= " + questions.length);
    
-   let random = Math.trunc(Math.random(questions.legnth))
+   //função numero aleatorio inteiro entre minimo  0 maximo questions.length ; 
+   let random = Math.floor(Math.random() * (questions.length - 0 +1)) + 0
+   if(random == questions.length){random -= 1}
 
-   console.log(random)
+   console.log("random= " + random)
+   console.log("question[random]= " + questions[random])
     
     if (questions[random].difficulty == level) {
-       alert(questions[random].difficulty)
+       console.log("question.length= " + questions[random].difficulty);
+       
+       console.log("question[random] to return= " + questions[random])
+    
     return questions[random]
+
     }else {
         questionSelector(level)
     }
@@ -128,7 +152,8 @@ currentPlay.addEventListener(listenerType, function (event){
 
  function injectQuestionTypeMultiple(question, level){
 
-   
+    
+
     document.querySelector("#question").innerHTML = `${level}. ${question.question}`
 
     let difficultyTitle;
