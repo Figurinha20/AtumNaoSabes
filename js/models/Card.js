@@ -6,6 +6,7 @@ export class Card{
         this.description = description
         this.etc = etc
         this.comments = comments
+        this.rank = 0
         
     }
 }
