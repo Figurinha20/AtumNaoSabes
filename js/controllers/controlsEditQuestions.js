@@ -27,11 +27,8 @@ export function replaceQuestion(questionName,newQuestionOpt1,newQuestionOpt2,new
             question.answer = newCorrectOpt
             question.hint = newHint
             
-
-            //AQUI NÃO ESTÁ A SUBSTITUIR
-            cards.etc = newLinks
         }
     }
   
-    localStorage.setItem("cards",JSON.stringify(cards))
+    localStorage.setItem("questions",JSON.stringify(questions))
 }
