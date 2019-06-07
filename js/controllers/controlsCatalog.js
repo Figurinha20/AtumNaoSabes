@@ -1,21 +1,24 @@
-import {Card} from "../models/Card.js"
+
 
 export function renderCatalog(filterName, search) {
     let cards = JSON.parse(localStorage.getItem("cards"))
+
     const myCatalog = document.querySelector("#divForCards")
     let result = ""
     let i = 0
     for (const card of cards) {
         // Aplicação do filtro
-        if (search != "" && !card.name.includes(search)) {
+       if(search != "" && !card.name.toLowerCase().includes(search)){
             //search
             continue;
-        } 
+       }
 
-        if(filterName != "" && !card.tags.includes(filterName)){
-            //filtros
-            continue;
-        }
+       if(filterName != "" && !card.tags.toLowerCase().includes(filterName)){
+        //filtros
+        continue;
+       }
+
+       
 
         // Criação de linha
         if (i % 3 === 0) {
@@ -67,7 +70,7 @@ export function renderCatalog(filterName, search) {
         
             </div>`
         }
-        
+    
         
     }
 
