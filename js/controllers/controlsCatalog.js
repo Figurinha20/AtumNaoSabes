@@ -1,7 +1,31 @@
+import {Card} from "../models/Card.js"
+
+export function getAllTags(){
+    let cards = JSON.parse(localStorage.getItem("cards"))
+    let tags = [""]
+    let alreadyTag;
+    for (const card of cards){
+        //supoem-se que ainda não está no array
+        alreadyTag = false
+
+        //verifica-se a tag no array
+        for (const tag of tags){
+            if(card.tags == tag){
+                alreadyTag = true
+                //se já existir prevenir que seja adicionado outra vez
+            }
+        }
 
 
+        if(!alreadyTag){
+            tags.push(card.tags)
+        }
+    }
+    return tags
+}
 export function renderCatalog(filterName, search) {
     let cards = JSON.parse(localStorage.getItem("cards"))
+    
 
     const myCatalog = document.querySelector("#divForCards")
     let result = ""
