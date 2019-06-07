@@ -20,8 +20,8 @@ label {
     font-family: Lobster;
     padding-bottom: 0px;
     padding-top: 1px;
-    font-size:23px;
-    color:#33729C;
+    font-size: 23px;
+    color: #33729C;
 }
 
 .btn {
@@ -132,46 +132,55 @@ p {
 
 .btn {
     background-color: #33729C;
-    border-color:#33729C;
-    
-    font-size:22px;
+    border-color: #33729C;
+
+    font-size: 22px;
 }
-#atumNaoSabes{
+
+#atumNaoSabes {
     width: 20%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    position: fixed;
+    margin: auto;
+
 }
-#commentButton{
-    border-radius:20px;
-    border-color: #485AB5 ;
-    background-color:#33729C;
-    color:white;
+
+#commentButton {
+    border-radius: 20px;
+    border-color: #485AB5;
+    background-color: #33729C;
+    color: white;
     font-family: Lobster;
-    height:55px;
+    height: 55px;
     width: 90px;
     font-size: 20px;
 
 }
-#commentArea{
-    border-radius:20px;
+
+#commentArea {
+    border-radius: 20px;
     border-color: #33729C;
 }
 
-#commentContainer1{
-    border-radius:20px;
-    border-color: #33729C;  
+#commentContainer1 {
+    border-radius: 20px;
+    border-color: #33729C;
     padding-top: 5px;
     border-width: 10px;
 }
-#commentContainer2{
-    border-radius:20px;
-    border-color: #33729C;  
+
+#commentContainer2 {
+    border-radius: 20px;
+    border-color: #33729C;
     padding-top: 2px;
 }
-#clueButton{
-    width:100px;
+
+#clueButton {
+    width: 100px;
+}
+
+#answerText {
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #33729C;
+    width: 300px;
 }
