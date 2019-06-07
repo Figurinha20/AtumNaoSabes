@@ -85,10 +85,24 @@ myForm.addEventListener("keyup", function (event){
 
 })
 
+function removeCard (cardName){
+    let newArray = [];
+
+    for (const card of cards){
+        if (card.name == cardName){
+            continue
+        }
+
+        newArray.push(card)
+    }
+
+    cards = newArray;
+    console.log(newArray)
+}
 
 
 
-function renderTable(cards){
+    function renderTable(cards){
     
     let counter = 0
     let myTable = 
@@ -106,7 +120,7 @@ function renderTable(cards){
         myTable += `        
     <tr>
         <td scope="row" colspan="2">${card.name}</td>
-        <td class="text-right"><a id="btnRemove${counter}" class="btn btn-warning" role="button">Remover</a></td>
+        <td class="text-right"><a id="${card.name}" class="btn btn-warning" onclick="removeCard(${card.name})" role="button">Remover</a></td>
     </tr>`
 
     counter++
@@ -119,4 +133,5 @@ function renderTable(cards){
 
     document.querySelector("#tableContainer").innerHTML = myTable
 }
+
 
