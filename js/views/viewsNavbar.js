@@ -43,6 +43,17 @@ userDataArray = getUserData(currentUser);
 //[user.adminStat, user.experience, user.level, user.profilePicture ]
 console.log(userDataArray);
 
+//array para as hiperligações entre as páginas
+let pageLinkArray = []
+
+
+//testar se é admin ou não
+if(userDataArray[0]){
+    pageLinkArray = ["../html/newCard.html","../html/newQuestion.html","../html/adminSuggest.html"]
+}else{
+    pageLinkArray = ["../html/catalog.html","../html/quiz.html","../html/suggest.html"]
+}
+
 //injetar navbar nohtml com esses dados loged in
 
 divNavbar.innerHTML = `
@@ -118,13 +129,13 @@ divNavbar.innerHTML = `
                     <div class="collapse navbar-collapse" id="collapsibleNavId" style="justify-content: center">
                         <ul class="navbar-nav nav-fill w-100">
                             <li class="nav-item active">
-                                <a href="catalog.html" id="navCatalog" class="nav-link"><text>Catálogo</text> </a>
+                                <a href="${pageLinkArray[0]}" id="navCatalog" class="nav-link"><text>Catálogo</text> </a>
                             </li>
                             <li class="nav-item">
-                                <a id="navQuiz" class="nav-link" href="quiz.html"><text>Quiz</text></a>
+                                <a id="navQuiz" class="nav-link" href="${pageLinkArray[1]}"><text>Quiz</text></a>
                             </li>
                             <li class="nav-item">
-                                <a id="navSuggest" class="nav-link" href="suggest.html"><text>Sugestões</text></a>
+                                <a id="navSuggest" class="nav-link" href="${pageLinkArray[2]}"><text>Sugestões</text></a>
                             </li>
                         </ul>
                     </div>
@@ -180,10 +191,10 @@ divNavbar.innerHTML= `
                                 <a id="navCatalog" class="nav-link" href="/html/catalog.html"><text>Catálogo</text> </a>
                             </li>
                             <li class="nav-item">
-                                <a id="navQuiz" class="nav-link" href="/html/quiz.html"><text>Quiz</text></a>
+                                <a id="navQuiz" class="nav-link" ><text style="color: grey">Quiz</text></a>
                             </li>
                             <li class="nav-item">
-                                <a id="navSuggest" class="nav-link" href="/html/suggest.html"><text>Sugestões</text></a>
+                                <a id="navSuggest" class="nav-link" ><text style="color: grey">Sugestões</text></a>
                             </li>
                         </ul>
                     </div>
