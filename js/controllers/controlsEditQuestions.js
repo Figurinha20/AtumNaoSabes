@@ -10,6 +10,7 @@ export function isQuestion(newQuestion) {
     return false;
 }
 
+
 export function replaceQuestion(questionName,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
     newQuestionCatalog,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint){
 
