@@ -41,6 +41,8 @@ myForm.addEventListener("submit", function (event) {
         localStorage.setItem("cards", JSON.stringify(cards))
  
         alert("Carta criada!")
+
+        location.reload();
     }
  
  
