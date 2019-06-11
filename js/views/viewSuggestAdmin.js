@@ -20,12 +20,11 @@ function renderSuggestions(suggestions){
         // get imagem do utilizador
         let img =  getUserImg(suggestion.username)
 
-
         if (suggestion.approval == true){
-            approvalStar="..img/Star Colored.png"
+            approvalStar="../img/Star Colored.png"
         }
         else{
-            approvalStar="..img/Star.png"
+            approvalStar="../img/Star.png"
         }
         
         result +=       `<div class="row">
@@ -42,6 +41,7 @@ function renderSuggestions(suggestions){
         </div>
         <div class="col-sm-1">
         <input id="btnStar${counter}" type="image" src="${approvalStar}" height="35px" width="35px">
+        <p>${suggestion.date}</p>
         </div>
         
     </div>
