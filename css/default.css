@@ -133,7 +133,7 @@ p {
 .btn {
     background-color: #33729C;
     border-color: #33729C;
-
+    
     font-size: 22px;
 }
 
@@ -183,4 +183,31 @@ p {
     border-radius: 10px;
     border-color: #33729C;
     width: 300px;
+}
+#simpleContainer{
+    border:5px solid;
+    border-radius:10px;
+    border-color: #33729C;
+}
+#currentUserImg{
+    border:5px solid;
+    border-radius: 10px;
+    border-color:#33729C;
+}
+
+#changePassword{
+    border-radius: 20px;
+    border-color: #485AB5;
+    background-color: #33729C;
+    color: white;
+    font-family: Lobster;
+    height: 55px;
+    width: 170px;
+    font-size: 18px;
+}
+#cardsText{
+    font-size:30px;
+}
+#passContainer{
+    border:3px solid;
 }
