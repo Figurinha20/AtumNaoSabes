@@ -180,7 +180,7 @@ function questionSelector(){
     console.log("random= " + random)
     console.log("question[random]= " + questions[random])
      
-     if (questions[random].difficulty == level) {
+     if (questions[random].difficulty == stage) {
         console.log("question.length= " + questions[random].difficulty);
         
         console.log("question[random] to return= v")
@@ -188,18 +188,18 @@ function questionSelector(){
      currentQuestion = questions[random]
  
      }else {
-         questionSelector(level)
+         questionSelector(stage)
      }
   }
 
 
 
 
-  function injectQuestionTypeMultiple(question, level){
+  function injectQuestionTypeMultiple(question, stage){
 
     
 
-    document.querySelector("#questionMultiple").innerHTML = `${level}. ${question.question}`
+    document.querySelector("#questionMultiple").innerHTML = `${stage}. ${question.question}`
 
     let difficultyTitle;
     if(question.difficulty < 3 || question.difficulty == 3){
@@ -222,11 +222,11 @@ function questionSelector(){
  }
 
  
- function injectQuestionTypeComplete(question, level){
+ function injectQuestionTypeComplete(question, stage){
 
     
 
-    document.querySelector("#questionComplete").innerHTML = `${level}. ${question.question}`
+    document.querySelector("#questionComplete").innerHTML = `${stage}. ${question.question}`
 
     let difficultyTitle;
     if(question.difficulty < 3 || question.difficulty == 3){
