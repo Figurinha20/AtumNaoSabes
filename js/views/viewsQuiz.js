@@ -9,6 +9,12 @@ let stage
 let lifes
 let exp
 
+//valores estruturais
+const maxDifEz = 3
+const maxDifMed = 6
+const maxDifHrd = 9
+
+
 //set dos eventListeners nos radio buttons e no text
 for (let i = 1; i < 5; i++) {
     console.log(i);
@@ -103,7 +109,7 @@ function answerMultiple(){
          stage++
         
          //acrescentar na recompensa final
-         exp += Math.round((stage+lifes)/userLevel);
+         exp += stage+lifes;
    
         
    
@@ -115,7 +121,7 @@ function answerMultiple(){
             //desce nivel
             stage--
          }
-         //redução do xp
+         //redução da recompensa
          exp -= 1;
          //-1 vida
          lifes--
@@ -180,7 +186,7 @@ function questionSelector(){
     console.log("random= " + random)
     console.log("question[random]= " + questions[random])
      
-     if (questions[random].difficulty == level) {
+     if (questions[random].difficulty == stage) {
         console.log("question.length= " + questions[random].difficulty);
         
         console.log("question[random] to return= v")
@@ -188,25 +194,25 @@ function questionSelector(){
      currentQuestion = questions[random]
  
      }else {
-         questionSelector(level)
+         questionSelector(stage)
      }
   }
 
 
 
 
-  function injectQuestionTypeMultiple(question, level){
+  function injectQuestionTypeMultiple(question, stage){
 
     
 
-    document.querySelector("#questionMultiple").innerHTML = `${level}. ${question.question}`
+    document.querySelector("#questionMultiple").innerHTML = `${stage}. ${question.question}`
 
     let difficultyTitle;
-    if(question.difficulty < 3 || question.difficulty == 3){
+    if(question.difficulty < maxDifEz || question.difficulty == maxDifEz){
       difficultyTitle = "Fácil"
-    }else if(3 < question.difficulty<6 || question.difficulty == 6){
+    }else if(maxDifEz < question.difficulty<maxDifMed || question.difficulty == maxDifMed){
       difficultyTitle = "Normal"
-    }else if(6 < question.difficulty<9 || question.difficulty == 9){
+    }else if(maxDifMed < question.difficulty<maxDifHrd || question.difficulty == maxDifHrd){
       difficultyTitle = "Dificil"
     }else{
       difficultyTitle = "Desafio Final!"
@@ -222,18 +228,18 @@ function questionSelector(){
  }
 
  
- function injectQuestionTypeComplete(question, level){
+ function injectQuestionTypeComplete(question, stage){
 
     
 
-    document.querySelector("#questionComplete").innerHTML = `${level}. ${question.question}`
+    document.querySelector("#questionComplete").innerHTML = `${stage}. ${question.question}`
 
     let difficultyTitle;
-    if(question.difficulty < 3 || question.difficulty == 3){
+    if(question.difficulty < maxDifEz || question.difficulty == maxDifEz){
       difficultyTitle = "Fácil"
-    }else if(3 < question.difficulty<6 || question.difficulty == 6){
+    }else if(maxDifEz < question.difficulty<maxDifMed || question.difficulty == maxDifMed){
       difficultyTitle = "Normal"
-    }else if(6 < question.difficulty<9 || question.difficulty == 9){
+    }else if(maxDifMed < question.difficulty<maxDifHrd || question.difficulty == maxDifHrd){
       difficultyTitle = "Dificil"
     }else{
       difficultyTitle = "Desafio Final!"
