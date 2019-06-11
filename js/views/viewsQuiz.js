@@ -1,10 +1,12 @@
+import {renderLifes, injectQuestionTypeComplete, injectQuestionTypeMultiple, questionSelector} from "../controllers/controlQuiz.js"
+
 let currentQuestion;
 
 //GET array de questions e eliminar todas as que não teem tags na coleção do utilizador
 let questions = JSON.parse(localStorage.getItem("questions"))
 
 //valores para jogar
-let userLevel
+
 let stage
 let lifes
 let exp
@@ -22,7 +24,7 @@ for (let i = 1; i < 5; i++) {
     document.querySelector(`#opt${i}`).addEventListener("click",  answerMultiple)
  }
 
- document.querySelector(`#txtAnswer`).addEventListener("submit",  answerComplete)
+document.querySelector("#formAnswerComplete").addEventListener("submit",  answerComplete)
 
 
 
@@ -34,9 +36,12 @@ for (let i = 1; i < 5; i++) {
 
 
 
+
+
+
+
 function gameStart(){
-   //getUserlevel
-   userLevel = 3
+  
 
     //nivel & game functionalities set para o começo do quiz
     stage = 1;
@@ -48,6 +53,15 @@ function gameStart(){
 
     gameProgress()
 }
+
+
+
+
+
+
+
+
+
 
 function gameProgress(){
 
@@ -70,21 +84,26 @@ function gameProgress(){
         //show multiple
         document.querySelector("#containerForMultiple").className = "container-fluid"
 
-        injectQuestionTypeMultiple(currentQuestion, stage)
+        injectQuestionTypeMultiple(currentQuestion, stage, maxDifEz, maxDifMed, maxDifHrd)
     }else{
         //show complete
         document.querySelector("#containerForComplete").className = "container-fluid center"
         //hide multiple
         document.querySelector("#containerForMultiple").className = "hidden"
 
-        injectQuestionTypeComplete(currentQuestion, stage)
+        injectQuestionTypeComplete(currentQuestion, stage, maxDifEz, maxDifMed, maxDifHrd)
     }
 
 
 }
 
 
-function answerMultiple(){
+
+
+
+
+
+function answerMultiple(event){
 
     
       //buscar opção escolhida
@@ -114,17 +133,18 @@ function answerMultiple(){
         
    
       }else{
-
-        alert("Resposta errada :(")
-         //caso tenha errado na primeira pergunta não desce de nivel
-         if(stage != 1){
-            //desce nivel
-            stage--
-         }
+         alert("Resposta errada :(")
          //redução da recompensa
          exp -= 1;
+         
          //-1 vida
          lifes--
+         renderLifes(lifes)
+
+         //GAME OVER PASSAR PARA A RECOMPENSA
+         if(lifes == 0){
+   
+         }
          
       }
       console.log("lifes= " + lifes);
@@ -140,9 +160,6 @@ function answerMultiple(){
          //VITORIA
          console.log("VITORIA");
          
-      }else{
-        
-         gameProgress()
       }
       
 }
@@ -151,11 +168,12 @@ function answerMultiple(){
 
 
 
-function answerComplete(){
+function answerComplete(event){
 
-    
+   
    //buscar opção escolhida
-   let answer = document.querySelector("#txtAnswer").toLowerCase()
+   let answer = document.querySelector("#txtAnswer").value.toLowerCase()
+   console.log(answer)
    
    
    console.log("answer = " + answer)
@@ -174,17 +192,18 @@ function answerComplete(){
 
    }else{
 
-     alert("Resposta errada :(")
-      //caso tenha errado na primeira pergunta não desce de nivel
-      if(stage != 1){
-         //desce nivel
-         stage--
-      }
+      alert("Resposta errada :(")
       //redução da recompensa
       exp -= 1;
+      
       //-1 vida
       lifes--
-      
+      renderLifes(lifes)
+
+      //GAME OVER PASSAR PARA A RECOMPENSA
+      if(lifes == 0){
+
+      }
    }
    console.log("lifes= " + lifes);
    console.log("exp= " + exp);
@@ -194,113 +213,14 @@ function answerComplete(){
    //atribuir recompensa
    console.log(`You will gain ${exp} exp!`)
 
+   event.preventDefault()
+
    //caso passe do nivel de dificuldade 10 ganha senão repete a jogada
    if(stage == 11){
       //VITORIA
       console.log("VITORIA");
       
-   }else{
-     
-      gameProgress()
    }
-   
-
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function questionSelector(){
- 
-    console.log("questions.length= " + questions.length);
-    
-    //função numero aleatorio inteiro entre minimo  0 maximo questions.length ; 
-    let random = Math.floor(Math.random() * (questions.length - 0 +1)) + 0
-    if(random == questions.length){random -= 1}
- 
-    console.log("random= " + random)
-    console.log("question[random]= " + questions[random])
-     
-     if (questions[random].difficulty == stage) {
-        console.log("question.length= " + questions[random].difficulty);
-        
-        console.log("question[random] to return= v")
-        console.log(questions[random])
-     currentQuestion = questions[random]
- 
-     }else {
-         questionSelector(stage)
-     }
-  }
-
-
-
-
-  function injectQuestionTypeMultiple(question, stage){
-
-    
-
-    document.querySelector("#questionMultiple").innerHTML = `${stage}. ${question.question}`
-
-    let difficultyTitle;
-    if(question.difficulty < maxDifEz || question.difficulty == maxDifEz){
-      difficultyTitle = "Fácil"
-    }else if(maxDifEz < question.difficulty<maxDifMed || question.difficulty == maxDifMed){
-      difficultyTitle = "Normal"
-    }else if(maxDifMed < question.difficulty<maxDifHrd || question.difficulty == maxDifHrd){
-      difficultyTitle = "Dificil"
-    }else{
-      difficultyTitle = "Desafio Final!"
-    }
-    document.querySelector("#difficultyMultiple").innerHTML = difficultyTitle
-
-    document.querySelector("#A").value = question.opt1
-    document.querySelector("#B").value = question.opt2
-    document.querySelector("#C").value = question.opt3
-    document.querySelector("#D").value = question.opt4
-
-    
- }
-
- 
- function injectQuestionTypeComplete(question, stage){
-
-    
-
-    document.querySelector("#questionComplete").innerHTML = `${stage}. ${question.question}`
-
-    let difficultyTitle;
-    if(question.difficulty < maxDifEz || question.difficulty == maxDifEz){
-      difficultyTitle = "Fácil"
-    }else if(maxDifEz < question.difficulty<maxDifMed || question.difficulty == maxDifMed){
-      difficultyTitle = "Normal"
-    }else if(maxDifMed < question.difficulty<maxDifHrd || question.difficulty == maxDifHrd){
-      difficultyTitle = "Dificil"
-    }else{
-      difficultyTitle = "Desafio Final!"
-    }
-    document.querySelector("#difficultyComplete").innerHTML = difficultyTitle
-
-    
-
-    
- }
 
