@@ -15,7 +15,7 @@ myForm.addEventListener("submit", function (event) {
     let newQuestionOpt2 = document.querySelector("#txtOption2").value
     let newQuestionOpt3 = document.querySelector("#txtOption3").value
     let newQuestionOpt4 = document.querySelector("#txtOption4").value
-    let newQuestionCatalog = document.querySelector("#sltTags").value
+    let newQuestionCatalog = document.querySelector("#txtTags").value
     let newQuestionType = document.querySelector("#sltType").value
     let newQuestionDifficulty = document.querySelector("#sltDificulty").value
     let newCorrectOpt = document.querySelector("#sltCorrect").value

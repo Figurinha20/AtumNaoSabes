@@ -5,9 +5,8 @@ let questions = JSON.parse(localStorage.getItem("questions"))
 
 //valores para jogar
 let userLevel
-let level
+let stage
 let lifes
-let bonusCount
 let exp
 
 //set dos eventListeners nos radio buttons e no text
@@ -34,10 +33,9 @@ function gameStart(){
    userLevel = 3
 
     //nivel & game functionalities set para o começo do quiz
-    level = 1;
+    stage = 1;
     lifes = 3;
-    bonusCount = 0;
-    
+  
 
     //declarar recompensa
     exp = 0;
@@ -66,7 +64,7 @@ function gameProgress(){
         //show multiple
         document.querySelector("#containerForMultiple").className = "container-fluid"
 
-        injectQuestionTypeMultiple(currentQuestion, level)
+        injectQuestionTypeMultiple(currentQuestion, stage)
     }else{
         //show complete
         document.querySelector("#containerForComplete").className = "container-fluid center"
@@ -102,46 +100,37 @@ function answerMultiple(){
 
         alert("Resposta Correta!")
          //avançar no quiz
-         level++
-         //contar bonus
-         bonusCount++
-   
+         stage++
+        
          //acrescentar na recompensa final
-         exp += Math.round((5+level+lifes)/userLevel);
+         exp += Math.round((stage+lifes)/userLevel);
    
-         if(bonusCount == 3 && lifes != 4){
-            //se acertar 3 perguntas de seguida e não tiver o maximo de vidas (4) ganha uma vida extra
-            alert("Vida  Bónus!")
-            lifes++
-         }
-         
+        
    
       }else{
 
-        alert("Resposta errad :(")
+        alert("Resposta errada :(")
          //caso tenha errado na primeira pergunta não desce de nivel
-         if(level != 1){
+         if(stage != 1){
             //desce nivel
-            level--
+            stage--
          }
          //redução do xp
          exp -= 1;
          //-1 vida
          lifes--
-         //reset do bonus
-         bonusCount = 0
+         
       }
       console.log("lifes= " + lifes);
       console.log("exp= " + exp);
-      console.log("level= " + level);
-      console.log("bonus= " + bonusCount);
-      
+      console.log("stage= " + stage);
+     
    
       //atribuir recompensa
       console.log(`You will gain ${exp} exp!`)
 
       //caso passe do nivel de dificuldade 10 ganha senão repete a jogada
-      if(level == 11){
+      if(stage == 11){
          //VITORIA
          console.log("VITORIA");
          

@@ -1,8 +1,8 @@
 export class Card{
-    constructor(name, img, tags, description, etc,comments){
+    constructor(name, img, category, description, etc,comments){
         this.name = name
         this.img = img
-        this.tags = tags
+        this.category = category
         this.description = description
         this.etc = etc
         this.comments = comments
