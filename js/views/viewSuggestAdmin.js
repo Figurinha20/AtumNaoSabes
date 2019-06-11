@@ -2,10 +2,9 @@
 import {Suggestion} from "../models/Suggestion.js";
 import {getUserImg} from "../controllers/controlSuggestions.js"
 
-window.addEventListener("load", function (event){
+let suggestions = JSON.parse(localStorage.getItem("suggestions"))
 
-    let suggestions = JSON.parse(localStorage.getItem("suggestions"))
-    
+window.addEventListener("load", function (event){
 
     let counter = 0
     let suggestionsHtml
@@ -64,3 +63,39 @@ window.addEventListener("load", function (event){
     document.querySelector("#divForSuggestions").innerHTML = suggestionsHtml
     
 })
+
+
+//Criei esta função e depois percebi que já está feito basicamente
+function renderSuggestions(suggestions){
+    let approvalStar = ""
+    const mySuggestions = document.querySelector("#divForSuggestions") 
+    let result = ""
+
+    //Escolher qual imagem usar
+    for(const suggestion of suggestions){
+        if (suggestion.approval == true){
+            approvalStar="..img/Star Colored.png"
+        }
+        else{
+            approvalStar="..img/Star.png"
+        }
+        
+        result += `        <div class="row">
+        <div class="col-sm-4">
+            <h6 id="userComment">${suggestion.username}</h6>
+            <p id="txtComment">${suggestion.message}</p>
+        </div>
+        <div class="col-sm-7">
+        </div>
+        <div class="col-sm-1">
+            <input id="btnStar0" type="image" src="${approvalStar}" height="35px" width="35px">
+        </div>
+        
+    </div>
+    <hr>
+    `
+    }
+
+    mySuggestions.innerHTML = result;
+}
+
