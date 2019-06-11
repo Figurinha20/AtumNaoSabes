@@ -1,4 +1,4 @@
-import {renderLifes, injectQuestionTypeComplete, injectQuestionTypeMultiple, questionSelector} from "../controllers/controlQuiz.js"
+import {renderLifes, injectQuestionTypeComplete, injectQuestionTypeMultiple} from "../controllers/controlQuiz.js"
 
 let currentQuestion;
 
@@ -15,6 +15,7 @@ let exp
 const maxDifEz = 3
 const maxDifMed = 6
 const maxDifHrd = 9
+const difficultyLimit = 10
 
 
 //set dos eventListeners nos radio buttons e no text
@@ -62,17 +63,12 @@ function gameStart(){
 
 
 
-
+//Seguir para a pergunta seguinte
 function gameProgress(){
 
-    //reset buttons
-    document.querySelector("#opt1").checked = false
-    document.querySelector("#opt2").checked = false
-    document.querySelector("#opt3").checked = false
-    document.querySelector("#opt4").checked = false
-    document.querySelector("#txtAnswer").value = ""
-    document.querySelectorAll("#btnHint").value = "Comprar pista com experiência"
+    resetButtons()
 
+    //selecionar pergunta aleatoria com dificuldade adequada ao stage do quiz
     questionSelector()
 
 
@@ -103,6 +99,52 @@ function gameProgress(){
 
 
 
+function questionSelector(){
+ 
+   console.log("questions.length= " + questions.length);
+   
+   //função numero aleatorio inteiro entre minimo  0 maximo questions.length ; 
+   let random = Math.floor(Math.random() * (questions.length - 0 +1)) + 0
+   if(random == questions.length){random -= 1}
+
+   console.log("random= " + random)
+   console.log("question[random]= " + questions[random])
+    
+       //FAZER CHECK DAS CATEGORIAS DESBLOQUEADAS NO CATÁLOGO questions, stage, currentuser.cardCollection
+       // if (questions[random].difficulty == stage && currentUser.cardCollection == questions[random].category) {
+
+    if (questions[random].difficulty == stage) {
+       console.log("question.length= " + questions[random].difficulty);
+       
+       console.log("question[random] to return= v")
+       console.log(questions[random])
+    currentQuestion = questions[random];
+
+    }else {
+        questionSelector()
+    }
+ }
+
+function resetButtons(){
+   //reset buttons
+   document.querySelector("#opt1").checked = false
+   document.querySelector("#opt2").checked = false
+   document.querySelector("#opt3").checked = false
+   document.querySelector("#opt4").checked = false
+   document.querySelector("#txtAnswer").value = ""
+   document.querySelectorAll("#btnHint").value = "Comprar pista com experiência"
+}
+
+
+
+
+
+
+
+
+
+
+
 function answerMultiple(event){
 
     
@@ -119,7 +161,9 @@ function answerMultiple(event){
       }
       
       console.log("answer = " + answer)
-      console.log("resposta de curentquest = " + currentQuestion.question)
+      console.log("resposta de curentquest = v")
+      console.log(currentQuestion.answer);
+      
       //testar se resposta correta
       if(currentQuestion.answer == answer){
 
@@ -130,11 +174,21 @@ function answerMultiple(event){
          //acrescentar na recompensa final
          exp += stage+lifes;
    
-        
+        //console log check na recompensa
+        console.log(`You will gain ${exp} exp!`)
+
+        //caso passe do nivel da dificuldade maxima ganha senão repete a jogada
+        if(stage > difficultyLimit){
+         //VITORIA
+         console.log("VITORIA");
+         
+        }else{
+         gameProgress()
+        }
    
       }else{
          alert("Resposta errada :(")
-         //redução da recompensa
+         //redução da recompensa ?
          exp -= 1;
          
          //-1 vida
@@ -143,24 +197,15 @@ function answerMultiple(event){
 
          //GAME OVER PASSAR PARA A RECOMPENSA
          if(lifes == 0){
-   
+            console.log("GAMEOVER");
          }
+
+         resetButtons()
          
       }
-      console.log("lifes= " + lifes);
-      console.log("exp= " + exp);
-      console.log("stage= " + stage);
      
    
-      //atribuir recompensa
-      console.log(`You will gain ${exp} exp!`)
-
-      //caso passe do nivel de dificuldade 10 ganha senão repete a jogada
-      if(stage == 11){
-         //VITORIA
-         console.log("VITORIA");
-         
-      }
+      
       
 }
 
@@ -176,8 +221,10 @@ function answerComplete(event){
    console.log(answer)
    
    
+   
    console.log("answer = " + answer)
-   console.log("resposta de curentquest = " + currentQuestion.answer.toLowerCase())
+   console.log("resposta de curentquest = v")
+   console.log(currentQuestion.answer);
    //testar se resposta correta
    if(currentQuestion.answer.toLowerCase() == answer){
 
@@ -188,12 +235,23 @@ function answerComplete(event){
       //acrescentar na recompensa final
       exp += stage+lifes;
 
+      //console log check na recompensa
+      console.log(`You will gain ${exp} exp!`)
+
+      //caso passe do nivel da dificuldade maxima ganha senão repete a jogada
+      if(stage > difficultyLimit){
+         //VITORIA
+         console.log("VITORIA");
+           
+      }else{
+         gameProgress()
+      }
      
 
    }else{
 
       alert("Resposta errada :(")
-      //redução da recompensa
+      //redução da recompensa ?
       exp -= 1;
       
       //-1 vida
@@ -202,25 +260,13 @@ function answerComplete(event){
 
       //GAME OVER PASSAR PARA A RECOMPENSA
       if(lifes == 0){
-
+         console.log("GAMEOVER");
       }
-   }
-   console.log("lifes= " + lifes);
-   console.log("exp= " + exp);
-   console.log("stage= " + stage);
-  
 
-   //atribuir recompensa
-   console.log(`You will gain ${exp} exp!`)
+      resetButtons()
+   }
 
    event.preventDefault()
-
-   //caso passe do nivel de dificuldade 10 ganha senão repete a jogada
-   if(stage == 11){
-      //VITORIA
-      console.log("VITORIA");
-      
-   }
-
+   
 }
 
