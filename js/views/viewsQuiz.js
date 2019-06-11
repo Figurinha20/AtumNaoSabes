@@ -22,7 +22,7 @@ for (let i = 1; i < 5; i++) {
     document.querySelector(`#opt${i}`).addEventListener("click",  answerMultiple)
  }
 
- //document.querySelector(`#txtAnswer`).addEventListener("submit",  answerComplete)
+ document.querySelector(`#txtAnswer`).addEventListener("submit",  answerComplete)
 
 
 
@@ -77,7 +77,7 @@ function gameProgress(){
         //hide multiple
         document.querySelector("#containerForMultiple").className = "hidden"
 
-        //inject type complete
+        injectQuestionTypeComplete(currentQuestion, stage)
     }
 
 
@@ -145,15 +145,68 @@ function answerMultiple(){
          gameProgress()
       }
       
-  
-
 }
 
 
 
 
 
+function answerComplete(){
 
+    
+   //buscar opção escolhida
+   let answer = document.querySelector("#txtAnswer").toLowerCase()
+   
+   
+   console.log("answer = " + answer)
+   console.log("resposta de curentquest = " + currentQuestion.answer.toLowerCase())
+   //testar se resposta correta
+   if(currentQuestion.answer.toLowerCase() == answer){
+
+     alert("Resposta Correta!")
+      //avançar no quiz
+      stage++
+     
+      //acrescentar na recompensa final
+      exp += stage+lifes;
+
+     
+
+   }else{
+
+     alert("Resposta errada :(")
+      //caso tenha errado na primeira pergunta não desce de nivel
+      if(stage != 1){
+         //desce nivel
+         stage--
+      }
+      //redução da recompensa
+      exp -= 1;
+      //-1 vida
+      lifes--
+      
+   }
+   console.log("lifes= " + lifes);
+   console.log("exp= " + exp);
+   console.log("stage= " + stage);
+  
+
+   //atribuir recompensa
+   console.log(`You will gain ${exp} exp!`)
+
+   //caso passe do nivel de dificuldade 10 ganha senão repete a jogada
+   if(stage == 11){
+      //VITORIA
+      console.log("VITORIA");
+      
+   }else{
+     
+      gameProgress()
+   }
+   
+
+
+}
 
 
 
