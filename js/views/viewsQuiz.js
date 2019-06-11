@@ -9,6 +9,7 @@ let stage
 let lifes
 let exp
 
+
 //set dos eventListeners nos radio buttons e no text
 for (let i = 1; i < 5; i++) {
     console.log(i);
