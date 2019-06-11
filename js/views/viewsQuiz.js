@@ -9,6 +9,11 @@ let stage
 let lifes
 let exp
 
+//valores estruturais
+const maxDifEz = 3
+const maxDifMed = 6
+const maxDifHrd = 9
+
 
 //set dos eventListeners nos radio buttons e no text
 for (let i = 1; i < 5; i++) {
@@ -104,7 +109,7 @@ function answerMultiple(){
          stage++
         
          //acrescentar na recompensa final
-         exp += Math.round((stage+lifes)/userLevel);
+         exp += stage+lifes;
    
         
    
@@ -116,7 +121,7 @@ function answerMultiple(){
             //desce nivel
             stage--
          }
-         //redução do xp
+         //redução da recompensa
          exp -= 1;
          //-1 vida
          lifes--
@@ -203,11 +208,11 @@ function questionSelector(){
     document.querySelector("#questionMultiple").innerHTML = `${stage}. ${question.question}`
 
     let difficultyTitle;
-    if(question.difficulty < 3 || question.difficulty == 3){
+    if(question.difficulty < maxDifEz || question.difficulty == maxDifEz){
       difficultyTitle = "Fácil"
-    }else if(3 < question.difficulty<6 || question.difficulty == 6){
+    }else if(maxDifEz < question.difficulty<maxDifMed || question.difficulty == maxDifMed){
       difficultyTitle = "Normal"
-    }else if(6 < question.difficulty<9 || question.difficulty == 9){
+    }else if(maxDifMed < question.difficulty<maxDifHrd || question.difficulty == maxDifHrd){
       difficultyTitle = "Dificil"
     }else{
       difficultyTitle = "Desafio Final!"
@@ -230,11 +235,11 @@ function questionSelector(){
     document.querySelector("#questionComplete").innerHTML = `${stage}. ${question.question}`
 
     let difficultyTitle;
-    if(question.difficulty < 3 || question.difficulty == 3){
+    if(question.difficulty < maxDifEz || question.difficulty == maxDifEz){
       difficultyTitle = "Fácil"
-    }else if(3 < question.difficulty<6 || question.difficulty == 6){
+    }else if(maxDifEz < question.difficulty<maxDifMed || question.difficulty == maxDifMed){
       difficultyTitle = "Normal"
-    }else if(6 < question.difficulty<9 || question.difficulty == 9){
+    }else if(maxDifMed < question.difficulty<maxDifHrd || question.difficulty == maxDifHrd){
       difficultyTitle = "Dificil"
     }else{
       difficultyTitle = "Desafio Final!"

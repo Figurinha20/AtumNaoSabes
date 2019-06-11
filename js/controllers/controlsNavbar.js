@@ -60,9 +60,9 @@ if (localStorage.cards) {
     cards = JSON.parse(localStorage.getItem("cards"))
 } else {
     const card1 = new Card("Atum", "https://i.imgur.com/X5GQjyT.jpg","Grande Azul","Grandalhão, brilhante prateado é o Icon do nosso website!","" ,"")
-    const card2 = new Card("Peixe Palhaço", "https://i.imgur.com/X5GQjyT.jpg","Grande Azul","Um peixe do nemo", "", "")
-    const card3 = new Card("Faneca", "https://i.imgur.com/X5GQjyT.jpg","Grande Azul","o rei do oceano", "", "")
-    const card4 = new Card("Fanhéca", "https://i.imgur.com/X5GQjyT.jpg","Grande Azul","o lei du uceanu","","")
+    const card2 = new Card("Peixe Palhaço", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzl3wBhC8EAhixi3-O9Pp_HSUQfhKIti67bq8nV9lOrdnPuG-B","Grande Azul","Um peixe do nemo", "", "")
+    const card3 = new Card("Faneca", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkj1ZrEdy598dZcrpi48W3qkDoBqLiK1mEpGMuweQuAXQQIpiK","Grande Azul","o rei do oceano", "", "")
+    const card4 = new Card("Peixe Cão", "http://siaram.azores.gov.pt/fauna/peixes/5/1.jpg","Grande Azul","o lei du uceanu","","")
 
     cards.push(card1, card2, card3,card4)
     localStorage.setItem("cards", JSON.stringify(cards))
@@ -80,17 +80,17 @@ if (localStorage.questions) {
     "multiple","2","Peixe Palhaço","O filme chama-se 'À procura de Nemo'")
     const qstn3 = new Question("Completa a frase: A comida favorita do tubarão são ________.", "", "", "", "", "Grande Azul",
     "complete","3","focas","pista")
-    const qstn3 = new Question("Qual é a comida preferida do tubarão?", "Focas", "", "", "", "Grande Azul",
+    const qstn4 = new Question("Qual é a comida preferida do tubarão?", "Focas", "", "", "", "Grande Azul",
     "multiple","3","Focas","pista")
-    const qstn4 = new Question("Das opções, qual delas não faz parte do corpo da faneca?","Ossos","Espinhas","Olhos","Cauda",
+    const qstn5 = new Question("Das opções, qual delas não faz parte do corpo da faneca?","Ossos","Espinhas","Olhos","Cauda",
     "Grande Azul","multiple","5","Espinhas","A faneca é conhecida por ser um peixe ósseo sabes o que significa?")
-    const qstn5 = new Question("Como se chama o peixe com nariz em forma de espada?", "Atum", "Faneca", "Pterodactilo", "Espadarte", "Grande Azul",
+    const qstn6 = new Question("Como se chama o peixe com nariz em forma de espada?", "Atum", "Faneca", "Pterodactilo", "Espadarte", "Grande Azul",
     "multiple","4","Espadarte","pista")
-    const qstn6 = new Question("Qual destes peixes não existe?", "Peixe Galo", "Peixe Gato", "Peixe Vaca", "Peixe Cão", "Grande Azul",
+    const qstn7 = new Question("Qual destes peixes não existe?", "Peixe Galo", "Peixe Gato", "Peixe Vaca", "Peixe Cão", "Grande Azul",
     "multiple","6","Peixe Vaca","pista")
     
 
-    questions.push()
+    questions.push(qstn1, qstn2, qstn3, qstn4, qstn5, qstn6, qstn7)
         
     
     localStorage.setItem("questions", JSON.stringify(questions))
