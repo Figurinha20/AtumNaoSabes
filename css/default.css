@@ -242,3 +242,15 @@ p {
     margin-left: 15px;
     padding-left:2px;
 }
+#adminButton{
+    margin:auto;
+    display: block;
+    height: 150px;
+    width: 40%;
+    border-radius: 100px;
+    border-color: #33729C;
+    background-color: #33729C;
+    font-family: Lobster;
+    font-size: 75px;
+    color:white;    
+}
