@@ -2,9 +2,9 @@ import {User} from "../models/User.js";
 import {isUser} from "../controllers/controlsSignUp.js"
 
 
+export function setSignUpListener(){
 
-
-const myForm = document.querySelector("form")
+const myForm = document.querySelector("#userSignUp")
 myForm.addEventListener("submit", function (event) {
 
 
@@ -19,32 +19,32 @@ myForm.addEventListener("submit", function (event) {
 
     if (isUser(newUsername) == true) {
         alert("Utilizador já existente")
-        return;
+        
     } else {
 
         ///Verificar se as duas passwords são iguais
         if (newPassword != newConfirmPassword) {
             alert("As passwords não são iguais")
-            return;
+           
+        }else{
+             //push para array
+            users.push(new User(newUsername, newPassword, false))
+        
+            //armazenamento na base de dados
+            localStorage.setItem("users", JSON.stringify(users))
+
+
+        
+            let currentUser = newUsername
+
+            localStorage.setItem("currentUser", currentUser)
+
+            location.reload()
+
         }
 
-        //push para array
-        users.push(new User(newUsername, newPassword, false))
-        
-        //armazenamento na base de dados
-        localStorage.setItem("users", JSON.stringify(users))
+       
 
-
-        
-        currentUser = logUsername
-
-        localStorage.setItem("currentUser", JSON.stringify(currentUser))
-
-    
-        alert("Conta criada com sucesso! Bem vindo " + newUsername + "!")
-
-        //FECHAR MODAL    AKA    currentUser = newUsername
-        
     }
 
 
@@ -56,5 +56,5 @@ myForm.addEventListener("submit", function (event) {
     event.preventDefault()
 
     
-    return;
 })
+}
