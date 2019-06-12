@@ -68,6 +68,8 @@ input{
 
 body {
     background-color: #cbeaf0;
+        
+    
 }
 
 #navCatalog text {
@@ -119,6 +121,7 @@ p {
     border: 6px solid;
     border-radius: 30px;
     border-color: #33729C;
+    padding:10px;
 }
 
 
@@ -142,9 +145,11 @@ p {
 }
 
 #atumNaoSabes {
-    width: 20%;
-    display: block;
-    margin: auto;
+    position:absolute;
+    width: 24%;
+    margin-left:700px;
+    margin-top: -240px;
+    z-index: 2;
 
 }
 
