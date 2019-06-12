@@ -80,7 +80,27 @@ export function injectQuestionTypeMultiple(question, stage, maxDifEz, maxDifMed,
 
 
 
+ export function questionSelector(questions, stage){
+ 
+  while(1) {
 
+  //função numero aleatorio inteiro entre minimo  0 maximo questions.length ; 
+  let random = Math.floor(Math.random() * (questions.length - 0 +1)) + 0
+  if(random == questions.length){random -= 1}
+
+      //FAZER CHECK DAS CATEGORIAS DESBLOQUEADAS NO CATÁLOGO questions, stage, currentuser.cardCollection
+      // if (questions[random].difficulty == stage && currentUser.cardCollection == questions[random].category) {
+        if (questions[random].difficulty == stage) {
+      
+        console.log("questions[random] to return= v")
+        console.log(questions[random])
+  
+     return questions[random];
+  
+     }
+   
+  }
+}
 
 
 
