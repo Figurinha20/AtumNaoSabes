@@ -6,6 +6,7 @@ let questions = JSON.parse(localStorage.getItem("questions"));
 renderTable(questions);
 
 
+
 const myForm = document.querySelector("form")
 myForm.addEventListener("submit", function (event) {
 
@@ -64,10 +65,31 @@ myForm.addEventListener("submit", function (event) {
     event.preventDefault()
 })
 
+//função que muda o CSS conforme o tipo de questão
+myForm.addEventListener("click", function(event){
 
+    
+    if(document.querySelector("#sltType").value == "complete"){
 
+        document.querySelector("#labelA").innerHTML = "Resposta correta"
 
+        document.querySelector("#divB").className = "hidden"
+        document.querySelector("#divC").className = "hidden"
+        document.querySelector("#divD").className = "hidden"
 
+        document.querySelector("#divForSlt").className = "hidden"
+        document.querySelector("#sltCorrect").value = 1
+    }else{
+
+        document.querySelector("#labelA").innerHTML = "A."
+
+        document.querySelector("#divB").className = "col-sm-4"
+        document.querySelector("#divC").className = "col-sm-4"
+        document.querySelector("#divD").className = "col-sm-4"
+
+        document.querySelector("#divForSlt").className = "col-sm-2"
+    }
+})
 
 
 

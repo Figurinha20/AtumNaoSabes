@@ -254,3 +254,7 @@ p {
     font-size: 75px;
     color:white;    
 }
+
+.hidden{
+    display: none
+}
