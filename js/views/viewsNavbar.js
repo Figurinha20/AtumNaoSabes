@@ -250,10 +250,10 @@ divNavbar.innerHTML= `
                     <a id="navCatalog" class="nav-link" href="/html/catalog.html"><text>Catálogo</text> </a>
                 </li>
                 <li class="nav-item">
-                    <a id="navQuiz" class="nav-link" href="/html/quiz.html"><text>Quiz</text></a>
+                    <a id="navQuiz" class="nav-link"><text style="color:gray">Quiz</text></a>
                 </li>
                 <li class="nav-item">
-                    <a id="navSuggest" class="nav-link" href="/html/suggest.html"><text>Sugestões</text></a>
+                    <a id="navSuggest" class="nav-link"><text style="color:gray">Sugestões</text></a>
                 </li>
             </ul>
         </div>
