@@ -1,5 +1,5 @@
 import {Card} from "../models/Card.js";
-import {isCard, makeArray, replaceCard, renderTable, removeCard} from "../controllers/controlsEditCards.js"
+import {isCard, makeArray, replaceCard, removeCard} from "../controllers/controlsEditCards.js"
  
  
 let cards = JSON.parse(localStorage.getItem("cards"))
@@ -92,4 +92,41 @@ myForm.addEventListener("keyup", function (event){
     document.querySelector("#cardText3").innerHTML = previewCategory
  
 })
+
+
+
+//Função para criar tabela com cartas existentes
+function renderTable(cards){
+   
+    let counter = 0
+ 
+    let myTable = document.createElement("table");
+    myTable.classList.add("table");
+    let header = myTable.createTHead();
+    var row = header.insertRow(0);    
+    var cell = row.insertCell(0);
+    cell.innerHTML = "<h4>Lista de Cartas</h4>";
+ 
+    myTable.classList.add("table-dark");
+    myTable.innerHTML  = `<tr><th scope="col" colspan="3" class="text-center"><h4>Lista de Cartas</h4></th></tr>`;
+ 
+    for (const card of cards){
+ 
+        let tempTr = document.createElement("tr");
+        tempTr.innerHTML = `<td scope="row" colspan="2">${card.name}</td><input type="hidden" name="cardName" value="${card.name}"><td class="text-right"><a id="${card.name}" class="btn btn-warning" role="button">Remover</a></td>`
+ 
+        let button = tempTr.getElementsByTagName('a')[0];
+ 
+        console.log(button);
+        button.addEventListener('click', removeCard);
+   
+        myTable.appendChild(tempTr)
+ 
+ 
+ 
+    counter++
+    }
+ 
+    document.querySelector("#tableContainer").appendChild(myTable);
+}
 

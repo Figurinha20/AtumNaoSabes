@@ -1,5 +1,5 @@
 import {Question} from "../models/Question.js"
-import {isQuestion, replaceQuestion, renderTable, removeQuestion} from "../controllers/controlsEditQuestions.js"
+import {isQuestion, replaceQuestion, removeQuestion} from "../controllers/controlsEditQuestions.js"
 
 let questions = JSON.parse(localStorage.getItem("questions"));
 
@@ -90,6 +90,45 @@ myForm.addEventListener("click", function(event){
         document.querySelector("#divForSlt").className = "col-sm-2"
     }
 })
+
+
+
+
+//Função para criar tabela com questões existentes
+function renderTable(questions){
+   
+    let counter = 0
+ 
+    let myTable = document.createElement("table");
+    myTable.classList.add("table");
+    let header = myTable.createTHead();
+    var row = header.insertRow(0);    
+    var cell = row.insertCell(0);
+    cell.innerHTML = "<h4>Lista de Questões/h4>";
+ 
+    myTable.classList.add("table-dark");
+    myTable.innerHTML  = `<tr><th scope="col" colspan="3" class="text-center"><h4>Lista de Questões</h4></th></tr>`;
+ 
+    for (const question of questions){
+ 
+        let tempTr = document.createElement("tr");
+        tempTr.innerHTML = `<td scope="row" colspan="2">${question.question}</td><input type="hidden" name="question" value="${question.question}"><td class="text-right"><a id="${question.question}" class="btn btn-warning" role="button">Remover</a></td>`
+ 
+        let button = tempTr.getElementsByTagName('a')[0];
+ 
+        
+        button.addEventListener('click', removeQuestion);
+   
+        myTable.appendChild(tempTr)
+ 
+ 
+ 
+    counter++
+    }
+ 
+    document.querySelector("#tableContainer").appendChild(myTable);
+}
+
 
 
 
