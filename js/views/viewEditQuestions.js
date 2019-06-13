@@ -15,27 +15,41 @@ myForm.addEventListener("submit", function (event) {
     let newQuestionOpt2 = document.querySelector("#txtOption2").value
     let newQuestionOpt3 = document.querySelector("#txtOption3").value
     let newQuestionOpt4 = document.querySelector("#txtOption4").value
-    let newQuestionCatalog = document.querySelector("#txtTags").value
+    let newQuestionCategory = document.querySelector("#txtCategory").value
     let newQuestionType = document.querySelector("#sltType").value
     let newQuestionDifficulty = document.querySelector("#sltDificulty").value
+
     let newCorrectOpt = document.querySelector("#sltCorrect").value
+    newCorrectOpt = document.querySelector("#txtOption" + newCorrectOpt)
+    console.log(newCorrectOpt)
+
     let newHint = document.querySelector("#txtHint").value
 
-    alert(newQuestion)
+    
     
     //Verificar se pergunta já existe
     const result = isQuestion(newQuestion)
     if (result == true){
-        alert("Pergunta já existente deseja alterar os dados?")
+        
 
-        //CRIAR MODAL COMO PARA AS CARTAS
+        let replaceConfirmation = confirm("Pergunta já existente deseja alterar os dados?")
 
-        replaceQuestion(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
-            newQuestionCatalog,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
+        if(replaceConfirmation==true){
+            
+            replaceQuestion(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
+                newQuestionCategory,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
+
+        }
+        else{
+            alert("Abort!")
+        }
+
+       
     }
     else{
+
         let new_question = new Question(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
-            newQuestionCatalog,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
+            newQuestionCategory,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
         alert("success")
         questions.push(new_question)
         alert(questions)
@@ -100,7 +114,7 @@ function renderTable(questions){
  
         let button = tempTr.getElementsByTagName('a')[0];
  
-        console.log(button);
+        
         button.addEventListener('click', removeQuestion);
    
         myTable.appendChild(tempTr)

@@ -10,8 +10,7 @@ export function getUserData(username){
    
     let data = [];
     for (const user of users) {
-        console.log(user.username)
-        console.log(username)
+        
         if (user.username == username) {
             //quando encontrar user
             data = [user.adminStat, user.experience, user.level, user.profilePicture ]

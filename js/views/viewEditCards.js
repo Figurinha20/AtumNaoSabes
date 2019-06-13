@@ -26,12 +26,18 @@ myForm.addEventListener("submit", function (event) {
     //Verificar se o nome da carta já existe
  
     if (isCard(newName) == true) {
-        alert("Essa carta já existe deseja substituir os dados antigos?")
-        //CRIAR MODAL PARA SUBSTITUIR CARTA
-        //CRIAR FUNÇÃO EM CONTROLSEDITCARD PARA SUBSTITUIR DADOS DA CARTA
-       
-        replaceCard(newName, newImage, newCategory, newDescription, newLinks)
+
+        let replaceConfirmation = confirm("Essa carta já existe deseja substituir os dados antigos?")
+
+        if(replaceConfirmation==true){
+            
+            replaceCard(newName, newImage, newCategory, newDescription, newLinks)
  
+        }
+        else{
+            alert("Abort!")
+        }
+      
     } else {
        
        

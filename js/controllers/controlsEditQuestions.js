@@ -12,7 +12,7 @@ export function isQuestion(newQuestion) {
 
 
 export function replaceQuestion(questionName,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
-    newQuestionCatalog,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint){
+    newQuestionCategory,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint){
 
     let questions = JSON.parse(localStorage.getItem("questions"))
     for (const question of questions) {
@@ -22,7 +22,7 @@ export function replaceQuestion(questionName,newQuestionOpt1,newQuestionOpt2,new
             question.opt3 = newQuestionOpt3
             question.opt4 = newQuestionOpt4
 
-            question.tags = newQuestionCatalog
+            question.category = newQuestionCategory
             question.type = newQuestionType
             question.difficulty = newQuestionDifficulty
             question.answer = newCorrectOpt

@@ -39,11 +39,10 @@ if (currentUser != null) {
 //tirar da local storage dados do utilizadorS
 let userDataArray = []
 
-console.log("-" + currentUser + "-");
 
 userDataArray = getUserData(currentUser);
 //[user.adminStat, user.experience, user.level, user.profilePicture ]
-console.log(userDataArray);
+
 
 //array para as hiperligações entre as páginas
 let pageLinkArray = []
@@ -119,7 +118,7 @@ divNavbar.innerHTML = `
             </div>
             <div class="col-sm-7">
                 <nav id="navbar" class="navbar navbar-expand-sm navbar navbar-light" style="background-color: #fff;">
-                    <a class="navbar-brand" href="/index.html">
+                    <a class="navbar-brand" href="../html/index.html">
                         <img src="../img/Home page icon-1.png" width="115" height="115" class="d-inline-block align-top"
                             alt="Home">
                     </a>
@@ -236,7 +235,7 @@ divNavbar.innerHTML= `
 </div>
 <div class="col-sm-7">
     <nav id="navbar" class="navbar navbar-expand-sm navbar navbar-light" style="background-color: #fff;">
-        <a class="navbar-brand" href="/index.html">
+        <a class="navbar-brand" href="../html/index.html">
             <img src="../img/Home page icon-1.png" width="115" height="115" class="d-inline-block align-top"
                 alt="Home">
         </a>
