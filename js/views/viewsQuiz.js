@@ -20,8 +20,8 @@ const difficultyLimit = 10
 
 //set dos eventListeners nos radio buttons e no text
 for (let i = 1; i < 5; i++) {
-    console.log(i);
-    //em cada opção a mesma função é executada
+    
+    //em cada opção a mesma função é chamada
     document.querySelector(`#opt${i}`).addEventListener("click",  answerMultiple)
  }
 
@@ -66,14 +66,14 @@ function gameStart(){
 //Seguir para a pergunta seguinte
 function gameProgress(){
 
+   console.log("exp = " + exp)
+   
     resetButtons()
 
     //selecionar pergunta aleatoria com dificuldade adequada ao stage do quiz
    currentQuestion = questionSelector(questions, stage)
 
 
-    console.log(currentQuestion)
-    console.log(currentQuestion.type)
     if(currentQuestion.type == "multiple"){
         //hide complete
         document.querySelector("#containerForComplete").className = "hidden"
@@ -134,9 +134,6 @@ function answerMultiple(event){
          answer = document.querySelector("#D").value
       }
       
-      console.log("answer = " + answer)
-      console.log("resposta de curentquest = v")
-      console.log(currentQuestion.answer);
       
       //testar se resposta correta
       if(currentQuestion.answer == answer){
@@ -148,9 +145,6 @@ function answerMultiple(event){
          //acrescentar na recompensa final
          exp += stage+lifes;
    
-        //console log check na recompensa
-        console.log(`You will gain ${exp} exp!`)
-
         //caso passe do nivel da dificuldade maxima ganha senão repete a jogada
         if(stage > difficultyLimit){
          //VITORIA
@@ -190,13 +184,9 @@ function answerComplete(event){
    
    //buscar opção escolhida
    let answer = document.querySelector("#txtAnswer").value.toLowerCase()
-   console.log(answer)
+  
    
    
-   
-   console.log("answer = " + answer)
-   console.log("resposta de curentquest = v")
-   console.log(currentQuestion.answer);
    //testar se resposta correta
    if(currentQuestion.answer.toLowerCase() == answer){
 
@@ -207,8 +197,6 @@ function answerComplete(event){
       //acrescentar na recompensa final
       exp += stage+lifes;
 
-      //console log check na recompensa
-      console.log(`You will gain ${exp} exp!`)
 
       //caso passe do nivel da dificuldade maxima ganha senão repete a jogada
       if(stage > difficultyLimit){
