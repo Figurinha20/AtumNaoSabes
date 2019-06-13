@@ -1,44 +1,51 @@
-import {renderCatalog,  getAllCats} from "../controllers/controlsCatalog.js"
+import {renderCatalog,  getAllCats, getUserCollection, getUserCards} from "../controllers/controlsCatalog.js"
 import {getUserData} from "../controllers/controlsNavbar.js";
 
 let cards = []
-let currentUser = localStorage.getItem("currentUser")
+let currentUser 
+console.log(localStorage.getItem("currentUser") === null);
 
-//se não há user autenticado skip deste GET e mostra apenas cartas da categoria default Grande Azul
-if (currentUser != "") {
+//se não há user autenticado skip do GET e mostra apenas cartas da categoria default "Grande Azul" utilizando o array de cards inalterado
+if (localStorage.getItem("currentUser") === null) {
 
-
-    userDataArray = getUserData(currentUser)
-    //[user.adminStat, user.experience, user.level, user.profilePicture ]
-
-    //se for admin GET all categories 
-    if (userDataArray[0]) {
-        cards = JSON.parse(localStorage.getItem("cards"))
-        let categories = getAllCats()
-        //meow
-        console.log(categories)
-
-
-        //injetar categorias na combo box
-        for (const category of categories) {
-            document.querySelector("#sltFilter").innerHTML += `
-            <option value="${category}">${category}</option>`
-        }
-
-    }else{
-        //else getUserCollection
-    }
-
-
-}else{
     cards = JSON.parse(localStorage.getItem("cards"))
 
     //Quando não se está autenticado apenas uma categoria está disponivel por isso a combo box fica obsoleta
     document.querySelector("#sltFilter").value = "Grande Azul"
     document.querySelector("#divForFilter").className = "hidden"
 
+    //"grande azul" em vez de "Grande Azul" pk a função compara valores sempre em lower case
+    renderCatalog("grande azul", "", cards)
 
-    renderCatalog("Grande Azul", "")
+
+}else{
+  
+    let categories
+    currentUser = localStorage.getItem("currentUser")
+    let userDataArray = getUserData(currentUser)
+    //[user.adminStat, user.experience, user.level, user.profilePicture ]
+
+    //se for admin GET all categories com todas as cartas existentes
+    if (userDataArray[0]) {
+        cards = JSON.parse(localStorage.getItem("cards"))
+        categories = getAllCats()
+       //meow cats uwu
+    }else{
+        //else getUserCollection
+        categories = getUserCollection(currentUser)
+        
+        cards = getUserCards(categories)
+        
+    }
+
+     //injetar categorias na combo box
+     for (const category of categories) {
+        document.querySelector("#sltFilter").innerHTML += `
+        <option value="${category}">${category}</option>`
+    }
+
+    renderCatalog("", "", cards)
+
 }
 
 
@@ -56,7 +63,7 @@ document.querySelector("#formSearch").addEventListener("submit", function (event
 
     event.preventDefault()
 
-    renderCatalog(filterName, search)
+    renderCatalog(filterName, search, cards)
 
 })
 
@@ -68,6 +75,6 @@ document.querySelector("#sltFilter").addEventListener("click", function (event) 
 
     event.preventDefault()
 
-    renderCatalog(filterName, search)
+    renderCatalog(filterName, search, cards)
 
 })

@@ -31,8 +31,7 @@ export function getAllCats(){
 
 
 
-export function renderCatalog(filterName, search) {
-    let cards = JSON.parse(localStorage.getItem("cards"))
+export function renderCatalog(filterName, search, cards) {
     
 
     const myCatalog = document.querySelector("#divForCards")
@@ -108,4 +107,36 @@ export function renderCatalog(filterName, search) {
 
     // Atribuição de todos os cards gerados ao elemento com id myCatalog
     myCatalog.innerHTML = result
+}
+
+
+
+export function getUserCards(categories){
+
+    let newCards = []
+
+    let cards = JSON.parse(localStorage.getItem("cards"))
+
+    for (const card of cards) {
+        
+        for (const category of categories){
+            if(card.category == category){
+                newCards.push(card)
+            }
+        }
+    }
+    return newCards
+}
+
+export function getUserCollection(username){
+
+    let users = JSON.parse(localStorage.getItem("users"))
+
+    for (const user of users) {
+        if(user.username == username){
+            console.log(user.cardCollection)
+            return user.cardCollection
+        }
+    }
+    
 }

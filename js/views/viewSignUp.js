@@ -39,7 +39,7 @@ myForm.addEventListener("submit", function (event) {
 
             localStorage.setItem("currentUser", currentUser)
 
-            location.reload()
+            location.href="../html/index.html"
 
         }
 
