@@ -20,8 +20,8 @@ myForm.addEventListener("submit", function (event) {
     let newQuestionDifficulty = document.querySelector("#sltDificulty").value
 
     let newCorrectOpt = document.querySelector("#sltCorrect").value
-    newCorrectOpt = document.querySelector("#txtOption" + newCorrectOpt)
-    console.log(newCorrectOpt)
+    newCorrectOpt = document.querySelector("#txtOption" + newCorrectOpt).value
+    
 
     let newHint = document.querySelector("#txtHint").value
 
