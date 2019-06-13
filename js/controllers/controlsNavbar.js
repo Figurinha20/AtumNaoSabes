@@ -79,7 +79,7 @@ if (localStorage.questions) {
     "multiple","2","Peixe Palhaço","O filme chama-se 'À procura de Nemo'")
     const qstn3 = new Question("Completa a frase: A comida favorita do tubarão são ________.", "", "", "", "", "Grande Azul",
     "complete","3","focas","pista")
-    const qstn4 = new Question("Qual é a comida preferida do tubarão?", "Focas", "", "", "", "Grande Azul",
+    const qstn4 = new Question("Qual é a comida preferida do tubarão?", "Focas", "Big Macs", "Pessoas", "Peixes", "Grande Azul",
     "multiple","3","Focas","pista")
     const qstn5 = new Question("Das opções, qual delas não faz parte do corpo da faneca?","Ossos","Espinhas","Olhos","Cauda",
     "Grande Azul","multiple","5","Espinhas","A faneca é conhecida por ser um peixe ósseo sabes o que significa?")
@@ -101,7 +101,7 @@ if (localStorage.suggestions) {
     suggestions = JSON.parse(localStorage.getItem("suggestions"))
 } else {
     const suggest1 = new Suggestion("Gandatum", " Adicionem a Lapis please. :^)")
-    const suggest2 = new Suggestion("Ricardo", " Adicionem a Lapis please. :^)")
+    const suggest2 = new Suggestion("Ricardo", "Acho que peixe palhaço está mal escrito não é peiche palhásso?")
 
     suggestions.push(suggest1 , suggest2)
     localStorage.setItem("suggestions", JSON.stringify(suggestions))

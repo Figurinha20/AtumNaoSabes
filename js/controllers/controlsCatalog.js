@@ -1,28 +1,36 @@
 import {Card} from "../models/Card.js"
 
-export function getAllTags(){
+export function getAllCats(){
     let cards = JSON.parse(localStorage.getItem("cards"))
-    let tags = [""]
-    let alreadyTag;
-    for (const card of cards){
-        //supoem-se que ainda não está no array
-        alreadyTag = false
+    let categories = [""]
+    let alreadyCat;
 
-        //verifica-se a tag no array
-        for (const tag of tags){
-            if(card.tags == tag){
-                alreadyTag = true
-                //se já existir prevenir que seja adicionado outra vez
+    for (const card of cards){
+        //supoem-se que a categoria ainda não está no array
+        alreadyCat = false
+
+        //verifica-se a category no array
+        for (const category of categories){
+            if(card.category == category){
+                //se já existir prevenir que seja adicionada outra vez
+                alreadyCat = true 
+
+            }else if(card.category == "Grande Azul"){
+                //prevenir que grande azul seja adicionado 2 vezes pk é a categoria default
+                alreadyCat = true
             }
         }
 
 
-        if(!alreadyTag){
-            tags.push(card.tags)
+        if(!alreadyCat){
+            categories.push(card.category)
         }
     }
-    return tags
+    return categories
 }
+
+
+
 export function renderCatalog(filterName, search) {
     let cards = JSON.parse(localStorage.getItem("cards"))
     
@@ -37,7 +45,7 @@ export function renderCatalog(filterName, search) {
             continue;
        }
 
-       if(filterName != "" && !card.tags.toLowerCase().includes(filterName)){
+       if(filterName != "" && !card.category.toLowerCase().includes(filterName)){
         //filtros
         continue;
        }
@@ -71,7 +79,7 @@ export function renderCatalog(filterName, search) {
                     src="${card.img}"
                     alt="${card.name}">
                 <div class="card-body">
-                    <p id="cardText" class="card-text">[${card.tags}]</p>
+                    <p id="cardText" class="card-text">[${card.category}]</p>
                     <hr>
                     <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
                 </div>
