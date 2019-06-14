@@ -78,9 +78,22 @@ export function renderCatalog(filterName, search, cards) {
                     src="${card.img}"
                     alt="${card.name}">
                 <div class="card-body">
-                    <p id="cardText" class="card-text">[${card.category}]</p>
-                    <hr>
-                    <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                    <div class="row">
+                    <div class="col-sm-4">
+                        <img src="../img/Star Colored.png" class="bottom-right" style="width:45%">
+                        <text id="cardRank">${card.rank}/5<text>
+                    </div>
+                    <div class="col-sm-5">
+                        <b class="text-center" id="cardText">${card.category}</b>
+                    </div>
+                    <div class="col-sm-3">
+                        <b id="cardComments" class="text-left">${card.comments.length}</b>
+                        <img src="../img/Speech Bubble.png" class="bottom-right" style="width:60%">
+                    </div>
+                </div>
+
+                <hr>
+                <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
                 </div>
             </div>
         </div>

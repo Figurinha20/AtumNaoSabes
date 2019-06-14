@@ -12,16 +12,17 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/card.css">
-    
+
 </head>
 
 <body>
-    
+
     <div class="container-fluid" id="navContainer">
-    
+
     </div>
 
-    <input type="button" onclick="window.location.href='../html/catalog.html'" id="adminButton" value="Ver Catálogo Standard">
+    <input type="button" onclick="window.location.href='../html/catalog.html'" id="adminButton"
+        value="Ver Catálogo Standard">
 
     <form id="cardForm">
 
@@ -91,8 +92,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <label for="txtVids">Links para videos adicionais:</label>
-                    <input id="txtVids" type="text" class="form-control" id="txtVids"
-                        aria-describedby="helpId" placeholder="Adicione media adicional separando os links com um espaço">
+                    <input id="txtVids" type="text" class="form-control" id="txtVids" aria-describedby="helpId"
+                        placeholder="Adicione media adicional separando os links com um espaço">
                 </div>
 
             </div>
@@ -101,8 +102,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <label for="txtAudios">Links para ficheiros de audio adicionais:</label>
-                    <input id="txtAudios" type="text" class="form-control" id="txtAudios"
-                        aria-describedby="helpId" placeholder="Adicione media adicional separando os links com um espaço">
+                    <input id="txtAudios" type="text" class="form-control" id="txtAudios" aria-describedby="helpId"
+                        placeholder="Adicione media adicional separando os links com um espaço">
                 </div>
 
             </div>
@@ -133,71 +134,112 @@
                                             src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
                                             alt="Card image cap">
                                         <div class="card-body">
-                                            <p id="cardText1" class="card-text">[Filtros]</p>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <img src="../img/Star Colored.png" class="bottom-right"
+                                                        style="width:45%">
+                                                    <text id="cardRank">0/5<text>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <b class="text-center" id="cardText1">[Categoria]</b>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <b id="cardComments" class="text-left">0</b>
+                                                    <img src="../img/Speech Bubble.png" class="bottom-right"
+                                                        style="width:60%">
+                                                </div>
+                                            </div>
                                             <hr>
-                                            <a id="cardBtn" href="#" class="btn btn-dark disabled">Ver Mais</a>
+                                            <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="col-sm-4">
-                                    <div id="card" class="card border-dark mb-3" style="width: 18rem;">
-                                        <h5 id="cardName2" class="card-title text-center font-weight-bold">Nome do Peixe
-                                        </h5>
-                                        <img id="cardImg2" class="card-img-top"
-                                            src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <p id="cardText2" class="card-text">[Filtros]</p>
-                                            <hr>
-                                            <a id="cardBtn" href="#" class="btn btn-dark disabled">Ver Mais</a>
+                                    <div class="col-sm-4">
+                                        <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                                            <h5 id="cardName2" class="card-title text-center font-weight-bold">Nome do
+                                                Peixe
+                                            </h5>
+                                            <img id="cardImg2" class="card-img-top"
+                                                src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                                alt="Card image cap">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <img src="../img/Star Colored.png" class="bottom-right"
+                                                            style="width:45%">
+                                                        <text id="cardRank">0/5<text>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <b class="text-center" id="cardText2">[Categoria]</b>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <b id="cardComments" class="text-left">0</b>
+                                                        <img src="../img/Speech Bubble.png" class="bottom-right"
+                                                            style="width:60%">
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <div id="card" class="card border-dark mb-3" style="width: 18rem;">
+                                                <h5 id="cardName3" class="card-title text-center font-weight-bold">Nome
+                                                    do Peixe
+                                                </h5>
+                                                <img id="cardImg3" class="card-img-top"
+                                                    src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
+                                                    alt="Card image cap">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <img src="../img/Star Colored.png" class="bottom-right"
+                                                                style="width:45%">
+                                                            <text id="cardRank">0/5<text>
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <b class="text-center" id="cardText3">[Categoria]</b>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <b id="cardComments" class="text-left">0</b>
+                                                            <img src="../img/Speech Bubble.png" class="bottom-right"
+                                                                style="width:60%">
+                                                        </div>
+                                                        <hr>
+                                                        <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="col-sm-4">
-                                    <div id="card" class="card border-dark mb-3" style="width: 18rem;">
-                                        <h5 id="cardName3" class="card-title text-center font-weight-bold">Nome do Peixe
-                                        </h5>
-                                        <img id="cardImg3" class="card-img-top"
-                                            src="https://oceana.org/sites/default/files/styles/ntsc/public/magma_wrasse3_b.p._shutman.jpg?itok=pKC8AHK"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <p id="cardText3" class="card-text">[Filtros]</p>
-                                            <hr>
-                                            <a id="cardBtn" href="#" class="btn btn-dark disabled" disabled>Ver Mais</a>
-                                        </div>
-                                    </div>
-                                </div>
 
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
 
                             </div>
+
                         </div>
 
 
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input type="submit" class="btn btn-dark" value="Salvar">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <hr>
+                        </div>
 
                     </div>
                 </div>
-                <div class="col-sm-6">
-
-                </div>
-
             </div>
-
-
-            <div class="row">
-                <div class="col-sm-2">
-                    <input type="submit" class="btn btn-dark" value="Salvar">
-                </div>
-            </div>
-
-            <div class="row">
-                <hr>
-            </div>
-
-        </div>
-        </div>
-        </div>
     </form>
 
     <div class="row">
@@ -205,16 +247,16 @@
     </div>
 
     <div id="tableContainer" class="container">
-        
+
 
     </div>
 
     <!-- Optional JavaScript -->
     <script type="module" src="../js/views/viewsNavbar.js"></script>
     <script type="module" src="../js/views/viewEditCards.js"></script>
-    
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -224,7 +266,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    
+
 </body>
 
 </html>

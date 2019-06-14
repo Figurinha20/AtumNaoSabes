@@ -144,13 +144,11 @@ p {
     font-size: 22px;
 }
 
-#atumNaoSabes {
-    position:absolute;
-    width: 24%;
-    margin-left:700px;
-    margin-top: -240px;
-    z-index: 2;
-
+.container-fluid.index-container {
+   background-image: url("../img/A continuação do peixe-11.png");
+   background-size: 25%;
+   background-repeat: no-repeat;
+   background-position: center
 }
 
 #commentButton {
