@@ -58,11 +58,11 @@ let cards = []
 if (localStorage.cards) {
     cards = JSON.parse(localStorage.getItem("cards"))
 } else {
-    const card1 = new Card("Atum", "https://i.imgur.com/X5GQjyT.jpg","Grande Azul","Grandalhão, brilhante prateado é o Icon do nosso website!","" ,"")
-    const card2 = new Card("Peixe Palhaço", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzl3wBhC8EAhixi3-O9Pp_HSUQfhKIti67bq8nV9lOrdnPuG-B","Grande Azul","Um peixe do nemo", "", "")
-    const card3 = new Card("Faneca", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkj1ZrEdy598dZcrpi48W3qkDoBqLiK1mEpGMuweQuAXQQIpiK","Grande Azul","o rei do oceano", "", "")
-    const card4 = new Card("Peixe Cão", "http://siaram.azores.gov.pt/fauna/peixes/5/1.jpg","Grande Azul","o lei du uceanu","","")
-    const card5 = new Card("Inácio Bonito", "../img/A continuação do peixe-11.png","Especial","A mascote do site ´AtumNãoSabes?'","","")
+    const card1 = new Card("Atum", "https://i.imgur.com/X5GQjyT.jpg","Grande Azul","Grandalhão, brilhante prateado é o Icon do nosso website!","" ,"","")
+    const card2 = new Card("Peixe Palhaço", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzl3wBhC8EAhixi3-O9Pp_HSUQfhKIti67bq8nV9lOrdnPuG-B","Grande Azul","Um peixe do nemo", "", "","")
+    const card3 = new Card("Faneca", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkj1ZrEdy598dZcrpi48W3qkDoBqLiK1mEpGMuweQuAXQQIpiK","Grande Azul","o rei do oceano", "", "","")
+    const card4 = new Card("Peixe Cão", "http://siaram.azores.gov.pt/fauna/peixes/5/1.jpg","Grande Azul","o lei du uceanu","","","")
+    const card5 = new Card("Inácio Bonito", "../img/A continuação do peixe-11.png","Especial","A mascote do site ´AtumNãoSabes?'","","","")
 
     cards.push(card1, card2, card3,card4, card5)
     localStorage.setItem("cards", JSON.stringify(cards))

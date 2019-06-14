@@ -16,14 +16,15 @@ export function makeArray(string){
     return array;
 }
 
-export function replaceCard(cardName, newImage, newCategory, newDescription, newLinks){
+export function replaceCard(cardName, newImage, newCategory, newDescription, newVids, newAudios){
     let cards = JSON.parse(localStorage.getItem("cards"))
     for (const card of cards) {
         if (card.name === cardName) {
             card.description = newDescription
             card.img = newImage
             card.category = newCategory
-            card.etc = newLinks
+            card.videos = newVids
+            card.audios = newAudios
         }
     }
   

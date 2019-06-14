@@ -8,6 +8,7 @@ export function renderLifes(lifes){
     }
 
     document.querySelector("#divForLifes").innerHTML = htmlForLifes
+    document.querySelector("#divForLifes2").innerHTML = htmlForLifes
 }
 
 

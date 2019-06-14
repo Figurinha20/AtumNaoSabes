@@ -15,13 +15,13 @@ myForm.addEventListener("submit", function (event) {
     let newImage = document.querySelector("#txtImage").value
     let newCategory = document.querySelector("#txtCategory").value
     let newDescription = document.querySelector("#txtDescription").value
-    let newLinks = document.querySelector("#txtLinks").value
-    console.log(newName)
-    console.log(newImage)
-    console.log(newCategory)
-    console.log(newDescription)
-    newLinks = makeArray(newLinks)
-    console.log(newLinks)
+    let newVids = document.querySelector("#txtVids").value
+    let newAudios = document.querySelector("#txtAudios").value
+    
+
+    newVids = makeArray(newVids)
+    newAudios = makeArray(newAudios)
+    
  
     //Verificar se o nome da carta já existe
  
@@ -31,7 +31,7 @@ myForm.addEventListener("submit", function (event) {
 
         if(replaceConfirmation==true){
             
-            replaceCard(newName, newImage, newCategory, newDescription, newLinks)
+            replaceCard(newName, newImage, newCategory, newDescription, newVids, newAudios)
  
         }
         else{
@@ -42,7 +42,7 @@ myForm.addEventListener("submit", function (event) {
        
        
         //push para array
-        cards.push(new Card(newName, newImage, newCategory, newDescription, newLinks, ""))  
+        cards.push(new Card(newName, newImage, newCategory, newDescription, newVids, newAudios, ""))  
         //armazenamento na base de dados
         localStorage.setItem("cards", JSON.stringify(cards))
  
