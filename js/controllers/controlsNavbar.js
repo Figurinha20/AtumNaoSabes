@@ -13,7 +13,7 @@ export function getUserData(username){
         
         if (user.username == username) {
             //quando encontrar user
-            data = [user.adminStat, user.experience, user.level, user.profilePicture ]
+            data = [user.adminStat, user.experience, user.level, user.profilePicture, user.password, user.cardCollection]
             return data;
         }
         
