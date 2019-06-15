@@ -13,7 +13,7 @@ let suggestions = JSON.parse(localStorage.getItem("suggestions"))
 //find out the users' title (depends on his level)
 let currentUserTitle = getUserTitle(userDataArray[2])
 let currentUserTitleMessage = getUserTitleMessage(userDataArray[2])
-if(userDataArray[0] = true){
+if(userDataArray[0] == true){
     currentUserTitle = "Atum"
     currentUserTitleMessage = "Conta de Administrador"
 }
