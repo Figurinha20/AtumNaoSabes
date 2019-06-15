@@ -62,7 +62,7 @@ divNavbar.innerHTML = `
             <div class="col-sm-1">
                 <div class="row">
                     <div class="col-sm-12">
-                        <img id="profilePicture" src="${userDataArray[3]}" class="rounded-circle mt-1" height="165">
+                        <a href="../html/profile.html"><img id="profilePicture" src="${userDataArray[3]}" class="rounded-circle mt-1" height="165"></a>
                     </div>
                 </div>
                 <div class="row">

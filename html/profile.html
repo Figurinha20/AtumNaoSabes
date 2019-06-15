@@ -15,85 +15,45 @@
 
 <body>
 
-
-
-    
-<!--  
     <div class="row">
-        <hr>
-    </div>
-    <div id="simpleContainer" class="container pb-4">
-        <div class="row">
-            <hr>
-        </div>
-        <div class="row">
-            <div class="col-sm-2">
-                <img id="currentUserImg" src="../img/jose pedro.jpg" height="180px" width="180px">
-            </div>
-            <div class="col-sm-10">
-                <h2 id="currentUserName">Armando Django</h2>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h5 id="currentUserLvl">Lvl.69</h5>
-                    </div>
-                    <div class="col-sm-4">
-                        <h5 id="currentUserTitle" class="text-center">Tubarão</h5>
-                    </div>
-                    <div class="col-sm-4">
-                        <h5 id="currentUserNextLvl" class="text-right text-muted">Lvl.70</h5>
-                    </div>
-                </div>
-                <div class="progress" id="progressUserBar">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100">25%
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-
-
-        <div class="row">
-            <div class="col-sm-12">
-                <h6 class="text-muted">Desde 25/10/2015</h6>
-            </div>
-            <hr>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-12">
-                <input id="newPasse" placeholder="Nova Palavra-Passe">
-            </div>
-        </div>
-        <div class="row">
-            <hr>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <input id="currentPasse" placeholder="Confirmar Palavra-Passe">
-            </div>
-        </div>
-        <div class="row">
-            <hr>
-        </div>
-        <div class="row">
             <div class="col-sm-5">
-                <input id="changePassword" type="submit" value="Alterar Palavra Passe">
+
             </div>
+
             <div class="col-sm-7">
-                <p id="cardsText">Peixes Colecionados:2/20</p>
+                <nav id="navbar" class="navbar navbar-expand-sm navbar navbar-light" style="background-color: #fff;">
+                    <a class="navbar-brand" href="../html/index.html">
+                        <img src="../img/Home page icon-1.png" width="115" height="115" class="d-inline-block align-top"
+                            alt="Home">
+                    </a>
+                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId" style="justify-content: center">
+                        <ul class="navbar-nav nav-fill w-100">
+                            <li class="nav-item active">
+                                <a href="../html/catalog.html" id="navCatalog" class="nav-link"><text>Catálogo</text> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="navQuiz" class="nav-link" href="../html/quiz.html"><text>Quiz</text></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="navSuggest" class="nav-link" href="../html/suggest.html"><text>Sugestões</text></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
         </div>
-
     </div>
-    -->
-
-
 
     <div class="row">
         <hr>
     </div>
+
+
     <div id="simpleContainer" class="container pb-4">
         <div class="row">
             <hr>
@@ -102,25 +62,25 @@
 
         <div class="row">
             <div class="col-sm-2">
-                <img id="currentUserImg" src="../img/jose pedro.jpg" height="180px" width="180px">
+                <img id="currentUserImg" src="" height="180px" width="180px">
             </div>
             <div class="col-sm-10">
-                <h2 id="currentUserName">Armando Django</h2>
+                <h2 id="currentUserName"></h2>
                 <hr>
                 <div class="row">
                     <div class="col-sm-4">
-                        <h5 id="currentUserLvl">Lvl.69</h5>
+                        <h5 id="currentUserLvl"></h5>
                     </div>
                     <div class="col-sm-4">
-                        <h5 id="currentUserTitle" class="text-center">Tubarão</h5>
+                        <h5 id="currentUserTitle" class="text-center"></h5>
                     </div>
                     <div class="col-sm-4">
-                        <h5 id="currentUserNextLvl" class="text-right text-muted">Lvl.70</h5>
+                        <h5 id="currentUserNextLvl" class="text-right text-muted"></h5>
                     </div>
                 </div>
                 <div class="progress" id="progressUserBar">
-                    <div id="currentUserExp" class="progress-bar bg-info" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100">25%
+                    <div id="currentUserExp" class="progress-bar bg-info" role="progressbar" aria-valuenow=""
+                        aria-valuemin="0" aria-valuemax="100">
                     </div>
                 </div>
             </div>
@@ -173,6 +133,24 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <hr>
+    </div>
+    
+    <div id="simpleContainer" class="container pb-4">
+            <div class="row">
+                    <div class="col-sm-12">
+                            <p id="txtUserSuggestions" class="text-center">Sugestões</p>
+                    </div>
+            </div>
+    
+            <div id="divForSuggestions" class="container">
+
+            </div>
+    </div>
+    
+
 
 
 
