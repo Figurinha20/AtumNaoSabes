@@ -2,7 +2,8 @@ import {
    renderLifes,
    injectQuestionTypeComplete,
    injectQuestionTypeMultiple,
-   questionSelector
+   questionSelector,
+   gameOver
 } from "../controllers/controlQuiz.js"
 
 let currentQuestion;
@@ -156,7 +157,7 @@ function answerMultiple(event) {
       //caso passe do nivel da dificuldade maxima ganha senão repete a jogada
       if (stage > difficultyLimit) {
          //VITORIA
-         console.log("VITORIA");
+         gameOver(true, exp)
 
       } else {
          gameProgress()
@@ -171,7 +172,7 @@ function answerMultiple(event) {
 
       //GAME OVER PASSAR PARA A RECOMPENSA
       if (lifes == 0) {
-         console.log("GAMEOVER");
+         gameOver(false, exp)
       }
 
       resetButtons()
@@ -209,7 +210,7 @@ function answerComplete(event) {
       //caso passe do nivel da dificuldade maxima ganha senão repete a jogada
       if (stage > difficultyLimit) {
          //VITORIA
-         console.log("VITORIA");
+         gameOver(true, exp)
 
       } else {
          gameProgress()
@@ -226,7 +227,7 @@ function answerComplete(event) {
 
       //GAME OVER PASSAR PARA A RECOMPENSA
       if (lifes == 0) {
-         console.log("GAMEOVER");
+         gameOver(false, exp)
       }
 
       resetButtons()

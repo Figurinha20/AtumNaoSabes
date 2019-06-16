@@ -1,5 +1,5 @@
-// PRECISO DE AJUDA NÃO ESTOU A CONSEGUIR SIMPLIFICAR AS COISAS PONDO-AS AQUI
 
+//RENDER LIFES ESTÁ A DAR RESET àS PISTAS
 export function renderLifes(lifes) {
   let htmlForLifes = ""
   for (let i = 0; i < lifes; i++) {
@@ -102,4 +102,43 @@ export function questionSelector(questions, stage) {
     }
 
   }
+}
+
+
+
+
+export function gameOver(winCondition, reward){
+
+let currentUser = localStorage.getItem("currentUser")
+let users = JSON.parse(localStorage.getItem("users"))
+
+//check se ganhou
+  if(winCondition){
+    alert("Chegaste até ao fim do Quiz parabéns! Ganhaste " + reward + " de experiencia!")
+  }else{
+    alert("Perdeste desta vez :[ Para a proxima corre melhor! EsTudà-ses. Ganhaste " + reward + " de experiencia!")
+  }
+
+
+//encontrar user
+  for (const user of users) {
+    if(user.username == currentUser){
+
+      //adicionar experiencia e aumentar nivel se necessario (quando experiencia chega a 100)
+      user.experience += reward
+      
+      
+      if(user.experience >= 100){
+        user.experience -= 100
+        user.level ++
+      }
+      
+
+    }
+  }
+
+  localStorage.setItem("users", JSON.stringify(users))
+
+  location.href = "../html/quiz.html"
+
 }
