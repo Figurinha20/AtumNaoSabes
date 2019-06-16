@@ -61,12 +61,12 @@ function renderSuggestions(suggestions){
         </div>
         <div class="col-sm-3">
             <h6 >${suggestion.username}</h6>
-            <p >${suggestion.message}</p>
+            <p id="${counter}">${suggestion.message}</p>
         </div>
         <div class="col-sm-7">
         </div>
         <div class="col-sm-1">
-        <input class="btnStar" id="${suggestion.message}" type="image" src="${approvalStar}" height="35px" width="35px">
+        <input class="btnStar" id="star${counter}" type="image" src="${approvalStar}" height="35px" width="35px" onclick="approval(${counter})">
         <p>${suggestion.date}</p>
         </div>
             
@@ -74,7 +74,7 @@ function renderSuggestions(suggestions){
 
     `
 
-    document.getElementById(suggestion.message).addEventListener("click", approval(suggestion.message))
+    
 
     counter ++
     }
@@ -84,15 +84,23 @@ function renderSuggestions(suggestions){
     mySuggestions.innerHTML = result;
 }
 
+/*
+for(const suggestion of suggestions){
+    document.getElementById(suggestion.message).addEventListener("click", approval(suggestion.message))
+}
+*/
 
+function approval(suggestionNumber){
 
-function approval(suggestionToApprove){
-    for(suggestion of suggestions){
-        if (suggestion == suggestionToApprove){
+    alert("oi")
+
+    let suggestionToApprove = document.getElementById(suggestionNumber).innerHTML
+
+    console.log(suggestionToApprove)
+
+    for(const suggestion of suggestions){
+        if (suggestion.message == suggestionToApprove){
             suggestion.approval = true
         }
     }
-    
-    location.reload()
 }
-
