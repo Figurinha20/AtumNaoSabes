@@ -69,12 +69,13 @@ function renderSuggestions(suggestions){
         <input class="btnStar" id="${suggestion.message}" type="image" src="${approvalStar}" height="35px" width="35px">
         <p>${suggestion.date}</p>
         </div>
-        
+            
     </div>
 
     `
 
-    
+    document.getElementById(suggestion.message).addEventListener("click", approval(suggestion.message))
+
     counter ++
     }
 
@@ -85,5 +86,13 @@ function renderSuggestions(suggestions){
 
 
 
-
+function approval(suggestionToApprove){
+    for(suggestion of suggestions){
+        if (suggestion == suggestionToApprove){
+            suggestion.approval = true
+        }
+    }
+    
+    location.reload()
+}
 
