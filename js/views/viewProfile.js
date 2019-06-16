@@ -1,13 +1,23 @@
 import {getUserData} from "../controllers/controlsNavbar.js"
 import {getUserImg} from "../controllers/controlSuggestions.js"
+import {getUserCards} from "../controllers/controlsCatalog.js"
 
 //get currentUser
 let currentUser = localStorage.getItem("currentUser");
 
 //get all the data from the current user into an array
-let userDataArray = getUserData(currentUser);
+let userDataArray = getUserData(currentUser); 
+//data = [user.adminStat, user.experience, user.level, user.profilePicture, user.password, user.cardCollection]
+
 
 let suggestions = JSON.parse(localStorage.getItem("suggestions"))
+
+//get max number of cards the user can get
+let cards = JSON.parse(localStorage.getItem("cards"))
+let cardsMAX = cards.length
+
+//get the number of cards the user has
+let cardsCollected = getUserCards(userDataArray[5]).length
 
 
 //find out the users' title (depends on his level)
@@ -43,11 +53,45 @@ userExp.innerHTML = userDataArray[1]
 userExp.style.width = userDataArray[1] + "%"
 userExp.setAttribute("aria-valuenow", userDataArray[1])
 
+let collection = document.querySelector("#txtCollection")
+collection.innerHTML = "Peixes Colecionados:<br>" + cardsCollected + "/" + cardsMAX
+
 
 renderFilteredSuggestions(suggestions)
 
 
-///-----------------------------------------------------Functions-----------------------------------------------
+//form para mudar password
+const myForm = document.querySelector("#form")
+
+myForm.addEventListener("submit", function(event){
+    let newPass = document.querySelector("#newPasse").value
+    let confirmPass = document.querySelector("#currentPasse").value
+
+    if (confirmPass != newPass){
+        alert("Passwords não são iguas, tenta outra vez!")
+    }
+    else{
+        let users = JSON.parse(localStorage.getItem("users"))
+
+        for (const user of users){
+            if (user.username == currentUser){
+                user.password = newPass
+            }
+        }
+
+        localStorage.setItem("users", JSON.stringify(users))
+        
+        alert("Sucesso! ")
+    }
+
+    newPass.value = ""
+    confirmPass.value = ""
+
+    event.preventDefault()
+})
+
+
+//-----------------------------------------------------Functions-------------------------------------------------------------------------------------------------------------
 //list prestige names
 function getUserTitle(userLevel) {
 let prestige = ["Isca", "Peixe Palhaço", "Sardinha", "Faneca", "Carapau", "Dourada", "Tamboril", "Lula", "Espadarte", "Tubarão"]
@@ -70,7 +114,6 @@ function renderFilteredSuggestions(suggestions){
     let approvalStar = ""
     const mySuggestions = document.querySelector("#divForSuggestions") 
     let result = ""
-    let counter = 0
 
     for(const suggestion of suggestions){
 
@@ -107,15 +150,14 @@ function renderFilteredSuggestions(suggestions){
 
     `
 
-    
-    counter ++
     }
 
     //clickStar()
 
+    if(result != ""){
     mySuggestions.innerHTML = result;
+    }
 }
 }
 
 
-//data = [user.adminStat, user.experience, user.level, user.profilePicture, user.password, user.cardCollection]
