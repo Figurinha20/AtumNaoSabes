@@ -6,32 +6,6 @@ let suggestions = JSON.parse(localStorage.getItem("suggestions"))
 
 renderSuggestions(suggestions);
 
-/* Esta bosta não dá
-function clickStar(){
-    const btnStars = document.getElementsByClassName("btnStar")
-    console.log(btnStars);
-    console.log("desisto")
-    
-    for (const elem of btnStars) {
-        console.log(elem)
-        elem.addEventListener("click", function () {
-            approved(this.id)
-            console.log("ola")
-        })
-
-    }
-
-}
-
-function approved(messages){
-    for (const suggestion of suggestions) {
-        if (suggestion.message == messages) {
-            alert(messages)
-        }
-    }
-}
-´*/
-
 
 //Renderizar Sugestões
 function renderSuggestions(suggestions){
@@ -67,6 +41,7 @@ function renderSuggestions(suggestions){
         </div>
         <div class="col-sm-1">
         <input class="btnStar" id="${suggestion.message}" type="image" src="${approvalStar}" height="35px" width="35px">
+        <input class="btnStar" id="downvote-${suggestion.message}" type="image" src="${approvalStar}" height="35px" width="35px">
         <p>${suggestion.date}</p>
         </div>
             
