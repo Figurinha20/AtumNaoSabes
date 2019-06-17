@@ -76,7 +76,7 @@ if (localStorage.questions) {
 } else {
     const qstn1 = new Question("Qual é o peixe que serve de ícone e mascote para este site?","Atum","José Pedro","Carpa","Polvo",
     "Grande Azul","multiple","1","Atum","José Pedro não é um peixe")
-    const qstn2 = new Question("Qual destes peixes aparece num filme famoso?", "Peixe Palhaço", "2", "3", "4", "Grande Azul",
+    const qstn2 = new Question("Qual destes peixes aparece num filme famoso?", "Peixe Palhaço", "Ouriço do Mar", "Coral", "Anêmona", "Grande Azul",
     "multiple","2","Peixe Palhaço","O filme chama-se 'À procura de Nemo'")
     const qstn3 = new Question("Completa a frase: A comida favorita do tubarão são ________.", "", "", "", "", "Grande Azul",
     "complete","3","focas","pista")
@@ -87,6 +87,8 @@ if (localStorage.questions) {
     const qstn6 = new Question("Como se chama o peixe com nariz em forma de espada?", "Atum", "Faneca", "Pterodactilo", "Espadarte", "Grande Azul",
     "multiple","4","Espadarte","pista")
     const qstn7 = new Question("Qual destes peixes não existe?", "Peixe Galo", "Peixe Gato", "Peixe Vaca", "Peixe Cão", "Grande Azul",
+    "multiple","6","Peixe Vaca","pista")
+    const qstn8 = new Question("Qual destes peixes não existe?", "Peixe Galo", "Peixe Gato", "Peixe Vaca", "Peixe Cão", "Grande Azul",
     "multiple","6","Peixe Vaca","pista")
     
 

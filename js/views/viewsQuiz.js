@@ -3,13 +3,24 @@ import {
    injectQuestionTypeComplete,
    injectQuestionTypeMultiple,
    questionSelector,
-   gameOver
+   gameOver,
+   getUserQuestions
 } from "../controllers/controlQuiz.js"
+import {getUserCollection} from "../controllers/controlsCatalog.js"
 
 let currentQuestion;
 
 //GET array de questions e eliminar todas as que não teem tags na coleção do utilizador
 let questions = JSON.parse(localStorage.getItem("questions"))
+let currentUser = localStorage.getItem("currentUser")
+
+//get das categorias do user atual
+let categories = getUserCollection(currentUser)
+questions = getUserQuestions(categories)
+
+
+
+ 
 
 //valores para jogar
 let stage
@@ -72,8 +83,6 @@ function gameStart() {
 
 //Seguir para a pergunta seguinte
 function gameProgress() {
-
-   console.log("exp = " + exp)
 
    resetButtons()
 
@@ -247,7 +256,6 @@ function showHint() {
    alert("work?")
 
    let btnHint = document.querySelector("#btnHint1").value
-   console.log(btnHint)
 
    if (btnHint == "Comprar pista com experiencia?") {
       alert("please?")

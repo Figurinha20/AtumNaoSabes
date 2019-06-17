@@ -1,4 +1,5 @@
 
+
 //RENDER LIFES ESTÁ A DAR RESET àS PISTAS
 export function renderLifes(lifes) {
   let htmlForLifes = ""
@@ -70,6 +71,29 @@ export function injectQuestionTypeComplete(question, stage, maxDifEz, maxDifMed,
 
 
 
+export function getUserQuestions(categories){
+
+  let newQuestions = []
+
+  let questions = JSON.parse(localStorage.getItem("questions"))
+
+    for (const question of questions) {
+        
+        for (const category of categories){
+            if(question.category == category){
+                newQuestions.push(question)
+            }
+        }
+    }
+    return newQuestions
+
+}
+
+
+
+
+
+
 
 
 
@@ -82,6 +106,9 @@ export function injectQuestionTypeComplete(question, stage, maxDifEz, maxDifMed,
 
 export function questionSelector(questions, stage) {
 
+ 
+
+
   while (1) {
 
     //função numero aleatorio inteiro entre minimo  0 maximo questions.length ; 
@@ -93,9 +120,6 @@ export function questionSelector(questions, stage) {
     //FAZER CHECK DAS CATEGORIAS DESBLOQUEADAS NO CATÁLOGO questions, stage, currentuser.cardCollection
     // if (questions[random].difficulty == stage && currentUser.cardCollection == questions[random].category) {
     if (questions[random].difficulty == stage) {
-
-      console.log("questions[random] to return= v")
-      console.log(questions[random])
 
       return questions[random];
 
