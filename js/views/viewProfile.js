@@ -117,7 +117,7 @@ function getUserTitleMessage(userLevel) {
 }
 
 function renderFilteredSuggestions(suggestions){
-    let approvalStar = ""
+    let suggestIcon = "../img/Star.png"
     const mySuggestions = document.querySelector("#divForSuggestions") 
     let result = ""
 
@@ -129,11 +129,12 @@ function renderFilteredSuggestions(suggestions){
         let img =  getUserImg(suggestion.username)
 
         if (suggestion.approval == true){
-            approvalStar="../img/Star Colored.png"
+            suggestIcon ="../img/Star Colored.png"
         }
-        else{
-            approvalStar="../img/Star.png"
+        else if (suggestion.disapproval == true){
+            suggestIcon = "../img/Downvote Colored.png"
         }
+
         
         result +=       `<div class="row">
         <div class="col-sm-1">
@@ -148,7 +149,7 @@ function renderFilteredSuggestions(suggestions){
         <div class="col-sm-7">
         </div>
         <div class="col-sm-1">
-        <input class="btnStar" id="${suggestion.message}" type="image" src="${approvalStar}" height="35px" width="35px">
+        <input class="btnStar" id="${suggestion.message}" type="image" src="${suggestIcon}" height="35px" width="35px" disabled>
         <p>${suggestion.date}</p>
         </div>
         
