@@ -87,7 +87,7 @@ function renderSuggestions(suggestions){
 
 for(const suggestion of suggestions){
     document.getElementById(suggestion.message).addEventListener("click", function (){
-        console.log(suggestion.message)
+
         let suggestionToApprove = suggestion.message
     
         for(const suggestion of suggestions){

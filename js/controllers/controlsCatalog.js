@@ -93,7 +93,7 @@ export function renderCatalog(filterName, search, cards) {
                 </div>
 
                 <hr>
-                <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                <a id="${card.name}" href="../html/viewCard.html" class="btn btn-dark" style="width: 100%">Ver Mais</a>
                 </div>
             </div>
         </div>
