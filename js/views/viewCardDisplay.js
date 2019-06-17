@@ -1,10 +1,18 @@
-import {getUserData} from "../controllers/controlsNavbar.js"
-import {Comment} from "../models/Comment.js"
-import {updateCard} from "../controllers/controlsCardDisplay.js"
+import {
+    getUserData
+} from "../controllers/controlsNavbar.js"
+import {
+    Comment
+} from "../models/Comment.js"
+import {
+    updateCard
+} from "../controllers/controlsCardDisplay.js"
+
 
 //get admin stat a partir de currentUser
 let currentUser = sessionStorage.getItem("currentUser")
 let userDataArray = getUserData(currentUser)
+
 
 //get da carta da session storage + array de comentários
 let comments = []
@@ -26,14 +34,24 @@ let cardImg = document.querySelector("#cardImg")
 let cardRank = document.querySelector("#cardRank")
 let cardComments = document.querySelector("#cardComments")
 
-// butão like
-let likeBtn= document.querySelector("#likeBtn")
+
+// botão like
+let likeBtn = document.querySelector("#likeBtn")
+
 
 loadDisplay()
 
+//loadMedia()
+
+loadComments()
+
+
+
+
+
 //Função para adicionar um comentário
-document.querySelector("#commentForm").addEventListener("submit", function(event){
-    if(!commentTextArea.value == ""){
+document.querySelector("#commentForm").addEventListener("submit", function (event) {
+    if (!commentTextArea.value == "") {
         let newComment = new Comment(currentUser, userDataArray[3], commentTextArea.value)
 
         alert(commentTextArea.value)
@@ -57,30 +75,42 @@ document.querySelector("#commentForm").addEventListener("submit", function(event
 
 
 
-function loadDisplay(){
+function loadDisplay() {
 
-cardName.innerHTML = displayedCard.name
-displayedCategory.innerHTML = displayedCard.category
-cardImg.src = displayedCard.img
-cardRank.innerHTML = displayedCard.rank + "/5"
-displayedDescription.innerHTML = displayedCard.description
-cardComments.innerHTML = displayedCard.comments.length
-
-//variavel que define se o butão para remover se mostra ou não (isto é determinado com o adminStat)
-let btnClass
-if(userDataArray[0]){
-    btnClass = "btn-remove"
-}else{
-    btnClass = "hidden"
+    //load dos dados a partir da displayedCard
+    cardName.innerHTML = displayedCard.name
+    displayedCategory.innerHTML = displayedCard.category
+    cardImg.src = displayedCard.img
+    cardRank.innerHTML = displayedCard.rank + "/5"
+    displayedDescription.innerHTML = displayedCard.description
+    cardComments.innerHTML = displayedCard.comments.length
+    
 }
 
-//counter para definir ids únicos
-let counter = 0
 
-for (const comment of comments) {
 
-    //ONDE FICA A DATE??? comment.date
-    commentContainer.innerHTML +=`
+
+function loadComments(){
+
+    //load comentários
+
+    //variavel que define se o butão para remover se mostra ou não (isto é determinado com o adminStat)
+    let btnClass
+    if (userDataArray[0]) {
+        btnClass = "btn-remove"
+    } else {
+        btnClass = "hidden"
+    }
+
+    //counter para definir ids únicos
+    let counter = 0
+
+    //variavel para html
+    let result
+
+    for (const comment of comments) {
+
+        result += `
     <div class="row">
             <div class="col-sm-1">
                 <img id="imgComment"
@@ -92,42 +122,67 @@ for (const comment of comments) {
                 <h6 id="userComment">${comment.userName}</h6>
                 <p id="txtComment">${comment.commentText}</p>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-2">
+            <p>${comment.date}</p>
             </div>
         </div>
+        
         <div class="row">
             <hr>
         </div>
     `
-    counter++
-    
-}
+        counter++
+
+    }
+
+    //injetar
+    commentContainer.innerHTML = result
 
 
-counter = 0
+    let i = 0
+    let uniqueId
 
-for(const comment of comments){
-    document.getElementById(comment.commentText + "-" + counter).addEventListener("click", function (){
+    for (const comment of comments) {
 
-        let suggestionToApprove = suggestion.message
-    
-        for(const comment of comments){
-            if (suggestion.message == suggestionToApprove){
-                suggestion.approval = true
+        console.log(i)
+        uniqueId = comment.commentText + "-" + i
+        console.log(uniqueId)
 
-                document.getElementById(suggestion.message).src = "../img/Star Colored.png"
+        document.getElementById(uniqueId).addEventListener("click", function () {
+
+            alert("yes")
+            let commentTextToRemove = uniqueId
+            alert(commentTextToRemove)
+            let j = 0
+            let newComments = []
+
+            for (const comment of comments) {
+                if (comment.commentText + "-" + j == commentTextToRemove) {
+                    j++
+                }else{
+
+                    newComments.push(comment)
+                    j++
+                }
+
+                
             }
-        }
+            alert("yes")
 
-        localStorage.setItem("suggestions", JSON.stringify(suggestions))
+            console.log(newComments)
+            displayedCard.comments = newComments
+            sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
 
-        
-})
+            updateCard(displayedCard)
 
-counter++
+            loadComments()
+
+        })
+
+        i++
+    }
+
+
 }
-
-
-}
-
-
