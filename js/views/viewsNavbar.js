@@ -22,10 +22,10 @@ window.addEventListener("load", function (event){
 
 let currentUser;
 
-if(localStorage.currentUser){
+if(sessionStorage.currentUser){
     //caso um utilizador esteja autenticado vai busca-lo da storage para alterar a navbar
 
-    currentUser = localStorage.getItem("currentUser")
+    currentUser = sessionStorage.getItem("currentUser")
     
 }
 

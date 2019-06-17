@@ -8,7 +8,7 @@ const myForm = document.querySelector("#formSuggest")
 myForm.addEventListener("submit", function (event) {
 
     //Import the Current User from Local Storage
-    let currentUser = localStorage.getItem("currentUser")
+    let currentUser = sessionStorage.getItem("currentUser")
 
     //Receber dados
     let newMessage = document.querySelector("#txtSuggest").value

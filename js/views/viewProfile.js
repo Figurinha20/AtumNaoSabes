@@ -3,7 +3,7 @@ import {getUserImg} from "../controllers/controlSuggestions.js"
 import {getUserCards} from "../controllers/controlsCatalog.js"
 
 //get currentUser
-let currentUser = localStorage.getItem("currentUser");
+let currentUser = sessionStorage.getItem("currentUser");
 
 //get all the data from the current user into an array
 let userDataArray = getUserData(currentUser); 

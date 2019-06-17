@@ -37,7 +37,7 @@ myForm.addEventListener("submit", function (event) {
         
             let currentUser = newUsername
 
-            localStorage.setItem("currentUser", currentUser)
+            sessionStorage.setItem("currentUser", currentUser)
 
             location.href="../html/index.html"
 

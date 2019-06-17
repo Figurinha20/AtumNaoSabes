@@ -12,7 +12,7 @@ let currentQuestion;
 
 //GET array de questions e eliminar todas as que não teem tags na coleção do utilizador
 let questions = JSON.parse(localStorage.getItem("questions"))
-let currentUser = localStorage.getItem("currentUser")
+let currentUser = sessionStorage.getItem("currentUser")
 
 //get das categorias do user atual
 let categories = getUserCollection(currentUser)

@@ -6,7 +6,7 @@ export function setLogoutListener(){
 
     //add listener on click
     btnLogout.addEventListener("click", function (event) {
-        localStorage.removeItem("currentUser")
+        sessionStorage.removeItem("currentUser")
 
         //CHANGE LOCATION PARA INDEX.HTML
         location.href="../html/index.html"
@@ -39,7 +39,7 @@ myForm.addEventListener("submit", function (event) {
 
         let currentUser = logUsername
 
-        localStorage.setItem("currentUser", currentUser)
+        sessionStorage.setItem("currentUser", currentUser)
 
         location.href="../html/index.html"
         

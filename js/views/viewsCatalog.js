@@ -3,10 +3,10 @@ import {getUserData} from "../controllers/controlsNavbar.js";
 
 let cards = []
 let currentUser 
-console.log(localStorage.getItem("currentUser") === null);
+console.log(sessionStorage.getItem("currentUser") === null);
 
 //se não há user autenticado skip do GET e mostra apenas cartas da categoria default "Grande Azul" utilizando o array de cards inalterado
-if (localStorage.getItem("currentUser") === null) {
+if (sessionStorage.getItem("currentUser") === null) {
 
     cards = JSON.parse(localStorage.getItem("cards"))
 
@@ -21,7 +21,7 @@ if (localStorage.getItem("currentUser") === null) {
 }else{
   
     let categories
-    currentUser = localStorage.getItem("currentUser")
+    currentUser = sessionStorage.getItem("currentUser")
     let userDataArray = getUserData(currentUser)
     //[user.adminStat, user.experience, user.level, user.profilePicture ]
 

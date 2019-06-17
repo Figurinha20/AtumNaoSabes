@@ -133,7 +133,7 @@ export function questionSelector(questions, stage) {
 
 export function gameOver(winCondition, reward){
 
-let currentUser = localStorage.getItem("currentUser")
+let currentUser = sessionStorage.getItem("currentUser")
 let users = JSON.parse(localStorage.getItem("users"))
 
 //check se ganhou
