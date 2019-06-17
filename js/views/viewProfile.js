@@ -23,10 +23,16 @@ let cardsCollected = getUserCards(userDataArray[5]).length
 //find out the users' title (depends on his level)
 let currentUserTitle = getUserTitle(userDataArray[2])
 let currentUserTitleMessage = getUserTitleMessage(userDataArray[2])
-if(userDataArray[0] == true){
+
+if(userDataArray[2] > 10 ){ //exception for if the user is past max prestige
+    currentUserTitle = "Tubarão"
+    currentUserTitleMessage = "Faminto para aprender"
+} 
+else if(userDataArray[0] == true){ //exception for if the user is an admmin
     currentUserTitle = "Atum"
     currentUserTitleMessage = "Conta de Administrador"
 }
+
 
 //adapt profile to current user
 let img = document.querySelector("#currentUserImg")
