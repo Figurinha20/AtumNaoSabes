@@ -20,7 +20,7 @@
 <body>
 
 
-    <div id="commentContainer1" class="container border-dark border mt-2">
+    <div id="displayContainer" class="container border-dark border mt-2">
 
         <div class="row">
             <div class="col-sm-4">
@@ -36,7 +36,7 @@
                                 <text id="cardRank">5/5<text>
                             </div>
                             <div class="col-sm-5">
-                                <b class="text-center" id="cardText">Grande Azul</b>
+                                <b class="text-center" id="cardText"></b>
                             </div>
                             <div class="col-sm-3">
                                 <b id="cardComments" class="text-left">2</b>
@@ -45,30 +45,31 @@
                         </div>
 
                         <hr>
-                        <a id="cardBtn" href="#" class="btn btn-dark">Ver Mais</a>
+                        <a id="likeBtn" href="#" class="btn btn-dark">Gostar!</a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-8">
-                <h3>Isto é a descrição ou lá o que é</h3>
-                <h6>E isto seria para sons, videos, imagens, etc...</h6>
+                <h3 id="displayedCardDiscription"></h3>
+                <h6 id="displayedCardMedia"></h6>
 
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2">
-                <textarea id="commentArea" rows="2" cols="140">
-
-                    </textarea>
+            <div class="col-sm-10">
+                <textarea id="commentArea" rows="2">
+                </textarea>
             </div>
-            <div class="col-sm-9">
+         
+          <div class="col-sm-2 ">
+            <input id="commentButton" type="submit" value="Comentar" >
+          </div>
 
-            </div>
-            <input id="commentButton" type="submit" value="Comentar">
+            
         </div>
     </div>
     <br>
-    <div id="commentContainer2" class="container border border-dark p-2">
+    <div id="commentContainer" class="container border border-dark p-2">
         <div class="row">
             <div class="col-sm-1">
                 <img id="imgComment1"
