@@ -7,11 +7,15 @@ import {
 import {
     updateCard
 } from "../controllers/controlsCardDisplay.js"
-import {Rating} from "../models/Rating.js"
+import {
+    Rating
+} from "../models/Rating.js"
 
-//get admin stat a partir de currentUser
+//get dados do utilizador a partir de currentUser
 let currentUser = sessionStorage.getItem("currentUser")
-let userDataArray = getUserData(currentUser)
+if (currentUser != null) {
+    let userDataArray = getUserData(currentUser)
+}
 
 
 //get da carta da session storage + array de comentários
@@ -41,10 +45,6 @@ let cardRank = document.querySelector("#cardRank")
 let cardComments = document.querySelector("#cardComments")
 
 
-// botão like
-let likeBtn = document.querySelector("#likeBtn")
-
-
 loadDisplay()
 
 loadMedia()
@@ -57,6 +57,13 @@ setRatingListeners()
 
 //Função para adicionar um comentário
 document.querySelector("#commentForm").addEventListener("submit", function (event) {
+    if (currentUser == null) {
+        alert("Precisas de fazer Login para comentares!")
+        event.preventDefault()
+        return;
+
+    }
+
     if (!commentTextArea.value == "") {
         let newComment = new Comment(currentUser, userDataArray[3], commentTextArea.value)
 
@@ -91,6 +98,7 @@ function loadDisplay() {
     displayedDescription.innerHTML = displayedCard.description
     cardComments.innerHTML = displayedCard.comments.length
 
+    //se utilizador já deu uma rating as estrelinhas mudam
 }
 
 
@@ -99,6 +107,11 @@ function loadDisplay() {
 function loadComments() {
 
     //load comentários
+
+    if (currentUser == null) {
+        commentContainer.innerHTML = "Cria uma conta e junta-te aos comentários! Com uma conta podes ler e fazer comentários em cartas!"
+        return;
+    }
 
     //variavel que define se o butão para remover se mostra ou não (isto é determinado com o adminStat)
     let btnClass
@@ -153,9 +166,7 @@ function loadComments() {
 
         for (const comment of comments) {
 
-            console.log(i)
             uniqueId = comment.commentText + "-" + i
-            console.log(uniqueId)
 
             document.getElementById(uniqueId).addEventListener("click", function () {
 
@@ -178,7 +189,6 @@ function loadComments() {
                 }
 
 
-                console.log(newComments)
                 displayedCard.comments = newComments
                 sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
 
@@ -240,35 +250,57 @@ function loadMedia() {
 
 }
 
+
 //Function for setting the rating of the card
-function setRatingListeners(){
+function setRatingListeners() {
     let coloredStar = "../img/Star Colored.png"
     let emptyStar = "../img/Star.png"
 
     for (let i = 0; i < 5; i++) {
-        
-        document.getElementById(i).addEventListener("click", function (){
+
+        document.getElementById(i).addEventListener("click", function () {
+
+            if (currentUser == null) {
+                alert("Não podes deixar uma classificação numa carta sem estares ligado com uma conta!")
+                return;
+            }
+
 
             //Color in the star
-            for (let j = 0; j < i+1; j++) {
+            for (let j = 0; j < i + 1; j++) {
                 document.getElementById(j).src = coloredStar
             }
 
-            //reciclar não reutilizar  lixa o codigo
-            let k = i + 1
+            //numero de estrelas na rating
+            let starNumber = i + 1
 
             //Take away the stars' color
-            for (k; k < 5; k++) {
+            for (let k = starNumber; k < 5; k++) {
                 document.getElementById(k).src = emptyStar
             }
 
-            ratings.push(new Rating(currentUser, k))
-            
-            sessionStorage.setItem("displayCard", displayedCard)
+            //testar se utilizador já deu uma rating se deu altera se sim adiciona ao array
+            let firstTimeRating = true
+            for (const rate of ratings) {
+                if (rate.username == currentUser) {
+
+                    rate.rating = starNumber
+                    firstTimeRating = false
+                }
+            }
+
+            if (firstTimeRating) {
+                ratings.push(new Rating(currentUser, starNumber))
+            }
+
+
+            sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
 
             updateCard(displayedCard)
 
+            location.reload()
+
         })
-        
+
     }
 }
