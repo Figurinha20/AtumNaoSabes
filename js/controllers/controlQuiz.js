@@ -148,15 +148,8 @@ let users = JSON.parse(localStorage.getItem("users"))
   for (const user of users) {
     if(user.username == currentUser){
 
-      //adicionar experiencia e aumentar nivel se necessario (quando experiencia chega a 100)
-      user.experience += reward
-      
-      
-      if(user.experience >= 100){
-        user.experience -= 100
-        user.level ++
-      }
-      
+
+      levelManage(user, reward)
 
     }
   }
@@ -165,4 +158,25 @@ let users = JSON.parse(localStorage.getItem("users"))
 
   location.href = "../html/quiz.html"
 
+}
+
+
+
+
+
+export function levelManage(user, reward){
+  
+      //adicionar experiencia e aumentar nivel se necessario (quando experiencia chega a 100)
+      user.experience += reward
+      
+      
+      if(user.experience >= 100){
+        user.experience -= 100
+        user.level ++
+      }else if(user.experience < 0 && user.level == 1){
+        user.experience = 0
+      }else if(user.experience < 0){
+        user.experience += 100
+        user.level--
+      }
 }

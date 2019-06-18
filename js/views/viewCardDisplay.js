@@ -16,8 +16,12 @@ let userDataArray = getUserData(currentUser)
 
 //get da carta da session storage + array de comentários
 let comments = []
+let mediasAudio = []
+let mediasVideo = []
 let displayedCard = JSON.parse(sessionStorage.getItem("displayCard"))
 comments = displayedCard.comments
+mediasAudio = displayedCard.audios
+mediasVideo = displayedCard.videos
 
 
 //elementos fora da carta
@@ -41,7 +45,7 @@ let likeBtn = document.querySelector("#likeBtn")
 
 loadDisplay()
 
-//loadMedia()
+loadMedia()
 
 loadComments()
 
@@ -60,7 +64,7 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
         displayedCard.comments = comments
         sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
 
-        loadDisplay()
+        loadComments()
 
         commentTextArea.value = ""
 
@@ -84,13 +88,13 @@ function loadDisplay() {
     cardRank.innerHTML = displayedCard.rank + "/5"
     displayedDescription.innerHTML = displayedCard.description
     cardComments.innerHTML = displayedCard.comments.length
-    
+
 }
 
 
 
 
-function loadComments(){
+function loadComments() {
 
     //load comentários
 
@@ -138,8 +142,12 @@ function loadComments(){
     }
 
     //injetar
-    commentContainer.innerHTML = result
-
+    if(result != undefined){
+        commentContainer.innerHTML = result
+    }else{
+        result = "Esta carta ainda não tem comentários!"
+        commentContainer.innerHTML = result
+    }
 
     let i = 0
     let uniqueId
@@ -152,7 +160,7 @@ function loadComments(){
 
         document.getElementById(uniqueId).addEventListener("click", function () {
 
-            alert("yes")
+
             let commentTextToRemove = uniqueId
             alert(commentTextToRemove)
             let j = 0
@@ -161,13 +169,13 @@ function loadComments(){
             for (const comment of comments) {
                 if (comment.commentText + "-" + j == commentTextToRemove) {
                     j++
-                }else{
+                } else {
 
                     newComments.push(comment)
                     j++
                 }
 
-                
+
             }
             alert("yes")
 
@@ -177,12 +185,46 @@ function loadComments(){
 
             updateCard(displayedCard)
 
-            loadComments()
+            location.reload()
+            alert("yes")
 
         })
 
         i++
     }
 
+
+}
+
+
+
+
+function loadMedia() {
+
+    let result = ""
+
+    if (mediasAudio != []) {
+        for (const audio of mediasAudio) {
+            result += `
+            <div class="row">
+                <audio controls>
+                <source src="${audio}" type="url">
+                </audio>
+            </div>`
+        }
+    }
+
+
+    if (mediasVideo != []) {
+        for (const video of mediasVideo) {
+            result += `
+            <div class="row">
+                <iframe width="100%" height="100%" src="${video}"></iframe>
+            </div>`
+        }
+    }
+
+    
+    displayedMedia.innerHTML = result
 
 }
