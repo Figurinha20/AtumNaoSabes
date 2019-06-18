@@ -1,10 +1,13 @@
 //Import the Suggestion Model
-import {Suggestion} from "../models/Suggestion.js";
 import {getUserImg} from "../controllers/controlSuggestions.js"
 
 let suggestions = JSON.parse(localStorage.getItem("suggestions"))
+let users = JSON.parse(localStorage.getItem("users"))
 
 renderSuggestions(suggestions);
+
+//Reward for a good suggestion
+let suggestionReward = 50
 
 
 //Renderizar Sugestões
@@ -13,7 +16,7 @@ function renderSuggestions(suggestions){
     let disapprovalDownvote = ""
     const mySuggestions = document.querySelector("#divForSuggestions") 
     let result = ""
-    let counter = 0
+    let suggestionReward = 50
 
     
     for(const suggestion of suggestions){
@@ -59,9 +62,6 @@ function renderSuggestions(suggestions){
 
     `
 
-    
-
-    counter ++
     }
 
     //clickStar()
@@ -74,9 +74,18 @@ for(const suggestion of suggestions){
     document.getElementById(suggestion.message).addEventListener("click", function (){
 
         let suggestionToApprove = suggestion.message
+        let userToReward = suggestion.username
+        console.log(userToReward)
     
         for(const suggestion of suggestions){
             if (suggestion.message == suggestionToApprove){
+                for(const user of users){
+                    //Give 50% exp to the user for a good suggestion (we want to give the players a big reward to incentivize suggestion)
+                    if (user.username == userToReward && suggestion.approval != true){
+                        user.experience += suggestionReward
+                    }
+                }
+
                 suggestion.approval = true
                 suggestion.disapproval = false
 
@@ -86,6 +95,7 @@ for(const suggestion of suggestions){
         }
 
         localStorage.setItem("suggestions", JSON.stringify(suggestions))
+        localStorage.setItem("users", JSON.stringify(users))
 
         
 })
@@ -96,9 +106,17 @@ for(const suggestion of suggestions){
     document.getElementById("downvote-" + suggestion.message).addEventListener("click", function (){
 
         let suggestionToApprove = suggestion.message
+        let userToReward = suggestion.username
     
         for(const suggestion of suggestions){
             if (suggestion.message == suggestionToApprove){
+                //Reward User
+                for(const user of users){
+                    //Take exp off the user only in case the admin missclicked and approved the suggestion beforehand (we don't want to penalize the users for suggesting)
+                    if (user.username == userToReward && suggestion.approval == true){
+                        user.experience -= suggestionReward
+                    } 
+                }
                 suggestion.approval = false
                 suggestion.disapproval = true
 
@@ -108,7 +126,7 @@ for(const suggestion of suggestions){
         }
 
         localStorage.setItem("suggestions", JSON.stringify(suggestions))
+        localStorage.setItem("users", JSON.stringify(users))
 
-        
 })
 }
