@@ -1,6 +1,6 @@
 
 
-//RENDER LIFES ESTÁ A DAR RESET àS PISTAS
+
 export function renderLifes(lifes) {
   let htmlForLifes = ""
   for (let i = 0; i < lifes; i++) {
