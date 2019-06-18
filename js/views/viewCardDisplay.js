@@ -7,7 +7,7 @@ import {
 import {
     updateCard
 } from "../controllers/controlsCardDisplay.js"
-
+import {Rating} from "../models/Rating.js"
 
 //get admin stat a partir de currentUser
 let currentUser = sessionStorage.getItem("currentUser")
@@ -16,10 +16,12 @@ let userDataArray = getUserData(currentUser)
 
 //get da carta da session storage + array de comentários
 let comments = []
+let ratings = []
 let mediasAudio = []
 let mediasVideo = []
 let displayedCard = JSON.parse(sessionStorage.getItem("displayCard"))
 comments = displayedCard.comments
+ratings = displayedCard.ratings
 mediasAudio = displayedCard.audios
 mediasVideo = displayedCard.videos
 
@@ -49,7 +51,7 @@ loadMedia()
 
 loadComments()
 
-
+setRatingListeners()
 
 
 
@@ -72,10 +74,6 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
     event.preventDefault()
 })
 
-//Função para rank
-likeBtn.addEventListener("click", function (event) {
-    
-})
 
 
 
@@ -240,4 +238,37 @@ function loadMedia() {
 
     displayedMedia.innerHTML = result
 
+}
+
+//Function for setting the rating of the card
+function setRatingListeners(){
+    let coloredStar = "../img/Star Colored.png"
+    let emptyStar = "../img/Star.png"
+
+    for (let i = 0; i < 5; i++) {
+        
+        document.getElementById(i).addEventListener("click", function (){
+
+            //Color in the star
+            for (let j = 0; j < i+1; j++) {
+                document.getElementById(j).src = coloredStar
+            }
+
+            //reciclar não reutilizar  lixa o codigo
+            let k = i + 1
+
+            //Take away the stars' color
+            for (k; k < 5; k++) {
+                document.getElementById(k).src = emptyStar
+            }
+
+            ratings.push(new Rating(currentUser, k))
+            
+            sessionStorage.setItem("displayCard", displayedCard)
+
+            updateCard(displayedCard)
+
+        })
+        
+    }
 }

@@ -3,6 +3,9 @@ export function updateCard(updatedCard){
     for (const card of cards) {
         if (card.name === updatedCard.name) {
             card.comments = updatedCard.comments
+            
+            card.ratings = updateCard.ratings
+
             card.rank = updatedCard.rank
         }
     }
