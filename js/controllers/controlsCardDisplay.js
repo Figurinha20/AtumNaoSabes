@@ -19,8 +19,11 @@ export function updateCard(updatedCard){
             
 
             card.rank = Math.round(sumOfRatings/updatedRatingsArray.length)
+
+            sessionStorage.setItem("displayCard", JSON.stringify(card))
         }
     }
   
     localStorage.setItem("cards",JSON.stringify(cards))
+
 }

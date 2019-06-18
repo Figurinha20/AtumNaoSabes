@@ -13,8 +13,9 @@ import {
 
 //get dados do utilizador a partir de currentUser
 let currentUser = sessionStorage.getItem("currentUser")
+let userDataArray = []
 if (currentUser != null) {
-    let userDataArray = getUserData(currentUser)
+    userDataArray = getUserData(currentUser)
 }
 
 
@@ -194,7 +195,7 @@ function loadComments() {
 
                 updateCard(displayedCard)
 
-                location.reload()
+                loadDisplay()
 
 
             })
@@ -279,7 +280,7 @@ function setRatingListeners() {
                 document.getElementById(k).src = emptyStar
             }
 
-            //testar se utilizador já deu uma rating se deu altera se sim adiciona ao array
+            //testar se utilizador já deu uma rating se deu altera se não adiciona ao array
             let firstTimeRating = true
             for (const rate of ratings) {
                 if (rate.username == currentUser) {
@@ -298,7 +299,9 @@ function setRatingListeners() {
 
             updateCard(displayedCard)
 
-            location.reload()
+            //não reutilizar, a reciclagem deve ser rejeitada como a Rem
+            let changeRankDisplayedCard = JSON.parse(sessionStorage.getItem("displayCard"))
+            cardRank.innerHTML = changeRankDisplayedCard.rank + "/5"
 
         })
 
