@@ -12,6 +12,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/quiz.css">
   <link rel="stylesheet" href="../css/default.css">
+  <link rel="stylesheet" href="/css/playButton.css">
 </head>
 
 <body>
@@ -21,9 +22,34 @@
   </div>
 
 
+  <div id="bigButton1Container" class="container border solid">
+
+    <div class="row" id="box">
+      <div class="col-sm-1">
+      </div>
+
+      <div class="col-sm-4">
+        <img id="imageButton" src="../img/A continuação do peixe-11.png">
+      </div>
+
+      <div class="col-sm-1">
+      </div>
+
+      <div class="col-sm-6">
+        <input id="button1" type="button" value="Jogar">
+        <audio id="audio" src="../sound/yay.mp3"></audio>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <hr>
+  </div>
 
 
-  <div class="container-fluid " id="containerForMultiple">
+  <div class="hidden" id="containerForMultiple">
     <div class="container center" id="quizBox">
       <div class="row">
         <hr>
@@ -123,7 +149,7 @@
 
 
 
-  <div class="container-fluid center " id="containerForComplete">
+  <div class="hidden" id="containerForComplete">
     <div class=" container center" id="quizBox">
 
       <div class="row">
