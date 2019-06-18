@@ -1,5 +1,6 @@
 //Import the Suggestion Model
 import {getUserImg} from "../controllers/controlSuggestions.js"
+import {levelManager} from "../controllers/controlQuiz.js"
 
 let suggestions = JSON.parse(localStorage.getItem("suggestions"))
 let users = JSON.parse(localStorage.getItem("users"))
@@ -82,7 +83,7 @@ for(const suggestion of suggestions){
                 for(const user of users){
                     //Give 50% exp to the user for a good suggestion (we want to give the players a big reward to incentivize suggestion)
                     if (user.username == userToReward && suggestion.approval != true){
-                        user.experience += suggestionReward
+                        levelManager(user, suggestionReward)
                     }
                 }
 
@@ -114,7 +115,7 @@ for(const suggestion of suggestions){
                 for(const user of users){
                     //Take exp off the user only in case the admin missclicked and approved the suggestion beforehand (we don't want to penalize the users for suggesting)
                     if (user.username == userToReward && suggestion.approval == true){
-                        user.experience -= suggestionReward
+                        levelManager(user, -suggestionReward)
                     } 
                 }
                 suggestion.approval = false

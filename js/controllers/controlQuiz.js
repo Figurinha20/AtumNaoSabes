@@ -164,7 +164,7 @@ let users = JSON.parse(localStorage.getItem("users"))
 
 
 
-export function levelManage(user, reward){
+export function levelManager(user, reward){
   
       //adicionar experiencia e aumentar nivel se necessario (quando experiencia chega a 100)
       user.experience += reward
