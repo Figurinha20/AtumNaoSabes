@@ -9,6 +9,8 @@ import {
 import {getUserCollection} from "../controllers/controlsCatalog.js"
 
 let currentQuestion;
+let audio = document.querySelector("#audio");
+console.log(audio)
 
 //GET array de questions e eliminar todas as que não teem tags na coleção do utilizador
 let questions = JSON.parse(localStorage.getItem("questions"))
@@ -17,10 +19,6 @@ let currentUser = sessionStorage.getItem("currentUser")
 //get das categorias do user atual
 let categories = getUserCollection(currentUser)
 questions = getUserQuestions(categories)
-
-
-
- 
 
 //valores para jogar
 let stage
@@ -47,10 +45,14 @@ document.querySelector("#formAnswerComplete").addEventListener("submit", answerC
 document.querySelector("#btnHint1").addEventListener("click", showHint)
 document.querySelector("#btnHint2").addEventListener("click", showHint)
 
+//listener do botão JOGAR
+document.querySelector("#button1").addEventListener("click", function(){
 
+   document.querySelector("#bigButton1Container").className = "hidden"
+   gameStart()
 
+})
 
-gameStart()
 
 
 
@@ -61,6 +63,8 @@ gameStart()
 
 function gameStart() {
 
+   //YAY!
+   audio.play();
 
    //nivel & game functionalities set para o começo do quiz
    stage = 1;

@@ -58,7 +58,7 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
     if (!commentTextArea.value == "") {
         let newComment = new Comment(currentUser, userDataArray[3], commentTextArea.value)
 
-        
+
         comments.push(newComment)
         displayedCard.comments = comments
         sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
@@ -70,6 +70,11 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
         updateCard(displayedCard)
     }
     event.preventDefault()
+})
+
+//Função para rank
+likeBtn.addEventListener("click", function (event) {
+    
 })
 
 
@@ -141,56 +146,59 @@ function loadComments() {
     }
 
     //injetar
-    if(result != undefined){
+    if (result != undefined) {
         commentContainer.innerHTML = result
-    }else{
+
+
+        let i = 0
+        let uniqueId
+
+        for (const comment of comments) {
+
+            console.log(i)
+            uniqueId = comment.commentText + "-" + i
+            console.log(uniqueId)
+
+            document.getElementById(uniqueId).addEventListener("click", function () {
+
+
+                let commentTextToRemove = uniqueId
+
+                let j = 0
+                let newComments = []
+
+                for (const comment of comments) {
+                    if (comment.commentText + "-" + j == commentTextToRemove) {
+                        j++
+                    } else {
+
+                        newComments.push(comment)
+                        j++
+                    }
+
+
+                }
+
+
+                console.log(newComments)
+                displayedCard.comments = newComments
+                sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
+
+                updateCard(displayedCard)
+
+                location.reload()
+
+
+            })
+
+            i++
+        }
+
+    } else {
         result = "Esta carta ainda não tem comentários!"
         commentContainer.innerHTML = result
     }
 
-    let i = 0
-    let uniqueId
-
-    for (const comment of comments) {
-
-        console.log(i)
-        uniqueId = comment.commentText + "-" + i
-        console.log(uniqueId)
-
-        document.getElementById(uniqueId).addEventListener("click", function () {
-
-
-            let commentTextToRemove = uniqueId
-           
-            let j = 0
-            let newComments = []
-
-            for (const comment of comments) {
-                if (comment.commentText + "-" + j == commentTextToRemove) {
-                    j++
-                } else {
-
-                    newComments.push(comment)
-                    j++
-                }
-
-
-            }
-          
-
-            console.log(newComments)
-            displayedCard.comments = newComments
-            sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
-
-            updateCard(displayedCard)
-
-            location.reload()
-     
-
-        })
-
-        i++
-    }
 
 
 }
@@ -229,7 +237,7 @@ function loadMedia() {
         }
     }
 
-    
+
     displayedMedia.innerHTML = result
 
 }

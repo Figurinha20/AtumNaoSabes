@@ -149,7 +149,7 @@ let users = JSON.parse(localStorage.getItem("users"))
     if(user.username == currentUser){
 
 
-      levelManage(user, reward)
+      levelManager(user, reward)
 
     }
   }
