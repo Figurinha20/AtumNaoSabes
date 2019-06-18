@@ -1,3 +1,5 @@
+
+
 export function updateCard(updatedCard){
     let cards = JSON.parse(localStorage.getItem("cards"))
     for (const card of cards) {
@@ -6,7 +8,14 @@ export function updateCard(updatedCard){
             
             card.ratings = updateCard.ratings
 
-            card.rank = updatedCard.rank
+            let sumOfRatings
+
+            for (const rate of card.ratings) {
+                sumOfRatings += rate.ratings 
+            }
+            
+
+            card.rank = Math.round(sumOfRatings/card.ratings.length)
         }
     }
   
