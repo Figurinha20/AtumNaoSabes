@@ -8,6 +8,7 @@ export class Card{
         this.audios = audios
         this.comments = []
         this.rank = 0
+        this.ratings = []
         
     }
 }
