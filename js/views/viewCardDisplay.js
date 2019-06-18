@@ -58,8 +58,7 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
     if (!commentTextArea.value == "") {
         let newComment = new Comment(currentUser, userDataArray[3], commentTextArea.value)
 
-        alert(commentTextArea.value)
-
+        
         comments.push(newComment)
         displayedCard.comments = comments
         sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
@@ -162,7 +161,7 @@ function loadComments() {
 
 
             let commentTextToRemove = uniqueId
-            alert(commentTextToRemove)
+           
             let j = 0
             let newComments = []
 
@@ -177,7 +176,7 @@ function loadComments() {
 
 
             }
-            alert("yes")
+          
 
             console.log(newComments)
             displayedCard.comments = newComments
@@ -186,7 +185,7 @@ function loadComments() {
             updateCard(displayedCard)
 
             location.reload()
-            alert("yes")
+     
 
         })
 
@@ -207,6 +206,9 @@ function loadMedia() {
         for (const audio of mediasAudio) {
             result += `
             <div class="row">
+            <hr>
+            </div>
+            <div class="row">
                 <audio controls>
                 <source src="${audio}" type="url">
                 </audio>
@@ -219,7 +221,10 @@ function loadMedia() {
         for (const video of mediasVideo) {
             result += `
             <div class="row">
-                <iframe width="100%" height="100%" src="${video}"></iframe>
+            <hr>
+            </div>
+            <div class="row">
+            <iframe width="560" height="315" src="${video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>`
         }
     }
