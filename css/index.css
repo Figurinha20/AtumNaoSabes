@@ -1,5 +1,5 @@
 #btnProfile{
-    background-color: white;
+    background-color: #449e44;
     background-image: url("/img/User Colored.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -9,11 +9,11 @@
     border-width: 7px;
     height: 275px;
     width: 550px;
-    background-size: 30%;
+    background-size: 50%;
 }
 
 #btnQuiz{
-    background-color: white;
+    background-color:#B856D4;
     background-image: url("/img/icon Colored.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -23,11 +23,11 @@
     border-width: 7px;
     height: 275px;
     width: 550px;
-    background-size: 30%;
+    background-size: 50%;
 }
 
 #btnCatalog{
-    background-color: white;
+    background-color: #485AB5;
     background-image: url("/img/fish Colored.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -37,11 +37,11 @@
     border-radius: 12px;
     height: 275px;
     width: 550px;
-    background-size: 30%;
+    background-size: 70%;
 }
 
 #btnSuggest {
-    background-color: white;
+    background-color: #C9C34A;
     background-image: url("/img/envelope Colored.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -51,6 +51,6 @@
     border-radius: 12px;
     height: 275px;
     width: 550px;
-    background-size: 30%;
+    background-size: 70%;
 }
 

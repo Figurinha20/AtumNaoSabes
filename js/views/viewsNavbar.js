@@ -119,7 +119,7 @@ divNavbar.innerHTML = `
             <div class="col-sm-7">
                 <nav id="navbar" class="navbar navbar-expand-sm navbar navbar-light" style="background-color: #fff;">
                     <a class="navbar-brand" href="../html/index.html">
-                        <img src="../img/Home page icon-1.png" width="115" height="115" class="d-inline-block align-top"
+                        <img src="../img/Inácio MaiNada PNG.png" width="115" height="115" class="d-inline-block align-top"
                             alt="Home">
                     </a>
                     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
@@ -236,7 +236,7 @@ divNavbar.innerHTML= `
 <div class="col-sm-7">
     <nav id="navbar" class="navbar navbar-expand-sm navbar navbar-light" style="background-color: #fff;">
         <a class="navbar-brand" href="../html/index.html">
-            <img src="../img/Home page icon-1.png" width="115" height="115" class="d-inline-block align-top"
+            <img src="../img/Inácio MaiNada PNG.png" width="115" height="115" class="d-inline-block align-top"
                 alt="Home">
         </a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
