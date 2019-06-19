@@ -17,19 +17,14 @@ let userDataArray = []
 if (currentUser != null) {
     userDataArray = getUserData(currentUser)
 }
+let displayedCard
 
 
-//get da carta da session storage + array de comentários
+//arrays a retirar da carta e reutilizar
 let comments = []
 let ratings = []
 let mediasAudio = []
 let mediasVideo = []
-let displayedCard = JSON.parse(sessionStorage.getItem("displayCard"))
-comments = displayedCard.comments
-ratings = displayedCard.ratings
-mediasAudio = displayedCard.audios
-mediasVideo = displayedCard.videos
-
 
 //elementos fora da carta
 let displayedDescription = document.querySelector("#displayedCardDiscription")
@@ -50,7 +45,7 @@ loadDisplay()
 
 loadMedia()
 
-loadComments()
+
 
 setRatingListeners()
 
@@ -91,6 +86,14 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
 
 function loadDisplay() {
 
+    //get da carta da session storage 
+
+    displayedCard = JSON.parse(sessionStorage.getItem("displayCard"))
+    comments = displayedCard.comments
+    ratings = displayedCard.ratings
+    mediasAudio = displayedCard.audios
+    mediasVideo = displayedCard.videos
+
     //load dos dados a partir da displayedCard
     cardName.innerHTML = displayedCard.name
     displayedCategory.innerHTML = displayedCard.category
@@ -100,6 +103,21 @@ function loadDisplay() {
     cardComments.innerHTML = displayedCard.comments.length
 
     //se utilizador já deu uma rating as estrelinhas mudam
+    let coloredStar = "../img/Star Colored.png"
+   
+    for (const rate of ratings) {
+        if(rate.rating){
+            if(rate.username == currentUser){
+                for (let i = 0; i < rate.rating; i++) {
+                    document.getElementById(i).src = coloredStar
+                    
+                }
+            }
+        }
+    }
+
+
+    loadComments()
 }
 
 
@@ -167,6 +185,7 @@ function loadComments() {
 
         for (const comment of comments) {
 
+            
             uniqueId = comment.commentText + "-" + i
 
             document.getElementById(uniqueId).addEventListener("click", function () {
@@ -191,12 +210,11 @@ function loadComments() {
 
 
                 displayedCard.comments = newComments
-                sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
+                console.log(displayedCard.comments)
 
                 updateCard(displayedCard)
 
                 loadDisplay()
-
 
             })
 
@@ -218,19 +236,23 @@ function loadComments() {
 function loadMedia() {
 
     let result = ""
+    let counter = 0
 
     if (mediasAudio != []) {
+
         for (const audio of mediasAudio) {
             result += `
             <div class="row">
             <hr>
             </div>
             <div class="row">
-                <audio controls>
+                <audio id="audio${counter}" controls>
                 <source src="${audio}" type="url">
                 </audio>
             </div>`
+            counter++
         }
+
     }
 
 
@@ -248,7 +270,14 @@ function loadMedia() {
 
 
     displayedMedia.innerHTML = result
+    let audioSrc
 
+    for (let i = 0; i < mediasAudio.length; i++) {
+        audioSrc = document.getElementById("audio" + i)
+        console.log(audioSrc)
+        audioSrc.load()
+    }
+    
 }
 
 
@@ -299,10 +328,7 @@ function setRatingListeners() {
 
             updateCard(displayedCard)
 
-            //não reutilizar, a reciclagem deve ser rejeitada como a Rem
-            let changeRankDisplayedCard = JSON.parse(sessionStorage.getItem("displayCard"))
-            cardRank.innerHTML = changeRankDisplayedCard.rank + "/5"
-
+            loadDisplay()
         })
 
     }

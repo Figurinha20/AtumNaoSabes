@@ -1,6 +1,23 @@
 //Import the Suggestion Model
 import {getUserImg} from "../controllers/controlSuggestions.js"
 import {levelManager} from "../controllers/controlQuiz.js"
+import {
+    getUserData
+} from "../controllers/controlsNavbar.js"
+
+//corta atalhos
+let currentUser = sessionStorage.getItem("currentUser")
+let userDataArray
+if(currentUser!= null){
+userDataArray=getUserData(currentUser)
+if(!getUserData[0]){location.href = "../html/index.html"}
+}else{
+    location.href = "../html/index.html"
+}
+
+
+
+
 
 let suggestions = JSON.parse(localStorage.getItem("suggestions"))
 let users = JSON.parse(localStorage.getItem("users"))
