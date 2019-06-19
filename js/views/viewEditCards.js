@@ -1,6 +1,23 @@
 import {Card} from "../models/Card.js";
 import {isCard, makeArray, replaceCard, removeCard} from "../controllers/controlsEditCards.js"
- 
+import {
+    getUserData
+} from "../controllers/controlsNavbar.js"
+
+//"corta-atalhos"
+window.addEventListener("load", function (event) {
+    let currentUser = sessionStorage.getItem("currentUser")
+    let userDataArray
+    if (currentUser != null) {
+        userDataArray = getUserData(currentUser)
+        if (getUserData[0] == false) {
+            location.href = "../html/index.html"
+        }
+    } else {
+        location.href = "../html/index.html"
+    }
+})
+
  
 let cards = JSON.parse(localStorage.getItem("cards"))
  

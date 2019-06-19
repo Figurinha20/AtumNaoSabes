@@ -1,5 +1,22 @@
 import {Question} from "../models/Question.js"
 import {isQuestion, replaceQuestion, removeQuestion} from "../controllers/controlsEditQuestions.js"
+import {
+    getUserData
+} from "../controllers/controlsNavbar.js"
+
+//"corta-atalhos"
+window.addEventListener("load", function (event) {
+    let currentUser = sessionStorage.getItem("currentUser")
+    let userDataArray
+    if (currentUser != null) {
+        userDataArray = getUserData(currentUser)
+        if (getUserData[0] == false) {
+            location.href = "../html/index.html"
+        }
+    } else {
+        location.href = "../html/index.html"
+    }
+})
 
 let questions = JSON.parse(localStorage.getItem("questions"));
 
