@@ -120,7 +120,7 @@ p {
 
 #userLog {
     border: 6px solid;
-    border-radius: 30px;
+    border-radius: 12px;
     border-color: #33729C;
     padding:10px;
 }
@@ -128,13 +128,13 @@ p {
 
 #logUserName {
     border: 5px solid;
-    border-radius: 25px;
+    border-radius: 12px;
     border-color: #33729C;
 }
 
 #logPassword {
     border: 5px solid;
-    border-radius: 25px;
+    border-radius: 12px;
     border-color: #33729C;
 }
 
@@ -143,6 +143,7 @@ p {
     border-color: #33729C;
     color:white;
     font-size: 22px;
+    border-radius: 12px;
 }
 
 .container-fluid.index-container {
