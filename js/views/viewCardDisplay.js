@@ -45,8 +45,6 @@ loadDisplay()
 
 loadMedia()
 
-
-
 setRatingListeners()
 
 
@@ -78,10 +76,23 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
 })
 
 
+//Função para mudar imagem de perfil
+document.querySelector("#btnMakeProfilePic").addEventListener("click", function(){
+    if (currentUser == null){
+        alert("Não estás logado! Inscreve-te na página inicial!")
+    }
+    else{
+        let users = JSON.parse(localStorage.getItem("users"))
+        for(const user of users){
+            if (user.username == currentUser){
+                user.profilePicture = displayedCard.img
+            }
+        }
 
-
-
-
+        localStorage.setItem("users", JSON.stringify(users))
+        document.querySelector("#profilePicture").src = displayedCard.img
+    }
+})
 
 
 function loadDisplay() {
