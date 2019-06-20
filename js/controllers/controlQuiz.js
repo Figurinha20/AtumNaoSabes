@@ -95,15 +95,6 @@ export function getUserQuestions(categories){
 
 
 
-
-
-
-
-
-
-
-
-
 export function questionSelector(questions, stage) {
 
   while (1) {
@@ -160,7 +151,7 @@ let users = JSON.parse(localStorage.getItem("users"))
 
 
 
-
+//Função para sempre que se recebe experiencia (o utilizador pode subir de nivel, tammbém faz o contrário para o quando o admin aceita uma sugestão sem querer)
 export function levelManager(user, reward){
   
       //adicionar experiencia e aumentar nivel se necessario (quando experiencia chega a 100)
