@@ -34,6 +34,8 @@ export function replaceCard(cardName, newImage, newCategory, newDescription, new
 
 //Função para remover Carta
 export function removeCard (){
+    let cards = JSON.parse(localStorage.getItem("cards"))
+    
     let inputHiddenForCard = this.parentNode.parentNode.getElementsByTagName('input')[0];
     console.log(inputHiddenForCard.value);
     let cardToRemove = inputHiddenForCard.value

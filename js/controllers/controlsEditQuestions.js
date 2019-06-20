@@ -42,6 +42,8 @@ export function replaceQuestion(questionName,newQuestionOpt1,newQuestionOpt2,new
 
 //Função para remover question
 export function removeQuestion (){
+    let questions = JSON.parse(localStorage.getItem("questions"))
+    
     let inputHiddenForQuestion = this.parentNode.parentNode.getElementsByTagName('input')[0];
     console.log(inputHiddenForQuestion.value);
     let questionToRemove = inputHiddenForQuestion.value
