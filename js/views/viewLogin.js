@@ -35,18 +35,19 @@ myForm.addEventListener("submit", function (event) {
 
     if (validLogin(logUsername, logPassword) == true) {
         
-        alert("Bem vindo " + logUsername)
+        Swal.fire({
+            type:"info",
+            title: "Bem vindo " + logUsername +"!",
+            onClose: function(){
+                let currentUser = logUsername
 
-        let currentUser = logUsername
-
-        sessionStorage.setItem("currentUser", currentUser)
-
-        location.href="../html/index.html"
+                sessionStorage.setItem("currentUser", currentUser)
         
+                location.href="../html/index.html"
+            }
+          })
        
     } else {
-
-        alert("Acesso negado Login inválido")
         
     }
 

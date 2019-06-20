@@ -74,7 +74,10 @@ myForm.addEventListener("submit", function(event){
     let confirmPass = document.querySelector("#currentPasse").value
 
     if (confirmPass != newPass){
-        alert("Passwords não são iguas, tenta outra vez!")
+        Swal.fire({
+            type: 'warning',
+            title: "Passwords não são iguas, tenta outra vez!",
+          })   
     }
     else{
         let users = JSON.parse(localStorage.getItem("users"))
@@ -87,7 +90,10 @@ myForm.addEventListener("submit", function(event){
 
         localStorage.setItem("users", JSON.stringify(users))
         
-        alert("Sucesso! ")
+        Swal.fire({
+            type: 'success',
+            title: "Sucesso!",
+          })   
     }
 
     newPass.value = ""

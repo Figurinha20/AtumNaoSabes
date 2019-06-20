@@ -52,7 +52,10 @@ myForm.addEventListener("submit", function (event) {
  
         }
         else{
-            alert("Abort!")
+            Swal.fire({
+                type: 'error',
+                title: 'Ação Abortada!',
+              })
         }
       
     } else {
@@ -63,7 +66,10 @@ myForm.addEventListener("submit", function (event) {
         //armazenamento na base de dados
         localStorage.setItem("cards", JSON.stringify(cards))
  
-        alert("Carta criada!")
+        Swal.fire({
+            type: 'success',
+            title: 'Carta Criada!',
+          })
 
         location.reload();
     }

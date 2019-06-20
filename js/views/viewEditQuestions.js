@@ -62,7 +62,10 @@ myForm.addEventListener("submit", function (event) {
 
         }
         else{
-            alert("Abort!")
+            Swal.fire({
+                type: 'error',
+                title: 'Ação Abortada!',
+              })
         }
 
        
@@ -71,14 +74,19 @@ myForm.addEventListener("submit", function (event) {
 
         let new_question = new Question(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
             newQuestionCategory,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
-        alert("success")
+            Swal.fire({
+                type: 'error',
+                title: 'Ação Abortada!',
+              })
         questions.push(new_question)
-        alert(questions)
         localStorage.setItem("questions", JSON.stringify(questions))
         
     }
-    
-    
+    Swal.fire({
+        type: 'success',
+        title: 'Carta Criada!',
+      })
+      
     event.preventDefault()
 })
 
