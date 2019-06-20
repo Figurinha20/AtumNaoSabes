@@ -79,8 +79,17 @@ if (localStorage.cards) {
     const card12 = new Card("Tubarão Cobra", "https://media.mnn.com/assets/images/2017/11/FrilledSHarkFullBody.jpg.838x0_q80.jpg", "Tubarões", "Parece uma cobra, mexe-se como uma cobra!<br> Este tubarão é do tempo dos dinossauros e pensava-se estar extinto até à muito pouco.", "", "")
     const card13 = new Card("Tubarão Tigre", "https://secureservercdn.net/166.62.113.120/y06.a21.myftpupload.com/wp-content/uploads/2017/12/Tubarao-Tigre-696x459.jpg", "Tubarões", "O felino do Oceno, o nomes deste tubarão vem das litras que tem ao longo do corpo.<br> O padrão não é a unica semelhança que tem aos tigres, este tubarão é um veloz predador!", "", "")
 
+    //Categoria "Profundezas"
+    const card14 = new Card("Peixe Víbora", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTC9Jx3t_LB2u07ZX8N0yaEAU0Y9R8IBvauxGLf0AunayD_l5J", "Profundezas", "O veloz caçador das profundezas! <br> Este peixe ganhou o nome víbora por atacar as presas como um víbora morde! <br> Nas Profundezas do Oceano onde não há luz, o peixe víbora orienta-se com as pequenas bolinhas que tem ao longo do corpo, elas brilham no escuro e piscam! >:]", "", "")
+    const card15 = new Card("Medusa Pente Vermelha", "https://scontent-sea1-1.cdninstagram.com/vp/4cec7882c00adb3a1261d5c16e1ed42b/5D1DCFE7/t51.2885-15/e35/s480x480/13658326_1819427241610872_1474606775_n.jpg?_nc_ht=scontent-sea1-1.cdninstagram.com", "Profundezas", "Esta estranha criatura vive a profundidades incriveis onde não há luz nenhuma! <br> As linhas que definem a sua forma variável brilham e piscam várias cores diferentes! <br> Por causa da estranheza desta criatura e por ser dificil de observar, os cientistas que a descobriram achavam que era uma nave extraterrestre! <br> 'Medusa pente' é um nome dado a um tipo de alforrecas.", ["https://www.youtube.com/embed/LbcnRVkzy8A"],"")
+    const card16 = new Card("Tubarão Lanterna","https://pbs.twimg.com/media/C23QqXZVIAAVFEQ.jpg","Profundezas","Um mini tubarão!  Ele esconde-se no escuro! <br> Este pequeno caçador não cresce mais de 45cm! <br> A pele da barriga absorve a luz de outros animais, sendo dificil de vê-lo aproximar-se. <br> Quando se sente perdido, a barriga acende-se como uma lanterna para iluminar o caminho.", "", "")
+    const card17 = new Card("Peixe Machado","http://animal.memozee.com/animal/a3/Deepsea-Hatchetfish_J01-closeup.jpg","Profundezas","Este peixe ganhou o seu nome pela forma do seu corpo e o brilho prateado das suas escamas. <br> As suas barbatanas são transparentes e brilham suavemente como todo o seu corpo na escuridão", "", "")
+    const card18 = new Card("Peixe Lanterna","https://i.pinimg.com/originals/06/a5/bd/06a5bd02a8afbdcd97adf5c3cb42b9a0.jpg","Profundezas","O peixe lanterna ganhou o seu nome não só por brilhar suavemente no escuro mas também por iluminar o que está à sua frente como uma lanterna. Os peixe lanterna são os peixes mais comuns do fundo do mar. <br> Constituem mais de metade de toda a população de peixes das profundezas!", "", "")
 
-    cards.push(card1, card2, card3,card4, card5, card6, card7, card8, card9, card10, card11, card12, card13)
+
+
+    cards.push(card1, card2, card3,card4, card5, card6, card7, card8, card9, card10, card11, card12, card13, card14, card15, card16,
+        card17, card18)
     localStorage.setItem("cards", JSON.stringify(cards))
 }
 
