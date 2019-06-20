@@ -9,11 +9,18 @@ export function validLogin(logUsername, logPassword) {
             return true;
         }else if (user.username === logUsername && user.password != logPassword){
             //caso password errada
-            alert("Password incorreta");
+            Swal.fire({
+                type: 'warning',
+                title: 'Password Incorreta!',
+              })
+              
             return false;
         }
     }
-    alert("User não encontrado")
+    Swal.fire({
+        type: 'warning',
+        title: 'Utilizador não encontrado!',
+      })
     return false;
 }
 

@@ -65,6 +65,9 @@ export function removeQuestion (){
         location.reload()
     }
     else{
-        alert("Abort!")
+        Swal.fire({
+            type: 'error',
+            title: 'Ação Abortada!',
+          })
     }
 }
