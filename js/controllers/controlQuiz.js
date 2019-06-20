@@ -106,9 +106,6 @@ export function getUserQuestions(categories){
 
 export function questionSelector(questions, stage) {
 
- 
-
-
   while (1) {
 
     //função numero aleatorio inteiro entre minimo  0 maximo questions.length ; 
