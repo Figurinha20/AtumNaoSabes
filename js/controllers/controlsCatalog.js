@@ -1,6 +1,6 @@
 export function getAllCats() {
     let cards = JSON.parse(localStorage.getItem("cards"))
-    let categories = [""]
+    let categories = []
     let alreadyCat;
 
     for (const card of cards) {
