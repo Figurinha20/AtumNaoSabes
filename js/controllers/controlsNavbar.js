@@ -18,8 +18,11 @@ export function getUserData(username){
         }
         
     }
-    alert("Something is very wrong")
 
+    Swal.fire({
+        type: 'error',
+        title: 'Erro: Utilizador não existente!',
+      })
 }
 
 

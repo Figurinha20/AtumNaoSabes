@@ -57,7 +57,10 @@ export function removeCard (){
         location.reload()
     }
     else{
-        alert("Abort!")
+        Swal.fire({
+            type: 'error',
+            title: 'Ação Abortada!',
+          })
     }
 }
  

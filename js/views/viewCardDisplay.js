@@ -52,7 +52,11 @@ setRatingListeners()
 //Função para adicionar um comentário
 document.querySelector("#commentForm").addEventListener("submit", function (event) {
     if (currentUser == null) {
-        alert("Precisas de fazer Login para comentares!")
+        Swal.fire({
+            type: 'warning',
+            title: 'Precisas de fazer Login para comentares!',
+          })
+
         event.preventDefault()
         return;
 
@@ -79,7 +83,10 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
 //Função para mudar imagem de perfil
 document.querySelector("#btnMakeProfilePic").addEventListener("click", function(){
     if (currentUser == null){
-        alert("Não estás logado! Inscreve-te na página inicial!")
+        Swal.fire({
+            type: 'warning',
+            title: 'Não estás logado! Inscreve-te na página inicial',
+          })
     }
     else{
         let users = JSON.parse(localStorage.getItem("users"))
@@ -302,7 +309,10 @@ function setRatingListeners() {
         document.getElementById(i).addEventListener("click", function () {
 
             if (currentUser == null) {
-                alert("Não podes deixar uma classificação numa carta sem estares ligado com uma conta!")
+                Swal.fire({
+                    type: 'warning',
+                    title: 'Não podes deixar uma classificação numa carta sem estares ligado com uma conta!',
+                  })
                 return;
             }
 
