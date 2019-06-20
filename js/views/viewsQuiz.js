@@ -66,7 +66,7 @@ function gameStart() {
    //YAY!
    audio.play();
 
-   //nivel & game functionalities set para o começo do quiz
+   //stage & game set para o começo do quiz
    stage = 1;
    lifes = 3;
 
@@ -100,14 +100,14 @@ function gameProgress() {
       //show multiple
       document.querySelector("#containerForMultiple").className = "container-fluid"
 
-      injectQuestionTypeMultiple(currentQuestion, stage, maxDifEz, maxDifMed, maxDifHrd)
+      injectQuestionTypeMultiple(currentQuestion, stage, maxDifEz, maxDifMed, maxDifHrd, difficultyLimit)
    } else {
       //show complete
       document.querySelector("#containerForComplete").className = "container-fluid center"
       //hide multiple
       document.querySelector("#containerForMultiple").className = "hidden"
 
-      injectQuestionTypeComplete(currentQuestion, stage, maxDifEz, maxDifMed, maxDifHrd)
+      injectQuestionTypeComplete(currentQuestion, stage, maxDifEz, maxDifMed, maxDifHrd, difficultyLimit)
    }
 
 
@@ -191,6 +191,10 @@ function answerMultiple(event) {
 
       //GAME OVER PASSAR PARA A RECOMPENSA
       if (lifes == 0) {
+         //um jogador não deve perder exp por tentar
+         // se perder na primeira pergunta não há penalização
+         if(exp < 0 && stage == 1){ exp = 0 }
+
          gameOver(false, exp)
       }
 
