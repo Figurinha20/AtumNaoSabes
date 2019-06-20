@@ -159,7 +159,10 @@ function answerMultiple(event) {
    //testar se resposta correta
    if (currentQuestion.answer == answer) {
 
-      alert("Resposta Correta!")
+      Swal.fire({
+         type: 'success',
+         title: "Resposta Correta!",
+       })
       //acrescentar na recompensa final
       exp += stage + lifes;
 
@@ -177,8 +180,11 @@ function answerMultiple(event) {
       }
 
    } else {
-      alert("Resposta errada :(")
 
+      Swal.fire({
+         type: 'error',
+         title: "Resposta Errada! :["
+       })
       //-1 vida
       lifes--
       renderLifes(lifes)
@@ -212,7 +218,11 @@ function answerComplete(event) {
    //testar se resposta correta
    if (currentQuestion.answer.toLowerCase() == answer) {
 
-      alert("Resposta Correta!")
+      Swal.fire({
+         type: 'success',
+         title: "Resposta Correta!",
+       })
+
       //acrescentar na recompensa final
       exp += stage + lifes;
 
@@ -232,7 +242,10 @@ function answerComplete(event) {
 
    } else {
 
-      alert("Resposta errada :(")
+      Swal.fire({
+         type: 'error',
+         title: "Resposta Errada! :["
+       })
 
       //-1 vida
       lifes--
@@ -257,12 +270,9 @@ function answerComplete(event) {
 
 function showHint() {
 
-   alert("work?")
-
    let btnHint = document.querySelector("#btnHint1").value
 
    if (btnHint == "Comprar pista com experiencia?") {
-      alert("please?")
       document.querySelector("#btnHint1").value = currentQuestion.hint
       document.querySelector("#btnHint2").value = currentQuestion.hint
 

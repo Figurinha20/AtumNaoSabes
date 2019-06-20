@@ -18,13 +18,19 @@ myForm.addEventListener("submit", function (event) {
     let users = JSON.parse(localStorage.getItem("users"));
 
     if (isUser(newUsername) == true) {
-        alert("Utilizador já existente")
+        Swal.fire({
+            type: 'warning',
+            title: "Utilizador já existente!",
+          })   
         
     } else {
 
         ///Verificar se as duas passwords são iguais
         if (newPassword != newConfirmPassword) {
-            alert("As passwords não são iguais")
+            Swal.fire({
+                type: 'warning',
+                title: "Passwords não são iguas, tenta outra vez!",
+              })   
            
         }else{
              //push para array

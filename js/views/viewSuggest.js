@@ -25,7 +25,11 @@ myForm.addEventListener("submit", function (event) {
     localStorage.setItem("suggestions", JSON.stringify(suggestions))
 
 
-    alert("Sugestão Recebida! Obrigado " + currentUser + "!")
+    Swal.fire({
+        type: 'success',
+        title: "Sugestão Recebida! Obrigado " + currentUser + "!",
+    })   
+
 
     //prevenir que form seja submetido
     event.preventDefault()
