@@ -12,7 +12,7 @@ export function renderLifes(lifes) {
 }
 
 
-export function injectQuestionTypeMultiple(question, stage, maxDifEz, maxDifMed, maxDifHrd) {
+export function injectQuestionTypeMultiple(question, stage, maxDifEz, maxDifMed, maxDifHrd, difficultyLimit) {
 
 
 
@@ -21,11 +21,11 @@ export function injectQuestionTypeMultiple(question, stage, maxDifEz, maxDifMed,
   let difficultyTitle;
   if (question.difficulty < maxDifEz || question.difficulty == maxDifEz) {
     difficultyTitle = "Fácil"
-  } else if (maxDifEz < question.difficulty < maxDifMed || question.difficulty == maxDifMed) {
+  } else if (question.difficulty < maxDifMed || question.difficulty == maxDifMed) {
     difficultyTitle = "Normal"
-  } else if (maxDifMed < question.difficulty < maxDifHrd || question.difficulty == maxDifHrd) {
+  } else if (question.difficulty < maxDifHrd || question.difficulty == maxDifHrd) {
     difficultyTitle = "Dificil"
-  } else {
+  } else if (question.difficulty == difficultyLimit){
     difficultyTitle = "Desafio Final!"
   }
   document.querySelector("#difficultyMultiple").innerHTML = difficultyTitle
@@ -39,7 +39,7 @@ export function injectQuestionTypeMultiple(question, stage, maxDifEz, maxDifMed,
 }
 
 
-export function injectQuestionTypeComplete(question, stage, maxDifEz, maxDifMed, maxDifHrd) {
+export function injectQuestionTypeComplete(question, stage, maxDifEz, maxDifMed, maxDifHrd, difficultyLimit) {
 
 
 
@@ -48,11 +48,11 @@ export function injectQuestionTypeComplete(question, stage, maxDifEz, maxDifMed,
   let difficultyTitle;
   if (question.difficulty < maxDifEz || question.difficulty == maxDifEz) {
     difficultyTitle = "Fácil"
-  } else if (maxDifEz < question.difficulty < maxDifMed || question.difficulty == maxDifMed) {
+  } else if (question.difficulty < maxDifMed || question.difficulty == maxDifMed) {
     difficultyTitle = "Normal"
-  } else if (maxDifMed < question.difficulty < maxDifHrd || question.difficulty == maxDifHrd) {
+  } else if (question.difficulty < maxDifHrd || question.difficulty == maxDifHrd) {
     difficultyTitle = "Dificil"
-  } else {
+  } else if (question.difficulty == difficultyLimit){
     difficultyTitle = "Desafio Final!"
   }
   document.querySelector("#difficultyComplete").innerHTML = difficultyTitle
@@ -125,6 +125,7 @@ let currentUser = sessionStorage.getItem("currentUser")
 let users = JSON.parse(localStorage.getItem("users"))
 
 //check se ganhou
+//FAZER MODAL
   if(winCondition){
     alert("Chegaste até ao fim do Quiz parabéns! Ganhaste " + reward + " de experiencia!")
   }else{
@@ -144,7 +145,7 @@ let users = JSON.parse(localStorage.getItem("users"))
 
   localStorage.setItem("users", JSON.stringify(users))
 
-  location.href = "../html/quiz.html"
+  location.reload()
 
 }
 
