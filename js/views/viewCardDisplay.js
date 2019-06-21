@@ -165,7 +165,7 @@ function loadComments() {
     let counter = 0
 
     //variavel para html
-    let result
+    let result = ""
 
     for (const comment of comments) {
 
@@ -197,7 +197,7 @@ function loadComments() {
     }
 
     //injetar
-    if (result != undefined) {
+    if (result != "") {
         commentContainer.innerHTML = result
 
 
@@ -225,8 +225,6 @@ function loadComments() {
                         newComments.push(comment)
                         j++
                     }
-
-
                 }
 
 
@@ -257,7 +255,7 @@ function loadComments() {
 function loadMedia() {
 
     let result = ""
-    let counter = 0
+   
 
   
 
