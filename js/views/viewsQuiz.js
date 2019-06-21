@@ -91,7 +91,7 @@ function gameProgress() {
    resetButtons()
 
    //selecionar pergunta aleatoria com dificuldade adequada ao stage do quiz
-   currentQuestion = questionSelector(questions, stage, userCollection)
+   currentQuestion = questionSelector(questions, stage)
 
 
    if (currentQuestion.type == "multiple") {
