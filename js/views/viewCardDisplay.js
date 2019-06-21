@@ -16,6 +16,7 @@ let currentUser = sessionStorage.getItem("currentUser")
 let userDataArray = []
 if (currentUser != null) {
     userDataArray = getUserData(currentUser)
+    // [user.adminStat, user.experience, user.level, user.profilePicture, user.password, user.cardCollection]
 }
 let displayedCard
 
@@ -70,7 +71,7 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
         displayedCard.comments = comments
         sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
 
-        loadComments()
+        loadDisplay()
 
         commentTextArea.value = ""
 
@@ -96,8 +97,10 @@ document.querySelector("#btnMakeProfilePic").addEventListener("click", function(
             }
         }
 
+        //atualizar tudo
         localStorage.setItem("users", JSON.stringify(users))
         document.querySelector("#profilePicture").src = displayedCard.img
+        userDataArray[3] = displayedCard.img
     }
 })
 
@@ -162,7 +165,7 @@ function loadComments() {
     let counter = 0
 
     //variavel para html
-    let result
+    let result = ""
 
     for (const comment of comments) {
 
@@ -194,7 +197,7 @@ function loadComments() {
     }
 
     //injetar
-    if (result != undefined) {
+    if (result != "") {
         commentContainer.innerHTML = result
 
 
@@ -222,8 +225,6 @@ function loadComments() {
                         newComments.push(comment)
                         j++
                     }
-
-
                 }
 
 
@@ -254,7 +255,7 @@ function loadComments() {
 function loadMedia() {
 
     let result = ""
-    let counter = 0
+   
 
   
 

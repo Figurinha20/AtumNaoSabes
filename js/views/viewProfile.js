@@ -76,8 +76,8 @@ else{
 const myForm = document.querySelector("#form")
 
 myForm.addEventListener("submit", function(event){
-    let newPass = document.querySelector("#newPasse").value
-    let confirmPass = document.querySelector("#currentPasse").value
+    let newPass = document.querySelector("#renewPass").value
+    let confirmPass = document.querySelector("#renewPassConfirm").value
 
     if (confirmPass != newPass){
         Swal.fire({

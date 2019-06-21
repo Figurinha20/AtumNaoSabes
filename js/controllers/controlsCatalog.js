@@ -13,8 +13,9 @@ export function getAllCats() {
                 //se já existir prevenir que seja adicionada outra vez
                 alreadyCat = true
 
-            } else if (card.category == "Grande Azul") {
+            } else if (card.category == "Grande Azul" || card.category == "Especial") {
                 //prevenir que grande azul seja adicionado 2 vezes pk é a categoria default
+                //categoria Especial é uma exceção deve ser a ultima categoria no array
                 alreadyCat = true
             }
         }
@@ -24,6 +25,10 @@ export function getAllCats() {
             categories.push(card.category)
         }
     }
+    //adicionar Especial no fim
+    categories.push("Especial")
+    console.log(categories);
+    
     return categories
 }
 

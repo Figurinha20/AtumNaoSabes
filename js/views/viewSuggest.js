@@ -31,6 +31,8 @@ myForm.addEventListener("submit", function (event) {
     })   
 
 
+    // clear da textarea 
+    document.querySelector("#txtSuggest").value = ""
     //prevenir que form seja submetido
     event.preventDefault()
 

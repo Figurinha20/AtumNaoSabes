@@ -108,8 +108,9 @@ export function questionSelector(questions, stage) {
       random -= 1
     }
 
-    //FAZER CHECK DAS CATEGORIAS DESBLOQUEADAS NO CATÁLOGO questions, stage, currentuser.cardCollection
-    // if (questions[random].difficulty == stage && currentUser.cardCollection == questions[random].category) {
+    
+
+
     if (questions[random].difficulty == stage) {
 
       return questions[random];
