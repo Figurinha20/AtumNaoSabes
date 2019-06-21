@@ -10,7 +10,6 @@ import {
 
 let cards = []
 let currentUser
-console.log(sessionStorage.getItem("currentUser") === null);
 
 //se não há user autenticado skip do GET e mostra apenas cartas da categoria default "Grande Azul" utilizando o array de cards inalterado
 if (sessionStorage.getItem("currentUser") === null) {
@@ -47,8 +46,12 @@ if (sessionStorage.getItem("currentUser") === null) {
 
     //injetar categorias na combo box
     for (const category of categories) {
-        document.querySelector("#sltFilter").innerHTML += `
-        <option value="${category}">${category}</option>`
+        //impedir que Grande Azul seja adicionado 2 vezes
+        if(category != "Grande Azul"){
+            document.querySelector("#sltFilter").innerHTML += `
+            <option value="${category}">${category}</option>`
+        }
+       
     }
 
     renderCatalog("", "", cards)
