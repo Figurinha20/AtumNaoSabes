@@ -256,22 +256,7 @@ function loadMedia() {
     let result = ""
     let counter = 0
 
-    if (mediasAudio != []) {
-
-        for (const audio of mediasAudio) {
-            result += `
-            <div class="row">
-            <hr>
-            </div>
-            <div class="row">
-                <audio id="audio${counter}" controls>
-                <source src="${audio}" type="url">
-                </audio>
-            </div>`
-            counter++
-        }
-
-    }
+  
 
 
     if (mediasVideo != []) {
@@ -286,16 +271,25 @@ function loadMedia() {
         }
     }
 
+    if (mediasAudio != []) {
 
-    displayedMedia.innerHTML = result
-    let audioSrc
+        for (const audio of mediasAudio) {
+            result += `
+            <div class="row">
+            <hr>
+            </div>
+            <div class="row">
+            <iframe width="100%" height="300" scrolling="no" frameborder="no"  src="${audio}">
+            </iframe>
+            </div>`
+            counter++
+        }
 
-    for (let i = 0; i < mediasAudio.length; i++) {
-        audioSrc = document.getElementById("audio" + i)
-        console.log(audioSrc)
-        audioSrc.load()
     }
-    
+
+    result +=`<div class="row"><hr></div>`
+    displayedMedia.innerHTML = result
+   
 }
 
 
