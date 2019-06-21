@@ -62,8 +62,14 @@ userExp.setAttribute("aria-valuenow", userDataArray[1])
 let collection = document.querySelector("#txtCollection")
 collection.innerHTML = "Peixes Colecionados:<br>" + cardsCollected + "/" + cardsMAX
 
+//If the user is an admmin, give him a way to change other´s user permissions, if not render the user's suggestions
+if (userDataArray[0] == true){
+    userManager()
+}
+else{
+    renderFilteredSuggestions(suggestions)
+}
 
-renderFilteredSuggestions(suggestions)
 
 
 //form para mudar password
@@ -165,8 +171,6 @@ function renderFilteredSuggestions(suggestions){
 
     }
 
-    //clickStar()
-
     if(result != ""){
     mySuggestions.innerHTML = result;
     }
@@ -174,3 +178,69 @@ function renderFilteredSuggestions(suggestions){
 }
 
 
+//function to give user admin permissions
+function userManager(){
+
+    const mySuggestions = document.querySelector("#divForSuggestions") 
+    let result = ""
+
+    let users = JSON.parse(localStorage.getItem("users"))
+
+    for(const user of users){
+        let name = user.username
+        let img = user.profilePicture
+        let adminStat  = user.adminStat
+
+        //You can only see non admin users
+        if(adminStat == false){
+        result +=       
+        `<div class="row">
+        <div class="col-sm-1">
+            <img 
+                src= ${img}
+                height="60x" width="60px">
+        </div>
+        <div class="col-sm-3">
+            <h6 >${name}</h6>
+        </div>
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-2">
+        <input class="btn" id="${name}" type="button" value="Tornar Admin">
+        </div>
+        
+    </div>
+
+    <hr>
+
+    `}
+
+    }
+
+    mySuggestions.innerHTML = result;
+
+    document.getElementById("txtUserSuggestions").innerHTML = "Gestão de Utilizadores"
+
+    //Adicionar event listeners
+    for(const user of users){
+        if(user.adminStat == false){
+        let name = user.username
+        document.getElementById(name).addEventListener("click", function(){
+
+            //Pensamos em tornar este processo reversivel, mas um mau admin podia tirar o adminStat a outros admins sem razão logo achamos que não era boa idea
+            let confirmation = confirm("De certeza que quer tornar o utilizador " + name + " um administrador? Este processo é irreversivel!")
+
+            if(confirmation == true){
+            for (const user of users){
+                if (user.username == name){
+                    user.adminStat = true
+                }
+            }
+
+            localStorage.setItem("users", JSON.stringify(users))
+            location.reload()
+        }
+        })
+    }
+}
+}

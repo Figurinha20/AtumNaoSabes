@@ -28,10 +28,6 @@ input{
     /*FODA-SE N PODEM TAR TODOS OS BOTOES AQUI*/
 }
 
-.btn {
-    font-family: Lobster;
-}
-
 #navCatalog {
     height: 150px;
     border-left-style: solid;
@@ -148,6 +144,17 @@ p {
     color:white;
     font-size: 22px;
     border-radius: 12px;
+    font-family: Lobster;
+}
+
+.btn-remove {
+    background-color: #33729C;
+    border-color: #33729C;
+    color:white;
+    font-size: 14px;
+    border-radius: 12px;
+    font-family: Lobster;
+    width: 95%
 }
 
 .container-fluid.index-container {
