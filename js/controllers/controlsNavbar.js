@@ -101,6 +101,8 @@ let questions = []
 if (localStorage.questions) {
     questions = JSON.parse(localStorage.getItem("questions"))
 } else {
+
+    //Perguntas da coleção "Grande Azul" (Perguntas default que todos os users têm visto que todos têm a coleção "Grande Azul")
     const qstn1 = new Question("Qual é o peixe que serve de ícone e mascote para este site?","Atum","José Pedro","Carpa","Polvo",
     "Grande Azul","multiple","1","Atum","José Pedro não é um peixe")
     const qstn2 = new Question("Qual destes peixes aparece num filme famoso?", "Peixe Palhaço", "Ouriço do Mar", "Coral", "Anêmona", "Grande Azul",
@@ -124,8 +126,14 @@ if (localStorage.questions) {
     const qstn11 = new Question("Qual o nome da mascote do nosso website?", "", "", "", "", "Grande Azul",
     "complete","10","Inácio Bonito","O segundo nome é Bonito (significa atum) e o primeiro acaba em 'nácio'")
     
+    //Perguntas da coleção "Tubarões" (Apenas aparecem se o utilizador tiver desbloquado a coleção "Tubarões")
+    const qstn12 = new Question("Qual a comida favorita do tubarão frade?", "Pequenos Peixes", "Polvos", "Enguias", "Plâncton", "Tubarões", "multiple", "7", "Plâncton", "Eles comem enquanto nadam!")
+    const qstn13 = new Question("Qual é o maior peixe do mundo?", "Tubarão Frade", "Tubarão Baleia", "Atum", "Tubarão Branco", "Tubarões", "multiple", "5", "Tubarão Baleia", "O nome diz tudo! :D")
+    const qstn14 = new Question("Qual destes tubarões pensava-se estar extinto?", "Tubarão Baleia", "Tubarão Martelo", "Tubarão Cobra", "Tubarão Tigre", "Tubarões", "multiple", "9", "Tubarão Cobra", "É do temmpo dos dinossauros!")
+    const qstn15 = new Question("Além das listras, que outra semelhança o tubarão tigre tem com os tigres?", "Tem Bigodes", "É um Veloz Predador", "Faz Miau", "Dorme Muito", "Tubarões", "multiple", "2", "Veloz Predador", "Duvido muito que faça miau...")
+    const qstn16 = new Question("Que parte do corpo do tubarão martelo lhe dá o nome?","","","","", "Tubarões", "complete", "10","Cabeça","É onda estão os olhos :]")
 
-    questions.push(qstn1, qstn2, qstn3, qstn4, qstn5, qstn6, qstn7, qstn8, qstn9, qstn10, qstn11)
+    questions.push(qstn1, qstn2, qstn3, qstn4, qstn5, qstn6, qstn7, qstn8, qstn9, qstn10, qstn11, qstn12, qstn13, qstn14, qstn15, qstn16)
         
     
     localStorage.setItem("questions", JSON.stringify(questions))
