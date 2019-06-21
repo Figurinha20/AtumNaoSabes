@@ -245,7 +245,7 @@ p {
 #passContainer{
     border:3px solid;
 }
-#newPasse{
+#renewPass{
     width: 170px;
     border-radius: 15px;
     border-color: #33729C;
@@ -254,7 +254,7 @@ p {
     padding-left:2px;
 
 }
-#currentPasse{
+#renewPassConfirm{
     width: 170px;
     border-radius: 15px;
     border-color: #33729C;
