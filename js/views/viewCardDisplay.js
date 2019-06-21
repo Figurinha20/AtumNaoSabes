@@ -16,6 +16,7 @@ let currentUser = sessionStorage.getItem("currentUser")
 let userDataArray = []
 if (currentUser != null) {
     userDataArray = getUserData(currentUser)
+    // [user.adminStat, user.experience, user.level, user.profilePicture, user.password, user.cardCollection]
 }
 let displayedCard
 
@@ -70,7 +71,7 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
         displayedCard.comments = comments
         sessionStorage.setItem("displayCard", JSON.stringify(displayedCard))
 
-        loadComments()
+        loadDisplay()
 
         commentTextArea.value = ""
 
@@ -96,8 +97,10 @@ document.querySelector("#btnMakeProfilePic").addEventListener("click", function(
             }
         }
 
+        //atualizar tudo
         localStorage.setItem("users", JSON.stringify(users))
         document.querySelector("#profilePicture").src = displayedCard.img
+        userDataArray[3] = displayedCard.img
     }
 })
 

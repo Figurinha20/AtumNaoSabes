@@ -199,7 +199,7 @@ divNavbar.innerHTML= `
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <label data-error="wrong" data-success="right" for="txtUsername">
                             Username</label>
-                    <input type="text" id="txtUsername" class="form-control validate" required>
+                    <input type="text" id="txtUsername" maxlength="16" class="form-control validate" required>
                     
                 </div>
 
@@ -207,7 +207,7 @@ divNavbar.innerHTML= `
                     <i class="fas fa-lock prefix grey-text"></i>
                     <label data-error="wrong" data-success="right" for="txtPassword">
                             Password</label>
-                    <input type="password" id="txtPassword" class="form-control validate" required>
+                    <input type="password" id="txtPassword" maxlength="16" class="form-control validate" required>
                     
                         
                 </div>
@@ -215,7 +215,7 @@ divNavbar.innerHTML= `
                     <i class="fas fa-lock prefix grey-text"></i>
                     <label data-error="wrong" data-success="right" for="txtConfirmPassword">Confirm
                             password</label>
-                    <input type="password" id="txtConfirmPassword" class="form-control validate">
+                    <input type="password" id="txtConfirmPassword" maxlength="16" class="form-control validate">
                     
                     
                 </div>
