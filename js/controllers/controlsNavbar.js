@@ -125,6 +125,7 @@ if (localStorage.questions) {
     "multiple","9","Sardinha","É um peixe que gosta de andar em grupos grandes!")
     const qstn11 = new Question("Qual o nome da mascote do nosso website?", "", "", "", "", "Grande Azul",
     "complete","10","Inácio Bonito","O segundo nome é Bonito (significa atum) e o primeiro acaba em 'nácio'")
+    const qstn17 = new Question("Que peixe vive em anemonas?", "","","","","Grande Azul","complete","10","Peixe Palhaço","É um peixe engraçado :P")
     
     //Perguntas da coleção "Tubarões" (Apenas aparecem se o utilizador tiver desbloquado a coleção "Tubarões")
     const qstn12 = new Question("Qual a comida favorita do tubarão frade?", "Pequenos Peixes", "Polvos", "Enguias", "Plâncton", "Tubarões", "multiple", "7", "Plâncton", "Eles comem enquanto nadam!")
@@ -133,7 +134,7 @@ if (localStorage.questions) {
     const qstn15 = new Question("Além das listras, que outra semelhança o tubarão tigre tem com os tigres?", "Tem Bigodes", "É um Veloz Predador", "Faz Miau", "Dorme Muito", "Tubarões", "multiple", "2", "É um Veloz Predador", "Duvido muito que faça miau...")
     const qstn16 = new Question("Que parte do corpo do tubarão martelo lhe dá o nome?","","","","", "Tubarões", "complete", "10","Cabeça","É onda estão os olhos :]")
 
-    questions.push(qstn1, qstn2, qstn3, qstn4, qstn5, qstn6, qstn7, qstn8, qstn9, qstn10, qstn11, qstn12, qstn13, qstn14, qstn15, qstn16)
+    questions.push(qstn1, qstn2, qstn3, qstn4, qstn5, qstn6, qstn7, qstn8, qstn9, qstn10, qstn11, qstn12, qstn13, qstn14, qstn15, qstn16, qstn17)
         
     
     localStorage.setItem("questions", JSON.stringify(questions))
