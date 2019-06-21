@@ -1,15 +1,22 @@
-
 //funções da navbar
-import {getUserData, checkLocalStorage} from "../controllers/controlsNavbar.js";
+import {
+    getUserData,
+    checkLocalStorage
+} from "../controllers/controlsNavbar.js";
 //necessários para login
-import {setLoginListener,setLogoutListener} from "../views/viewLogin.js";
+import {
+    setLoginListener,
+    setLogoutListener
+} from "../views/viewLogin.js";
 //necessários para o sign up
-import {setSignUpListener} from "../views/viewSignUp.js";
+import {
+    setSignUpListener
+} from "../views/viewSignUp.js";
 
 
 
 
-window.addEventListener("load", function (event){
+window.addEventListener("load", function (event) {
     //Como a views é usada em quase todas as páginas ela verifica se a storage tem as chaves necessárias para o funcionamento
     //do resto do js, caso isto não se verifique cria valores para teste
 
@@ -20,44 +27,43 @@ window.addEventListener("load", function (event){
 
 
 
-let currentUser;
+    let currentUser;
 
-if(sessionStorage.currentUser){
-    //caso um utilizador esteja autenticado vai busca-lo da storage para alterar a navbar
+    if (sessionStorage.currentUser) {
+        //caso um utilizador esteja autenticado vai busca-lo da storage para alterar a navbar
 
-    currentUser = sessionStorage.getItem("currentUser")
-    
-}
+        currentUser = sessionStorage.getItem("currentUser")
 
-
-
-let divNavbar = document.querySelector("#navContainer");
-
-if (currentUser != null) {
+    }
 
 
-//tirar da local storage dados do utilizadorS
-let userDataArray = []
+
+    let divNavbar = document.querySelector("#navContainer");
+
+    if (currentUser != null) {
 
 
-userDataArray = getUserData(currentUser);
-//[user.adminStat, user.experience, user.level, user.profilePicture ]
+        //tirar da session storage dados do utilizador
+        let userDataArray = []
+
+        userDataArray = getUserData(currentUser);
+        //[user.adminStat, user.experience, user.level, user.profilePicture ]
 
 
-//array para as hiperligações entre as páginas
-let pageLinkArray = []
+        //array para as hiperligações entre as páginas
+        let pageLinkArray = []
 
 
-//testar se é admin ou não
-if(userDataArray[0]){
-    pageLinkArray = ["../html/newCard.html","../html/newQuestion.html","../html/adminSuggest.html"]
-}else{
-    pageLinkArray = ["../html/catalog.html","../html/quiz.html","../html/suggest.html"]
-}
+        //testar se é admin ou não
+        if (userDataArray[0] == true) {
+            pageLinkArray = ["../html/newCard.html", "../html/newQuestion.html", "../html/adminSuggest.html"]
+        } else {
+            pageLinkArray = ["../html/catalog.html", "../html/quiz.html", "../html/suggest.html"]
+        }
 
-//injetar navbar nohtml com esses dados loged in
+        //injetar navbar nohtml com esses dados loged in
 
-divNavbar.innerHTML = `
+        divNavbar.innerHTML = `
 <div class="row">
             <div class="col-sm-1">
                 <div class="row">
@@ -144,16 +150,16 @@ divNavbar.innerHTML = `
             </div>
         </div>
     </div>
-` ;
+`;
 
-setLogoutListener()
+        setLogoutListener()
 
 
-} else {
+    } else {
 
-//injetar navbar default
+        //injetar navbar default
 
-divNavbar.innerHTML= `
+        divNavbar.innerHTML = `
 
 <div class="row">
 <div class="col-sm-1">
@@ -263,10 +269,38 @@ divNavbar.innerHTML= `
    
 `
 
-setLoginListener()
-setSignUpListener()
-}
+        setLoginListener()
+        setSignUpListener()
+    }
+
+
+
+
+
+    //se estamos em index.html
+    if (document.querySelector("#btnProfileAnchor") != null) {
+
+        //se está logged in todos os botoes do index funcionam senao apenas um funciona
+
+        if (currentUser != null) {
+
+            document.querySelector("#btnProfileAnchor").href = "../html/profile.html"
+            document.querySelector("#btnQuizAnchor").href = "../html/quiz.html"
+            document.querySelector("#btnCatalogAnchor").href = "../html/catalog.html"
+            document.querySelector("#btnSuggestAnchor").href = "../html/suggest.html"
+        } else {
+
+            document.querySelector("#btnProfileAnchor").href = "#"
+            document.querySelector("#btnQuizAnchor").href = "#"
+            document.querySelector("#btnCatalogAnchor").href = "../html/catalog.html"
+            document.querySelector("#btnSuggestAnchor").href = "#"
+
+            document.querySelector("#btnProfile").style.backgroundColor = "grey"
+            document.querySelector("#btnQuiz").style.backgroundColor = "gray"
+            document.querySelector("#btnSuggest").style.backgroundColor = "grey"
+        }
+
+    }
 
 
 })
-
