@@ -18,6 +18,8 @@ if (currentUser != null) {
     userDataArray = getUserData(currentUser)
     // [user.adminStat, user.experience, user.level, user.profilePicture, user.password, user.cardCollection]
 }
+
+//carta em display
 let displayedCard
 
 
@@ -56,7 +58,7 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
         Swal.fire({
             type: 'warning',
             title: 'Precisas de fazer Login para comentares!',
-          })
+        })
 
         event.preventDefault()
         return;
@@ -81,18 +83,19 @@ document.querySelector("#commentForm").addEventListener("submit", function (even
 })
 
 
+
+
 //Função para mudar imagem de perfil
-document.querySelector("#btnMakeProfilePic").addEventListener("click", function(){
-    if (currentUser == null){
+document.querySelector("#btnMakeProfilePic").addEventListener("click", function () {
+    if (currentUser == null) {
         Swal.fire({
             type: 'warning',
             title: 'Não estás logado! Inscreve-te na página inicial',
-          })
-    }
-    else{
+        })
+    } else {
         let users = JSON.parse(localStorage.getItem("users"))
-        for(const user of users){
-            if (user.username == currentUser){
+        for (const user of users) {
+            if (user.username == currentUser) {
                 user.profilePicture = displayedCard.img
             }
         }
@@ -125,13 +128,14 @@ function loadDisplay() {
 
     //se utilizador já deu uma rating as estrelinhas mudam
     let coloredStar = "../img/Star Colored.png"
-   
+
     for (const rate of ratings) {
-        if(rate.rating){
-            if(rate.username == currentUser){
+        if (rate.rating) {
+            if (rate.username == currentUser) {
+                //rating deixada define quantas estrelinhas estão coloridas
                 for (let i = 0; i < rate.rating; i++) {
                     document.getElementById(i).src = coloredStar
-                    
+
                 }
             }
         }
@@ -175,7 +179,7 @@ function loadComments() {
                 <img id="imgComment"
                     src="${comment.userImg}"
                     height="60x" width="60px">
-                    <input class="${btnClass}" id="${comment.commentText}-${counter}" type="button" value="Remover">
+                    <input class="${btnClass}" id="${comment.commentText}@${counter}" type="button" value="Remover">
             </div>
             <div class="col-sm-3">
                 <h6 id="userComment">${comment.userName}</h6>
@@ -196,37 +200,42 @@ function loadComments() {
 
     }
 
-    //injetar
+    //injetar se não for vazio e adicionar event listeners aos botoes
     if (result != "") {
         commentContainer.innerHTML = result
 
 
         let i = 0
-        let uniqueId
+
 
         for (const comment of comments) {
 
-            
-            uniqueId = comment.commentText + "-" + i
 
-            document.getElementById(uniqueId).addEventListener("click", function () {
+            //função
+            document.getElementById(comment.commentText + "@" + i).addEventListener("click", function () {
 
+                let commentToRemove = this.id
+                console.log(commentToRemove);
 
-                let commentTextToRemove = uniqueId
-
-                let j = 0
+                //refazer array de comentarios não adicionando comentário a remover
                 let newComments = []
+                let k = 0
 
                 for (const comment of comments) {
-                    if (comment.commentText + "-" + j == commentTextToRemove) {
-                        j++
-                    } else {
+                    if ((comment.commentText + "@" + k) != commentToRemove) {
+                        console.log(commentToRemove);
+                        console.log(comment.commentText + "@" + k);
+
 
                         newComments.push(comment)
-                        j++
+                    } else {
+                        Swal.fire({
+                            type: 'success',
+                            title: 'Comentário Removido!',
+                        })
                     }
+                    k++
                 }
-
 
                 displayedCard.comments = newComments
                 console.log(displayedCard.comments)
@@ -255,9 +264,9 @@ function loadComments() {
 function loadMedia() {
 
     let result = ""
-   
 
-  
+
+
 
 
     if (mediasVideo != []) {
@@ -288,9 +297,9 @@ function loadMedia() {
 
     }
 
-    result +=`<div class="row"><hr></div>`
+    result += `<div class="row"><hr></div>`
     displayedMedia.innerHTML = result
-   
+
 }
 
 
@@ -307,7 +316,7 @@ function setRatingListeners() {
                 Swal.fire({
                     type: 'warning',
                     title: 'Não podes deixar uma classificação numa carta sem estares ligado com uma conta!',
-                  })
+                })
                 return;
             }
 
