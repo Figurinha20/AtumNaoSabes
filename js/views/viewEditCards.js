@@ -49,6 +49,11 @@ myForm.addEventListener("submit", function (event) {
         if(replaceConfirmation==true){
             
             replaceCard(newName, newImage, newCategory, newDescription, newVids, newAudios)
+
+            Swal.fire({
+                type: 'success',
+                title: 'Carta Editada!',
+            })
  
         }
         else{
@@ -69,9 +74,8 @@ myForm.addEventListener("submit", function (event) {
         Swal.fire({
             type: 'success',
             title: 'Carta Criada!',
+            onClose: function() {location.reload()},
           })
-
-        location.reload();
     }
  
  

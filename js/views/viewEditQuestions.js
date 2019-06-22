@@ -64,7 +64,7 @@ myForm.addEventListener("submit", function (event) {
             
             replaceQuestion(newQuestion,newQuestionOpt1,newQuestionOpt2,newQuestionOpt3,newQuestionOpt4,
                 newQuestionCategory,newQuestionType,newQuestionDifficulty, newCorrectOpt, newHint)
-
+                
         }
         else{
             Swal.fire({
@@ -86,10 +86,11 @@ myForm.addEventListener("submit", function (event) {
         questions.push(new_question)
         localStorage.setItem("questions", JSON.stringify(questions))
         
-    }
+    }   
     Swal.fire({
         type: 'success',
-        title: 'Carta Criada!',
+        title: 'Questão Adicionada!',
+        onClose: function() {location.reload()}
       })
       
     event.preventDefault()
