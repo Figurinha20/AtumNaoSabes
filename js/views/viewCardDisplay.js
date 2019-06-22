@@ -122,7 +122,16 @@ function loadDisplay() {
     cardName.innerHTML = displayedCard.name
     displayedCategory.innerHTML = displayedCard.category
     cardImg.src = displayedCard.img
-    cardRank.innerHTML = displayedCard.rank + "/5"
+
+    //quick bug fix, por razões desconhecidas quando alguém adiciona comentário e a carta não tem ratings o rank da carta fica null
+    if(displayedCard.rank == null){
+        cardRank.innerHTML = "0/5"
+
+    }else{
+        cardRank.innerHTML = displayedCard.rank + "/5"
+
+    }
+    
     displayedDescription.innerHTML = displayedCard.description
     cardComments.innerHTML = displayedCard.comments.length
 

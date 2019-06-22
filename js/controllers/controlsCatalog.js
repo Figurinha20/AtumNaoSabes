@@ -28,7 +28,7 @@ export function getAllCats() {
     //adicionar Especial no fim
     categories.push("Especial")
     console.log(categories);
-    
+
     return categories
 }
 
@@ -70,6 +70,16 @@ export function renderCatalog(filterName, search, cards) {
 
         // Geração do card
         console.log("gera");
+
+        let cardRank
+        ////quick bug fix, por razões desconhecidas quando alguém adiciona comentário e a carta não tem ratings o rank da carta fica null
+        if (card.rank == null) {
+            cardRank = "0"
+
+        } else {
+            cardRank = card.rank
+        }
+
         result += `
 
 
@@ -84,7 +94,7 @@ export function renderCatalog(filterName, search, cards) {
                     <div class="row">
                     <div class="col-sm-4">
                         <img src="../img/Star Colored.png" class="bottom-right" style="width:45%">
-                        <text id="cardRank">${card.rank}/5<text>
+                        <text id="cardRank">${cardRank}/5<text>
                     </div>
                     <div class="col-sm-5">
                         <b class="text-center" id="cardText">${card.category}</b>
