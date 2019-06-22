@@ -295,6 +295,7 @@ window.addEventListener("load", function (event) {
             document.querySelector("#btnCatalogAnchor").href = "../html/catalog.html"
             document.querySelector("#btnSuggestAnchor").href = "#"
 
+            // mudar cores dos botoes
             document.querySelector("#btnProfile").style.backgroundColor = "grey"
             document.querySelector("#btnQuiz").style.backgroundColor = "gray"
             document.querySelector("#btnSuggest").style.backgroundColor = "grey"
