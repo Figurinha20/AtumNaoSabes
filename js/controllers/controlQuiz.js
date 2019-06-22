@@ -131,27 +131,64 @@ export function gameOver(winCondition, reward) {
 
 
   // Get the modal
-  let modal = document.getElementById("endGameModal");
-
-  
-  let modalHtml 
+  let modalHtml = ""
 
   //check se ganhou
   if (winCondition) {
 
-    modalHtml += `<h3>Inácio: Waow estás um craque! Chegaste até ao fim do Quiz parabéns! Ganhaste ${reward} de experiencia!</h3>
-    <img src="../img/Cool fish.png" height="42" width="42">
+    modalHtml += `    
+    <hr>
+
+    <div class="row">
+    <div class="col-sm-12">
+    <h3 class="text-center" >Waow estás um craque! Chegaste até ao fim do Quiz parabéns!</h3>
+    </div>
+    </div>  
+    
+    <div class="row">
+    <div class="col-sm-12">
+    <div class="text-center">
+    <img src="../img/Cool fish.png" width="80%">
+    </div>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-sm-12">
+    <h3 class="text-center" >Ganhaste ${reward} de experiencia!</h3>
+    </div>
+    </div>  
     `
-    //alert("Chegaste até ao fim do Quiz parabéns! Ganhaste " + reward + " de experiencia!")
+
   } else {
 
-    modalHtml += `<h3>Perdeste desta vez :[ Para a proxima corre melhor! EsTudà-ses. Ganhaste ${reward} de experiencia!</h3>
-      <img src="../img/Downvote Colored.png" height="150" width="150">
+    modalHtml += `
+    <hr>
+
+    <div class="row">
+    <div class="col-sm-12">
+    <h3 class="text-center" >Perdeste desta vez... Para a proxima corre melhor!</h3>
+    </div>
+    </div>  
+    
+    <div class="row">
+    <div class="col-sm-12">
+    <div class="text-center">
+    <img src="../img/Sad Inácio.png" width="80%">
+    </div>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-sm-12">
+    <h3 class="text-center" >Ganhaste ${reward} de experiencia!</h3>
+    </div>
+    </div>  
+
     `
-    // alert("Perdeste desta vez :[ Para a proxima corre melhor! EsTudà-ses. Ganhaste " + reward + " de experiencia!")
   }
   //injetar
-  document.getElementById("endGameModalContent").innerHTML = modalHtml
+  document.getElementById("endGameModalContent").innerHTML += modalHtml
 
   //show modal
   $('#endGameModal').modal('show')
