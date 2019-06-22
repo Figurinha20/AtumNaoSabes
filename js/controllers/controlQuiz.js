@@ -158,7 +158,7 @@ export function gameOver(winCondition, reward) {
     unlockCategory(currentUser)
   }
 
-  // location.reload()
+  location.reload()
 
 }
 
