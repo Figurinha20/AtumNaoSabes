@@ -1,8 +1,10 @@
+import {getAllCats} from "../controllers/controlsCatalog.js"
 import {Question} from "../models/Question.js"
 import {isQuestion, replaceQuestion, removeQuestion} from "../controllers/controlsEditQuestions.js"
 import {
     getUserData
 } from "../controllers/controlsNavbar.js"
+
 
 //"corta-atalhos"
 window.addEventListener("load", function (event) {
@@ -19,6 +21,9 @@ window.addEventListener("load", function (event) {
 })
 
 let questions = JSON.parse(localStorage.getItem("questions"));
+
+let categories = getAllCats()
+addCatsToSelect(categories)
 
 renderTable(questions);
 
@@ -155,10 +160,15 @@ function renderTable(questions){
 }
 
 
-
-
-
-
+//Função para adicionar todas as categorias à seleção
+function addCatsToSelect(categories){
+    let result = ""
+    for (const category of categories){
+        result += `<option value="${category}">${category}</option>`
+    }
+    
+    document.getElementById("txtCategory").innerHTML = result
+}
 
 
     
