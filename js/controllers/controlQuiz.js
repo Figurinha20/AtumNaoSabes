@@ -4,6 +4,7 @@ import {
 } from "../controllers/controlsCatalog.js"
 
 
+
 export function renderLifes(lifes) {
   let htmlForLifes = ""
   for (let i = 0; i < lifes; i++) {
@@ -108,7 +109,7 @@ export function questionSelector(questions, stage) {
       random -= 1
     }
 
-    
+
 
 
     if (questions[random].difficulty == stage) {
@@ -128,13 +129,43 @@ export function gameOver(winCondition, reward) {
   let currentUser = sessionStorage.getItem("currentUser")
   let users = JSON.parse(localStorage.getItem("users"))
 
+
+  // Get the modal
+  let modal = document.getElementById("endGameModal");
+
+  
+  let modalHtml 
+
   //check se ganhou
-  //FAZER MODAL
   if (winCondition) {
-    alert("Chegaste até ao fim do Quiz parabéns! Ganhaste " + reward + " de experiencia!")
+
+    modalHtml += `<h3>Inácio: Waow estás um craque! Chegaste até ao fim do Quiz parabéns! Ganhaste ${reward} de experiencia!</h3>
+    <img src="../img/Cool fish.png" height="42" width="42">
+    `
+    //alert("Chegaste até ao fim do Quiz parabéns! Ganhaste " + reward + " de experiencia!")
   } else {
-    alert("Perdeste desta vez :[ Para a proxima corre melhor! EsTudà-ses. Ganhaste " + reward + " de experiencia!")
+
+    modalHtml += `<h3>Perdeste desta vez :[ Para a proxima corre melhor! EsTudà-ses. Ganhaste ${reward} de experiencia!</h3>
+      <img src="../img/Downvote Colored.png" height="150" width="150">
+    `
+    // alert("Perdeste desta vez :[ Para a proxima corre melhor! EsTudà-ses. Ganhaste " + reward + " de experiencia!")
   }
+  //injetar
+  document.getElementById("endGameModalContent").innerHTML = modalHtml
+
+  //show modal
+  $('#endGameModal').modal('show')
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      location.reload()
+    }
+  }
+
+
+
 
   //variaveis para comparar 
   let initialLevel
@@ -158,7 +189,7 @@ export function gameOver(winCondition, reward) {
     unlockCategory(currentUser)
   }
 
-  location.reload()
+  
 
 }
 
@@ -189,7 +220,7 @@ export function levelManager(user, reward) {
 function unlockCategory(managedUser) {
 
   let newCardCollection = getUserCollection(managedUser)
- 
+
 
   let categories = getAllCats()
 
@@ -211,6 +242,11 @@ function unlockCategory(managedUser) {
     if (newCategory == true) {
 
       newCardCollection.push(categories[index])
+
+      Swal.fire({
+        type: 'info',
+        title: `Categoria desbloqueada: ${categories[index]}`,
+      })
 
       break;
     }
