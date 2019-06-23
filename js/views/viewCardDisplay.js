@@ -195,7 +195,7 @@ function loadComments() {
             </div>
             <div class="col-sm-3">
                 <h6 id="userComment">${comment.userName}</h6>
-                <p id="txtComment">${comment.commentText}</p>
+                <p id="txtComment" class="not-Lobster">${comment.commentText}</p>
             </div>
             <div class="col-sm-6">
             </div>

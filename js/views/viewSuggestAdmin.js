@@ -73,7 +73,7 @@ function renderSuggestions(suggestions) {
         </div>
         <div class="col-sm-3">
             <h6 >${suggestion.username}</h6>
-            <p>${suggestion.message}</p>
+            <p class="not-Lobster">${suggestion.message}</p>
         </div>
         <div class="col-sm-6">
         </div>
