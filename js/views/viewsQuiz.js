@@ -26,7 +26,6 @@ window.addEventListener("load", function (event) {
 
 let currentQuestion;
 let audio = document.querySelector("#audio");
-console.log(audio)
 
 //GET array de questions e eliminar todas as que não teem tags na coleção do utilizador
 let questions = JSON.parse(localStorage.getItem("questions"))

@@ -100,7 +100,6 @@ for (const suggestion of suggestions) {
 
         let suggestionToApprove = suggestion.message
         let userToReward = suggestion.username
-        console.log(userToReward)
 
         for (const suggestion of suggestions) {
             if (suggestion.message == suggestionToApprove) {

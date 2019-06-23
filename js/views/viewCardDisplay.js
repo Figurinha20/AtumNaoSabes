@@ -227,7 +227,6 @@ function loadComments() {
             document.getElementById(comment.commentText + "@" + i).addEventListener("click", function () {
 
                 let commentToRemove = this.id
-                console.log(commentToRemove);
 
                 //refazer array de comentarios não adicionando comentário a remover
                 let newComments = []
@@ -235,12 +234,9 @@ function loadComments() {
 
                 for (const comment of comments) {
                     if ((comment.commentText + "@" + k) != commentToRemove) {
-                        console.log(commentToRemove);
-                        console.log(comment.commentText + "@" + k);
-
-
                         newComments.push(comment)
-                    } else {
+                    } 
+                    else {
                         Swal.fire({
                             type: 'success',
                             title: 'Comentário Removido!',
@@ -250,7 +246,6 @@ function loadComments() {
                 }
 
                 displayedCard.comments = newComments
-                console.log(displayedCard.comments)
 
                 updateCard(displayedCard)
 

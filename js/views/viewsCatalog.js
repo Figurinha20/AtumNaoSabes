@@ -20,7 +20,7 @@ if (sessionStorage.getItem("currentUser") === null) {
     document.querySelector("#sltFilter").value = "Grande Azul"
     document.querySelector("#divForFilter").className = "hidden"
 
-    //"grande azul" em vez de "Grande Azul" pk a função compara valores sempre em lower case
+    //"grande azul" em vez de "Grande Azul" porque a função compara valores sempre em lower case
     renderCatalog("grande azul", "", cards)
 
 
@@ -35,7 +35,6 @@ if (sessionStorage.getItem("currentUser") === null) {
     if (userDataArray[0]) {
         cards = JSON.parse(localStorage.getItem("cards"))
         categories = getAllCats()
-        //meow cats uwu
     } else {
         //else getUserCollection
         categories = getUserCollection(currentUser)
@@ -85,6 +84,7 @@ btnAZ.addEventListener("click", function () {
 
         renderCatalog(filterName, search, cards)
 
+        //Organizar de Z - A
     }else if ( btnAZ.value == "Z - A") {
         btnAZ.value = "A - Z"
 
@@ -102,6 +102,7 @@ btnAZ.addEventListener("click", function () {
 
 
 //eventlisteners => onseacrh ou onclick = refresh
+//Função para procurar carta (seach)
 document.querySelector("#formSearch").addEventListener("submit", function (event) {
     let search = document.querySelector("#txtSearch").value.toLowerCase()
     let filterName = document.querySelector("#sltFilter").value.toLowerCase()
@@ -113,7 +114,7 @@ document.querySelector("#formSearch").addEventListener("submit", function (event
 
 })
 
-
+//Função para filtrar cartas por categoria
 document.querySelector("#sltFilter").addEventListener("click", function (event) {
     let search = document.querySelector("#txtSearch").value.toLowerCase()
     let filterName = document.querySelector("#sltFilter").value.toLowerCase()

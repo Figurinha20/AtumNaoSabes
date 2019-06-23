@@ -1,3 +1,4 @@
+//Função para devolver todas as categorias
 export function getAllCats() {
     let cards = JSON.parse(localStorage.getItem("cards"))
     let categories = []
@@ -25,15 +26,14 @@ export function getAllCats() {
             categories.push(card.category)
         }
     }
-    //adicionar Especial no fim
+    //adicionar Especial no fim (a especial recebe-se quando já não há qualquer outra categoria para receber)
     categories.push("Especial")
-    console.log(categories);
 
     return categories
 }
 
 
-
+//Função para renderizar o catálogo com filtros e pesquisa
 export function renderCatalog(filterName, search, cards) {
 
 
@@ -56,7 +56,6 @@ export function renderCatalog(filterName, search, cards) {
 
         // Criação de linha
         if (i % 3 === 0) {
-            console.log("abre");
             result += `<div class="row">
                         <div class="col-sm-1">
 
@@ -67,10 +66,7 @@ export function renderCatalog(filterName, search, cards) {
         }
 
 
-
         // Geração do card
-        console.log("gera");
-
         let cardRank
         ////quick bug fix, por razões desconhecidas quando alguém adiciona comentário e a carta não tem ratings o rank da carta fica null
         if (card.rank == null) {
@@ -115,8 +111,6 @@ export function renderCatalog(filterName, search, cards) {
         i++
         // Criação do fecho da linha
         if (i % 3 === 0) {
-            console.log("fecho");
-
             result += `
                         </div>
                     </div>
@@ -158,7 +152,7 @@ export function renderCatalog(filterName, search, cards) {
 }
 
 
-
+//Função que devolve o array de cartas que o utilizador pussui com base nas categorias que desbloquiou
 export function getUserCards(categories) {
 
     let newCards = []
@@ -176,13 +170,13 @@ export function getUserCards(categories) {
     return newCards
 }
 
+//Função que vai buscar as categorias desbloquadas pelo utilizador
 export function getUserCollection(username) {
 
     let users = JSON.parse(localStorage.getItem("users"))
 
     for (const user of users) {
         if (user.username == username) {
-            console.log(user.cardCollection)
             return user.cardCollection
         }
     }

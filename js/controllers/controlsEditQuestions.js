@@ -45,7 +45,6 @@ export function removeQuestion (){
     let questions = JSON.parse(localStorage.getItem("questions"))
     
     let inputHiddenForQuestion = this.parentNode.parentNode.getElementsByTagName('input')[0];
-    console.log(inputHiddenForQuestion.value);
     let questionToRemove = inputHiddenForQuestion.value
 
     let removalConfirmation = confirm('Tem a certeza que quer remover "' + questionToRemove + '"?')

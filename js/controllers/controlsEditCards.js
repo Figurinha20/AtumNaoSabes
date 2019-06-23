@@ -37,7 +37,6 @@ export function removeCard (){
     let cards = JSON.parse(localStorage.getItem("cards"))
     
     let inputHiddenForCard = this.parentNode.parentNode.getElementsByTagName('input')[0];
-    console.log(inputHiddenForCard.value);
     let cardToRemove = inputHiddenForCard.value
 
     let removalConfirmation = confirm('Tem a certeza que quer remover a carta "' + cardToRemove + '"?')

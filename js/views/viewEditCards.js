@@ -90,8 +90,6 @@ myForm.addEventListener("submit", function (event) {
    
     event.preventDefault()
  
-    console.log(cards)
- 
     return;
 })
  
@@ -145,7 +143,7 @@ function renderTable(cards){
  
         let button = tempTr.getElementsByTagName('a')[0];
  
-        console.log(button);
+
         button.addEventListener('click', removeCard);
    
         myTable.appendChild(tempTr)

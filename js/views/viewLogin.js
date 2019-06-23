@@ -26,9 +26,6 @@ myForm.addEventListener("submit", function (event) {
     let logUsername = document.querySelector("#logUserName").value
     let logPassword = document.querySelector("#logPassword").value
     
-    console.log(logUsername)
-    console.log(logPassword)
-    
 
 
     //Verificar se Utilizador Já existe
