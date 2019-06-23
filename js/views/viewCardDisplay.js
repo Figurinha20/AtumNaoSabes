@@ -111,7 +111,7 @@ document.querySelector("#btnMakeProfilePic").addEventListener("click", function 
 function loadDisplay() {
 
     //get da carta da session storage 
-
+    //"corta-atalhos"
     displayedCard = JSON.parse(sessionStorage.getItem("displayCard"))
     if(displayedCard == null){
         location.href = "../html/catalog.html"
@@ -159,7 +159,7 @@ function loadDisplay() {
 
 
 
-
+//Função para dar load aos comentários
 function loadComments() {
 
     //load comentários
@@ -267,12 +267,10 @@ function loadComments() {
 
 
 
-
+//Função caso a carta tenha videos ou audios para dar load
 function loadMedia() {
 
     let result = ""
-
-
 
 
 
@@ -310,7 +308,7 @@ function loadMedia() {
 }
 
 
-//Function for setting the rating of the card
+//Função para deixar rating numa carta
 function setRatingListeners() {
     let coloredStar = "../img/Star Colored.png"
     let emptyStar = "../img/Star.png"
@@ -328,7 +326,7 @@ function setRatingListeners() {
             }
 
 
-            //Color in the star
+            //Colorir a estrela
             for (let j = 0; j < i + 1; j++) {
                 document.getElementById(j).src = coloredStar
             }
@@ -336,7 +334,7 @@ function setRatingListeners() {
             //numero de estrelas na rating
             let starNumber = i + 1
 
-            //Take away the stars' color
+            //Tirar a cor da estrela
             for (let k = starNumber; k < 5; k++) {
                 document.getElementById(k).src = emptyStar
             }

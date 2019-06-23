@@ -36,18 +36,18 @@ let categories = getUserCollection(currentUser)
 questions = getUserQuestions(categories)
 
 //valores para jogar
-let stage
-let lifes
-let exp
+let stage //numero da pergunta
+let lifes //numero de vidas
+let exp //reconpensa de experiencia no final
 
-//valores estruturais
+//valores estruturais, dificuldade FACIL - NORMAL - DIFICIL - DESAFIO FINAL
 const maxDifEz = 3
 const maxDifMed = 6
 const maxDifHrd = 9
 const difficultyLimit = 10
 
 
-//set dos eventListeners nos radio buttons e no text
+//set dos eventListeners nos radio buttons e no inputetext
 for (let i = 1; i < 5; i++) {
 
    //em cada opção a mesma função é chamada
@@ -70,12 +70,7 @@ document.querySelector("#button1").addEventListener("click", function(){
 
 
 
-
-
-
-
-
-
+//Função para iniciar o jogo
 function gameStart() {
 
    //YAY!
@@ -132,11 +127,9 @@ function gameProgress() {
 
 
 
-
-
 function resetButtons() {
    //reset buttons
-   document.querySelector("#opt1").checked = false
+   document.querySeqctor("#opt1").checked = false
    document.querySelector("#opt2").checked = false
    document.querySelector("#opt3").checked = false
    document.querySelector("#opt4").checked = false
@@ -144,10 +137,6 @@ function resetButtons() {
    document.querySelector("#btnHint1").value = "Comprar pista com experiencia?"
    document.querySelector("#btnHint2").value = "Comprar pista com experiencia?"
 }
-
-
-
-
 
 
 

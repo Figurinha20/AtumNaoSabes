@@ -25,15 +25,12 @@ window.addEventListener("load", function (event) {
 
 
 
-
-
-
 let suggestions = JSON.parse(localStorage.getItem("suggestions"))
 let users = JSON.parse(localStorage.getItem("users"))
 
 renderSuggestions(suggestions);
 
-//Reward for a good suggestion
+//Recompensa por ua boa sugestão
 let suggestionReward = 50
 
 
@@ -43,7 +40,6 @@ function renderSuggestions(suggestions) {
     let disapprovalDownvote = ""
     const mySuggestions = document.querySelector("#divForSuggestions")
     let result = ""
-    let suggestionReward = 50
 
 
     for (const suggestion of suggestions) {
@@ -94,7 +90,7 @@ function renderSuggestions(suggestions) {
     mySuggestions.innerHTML = result;
 }
 
-//Event Listeners to approve a suggestion
+//Event Listeners para aprovar um sugestão
 for (const suggestion of suggestions) {
     document.getElementById(suggestion.message).addEventListener("click", function () {
 
@@ -104,7 +100,7 @@ for (const suggestion of suggestions) {
         for (const suggestion of suggestions) {
             if (suggestion.message == suggestionToApprove) {
                 for (const user of users) {
-                    //Give 50% exp to the user for a good suggestion (we want to give the players a big reward to incentivize suggestion)
+                    //Dar 50% exp ao utilizador por uma boa sugestão (queremos incentivar sugestões)
                     if (user.username == userToReward && suggestion.approval != true) {
                         levelManager(user, suggestionReward)
                     }
@@ -125,7 +121,7 @@ for (const suggestion of suggestions) {
     })
 }
 
-//Event Listeners to disapprove a suggestion
+//Event Listeners para não aprovar
 for (const suggestion of suggestions) {
     document.getElementById("downvote-" + suggestion.message).addEventListener("click", function () {
 
@@ -136,7 +132,7 @@ for (const suggestion of suggestions) {
             if (suggestion.message == suggestionToApprove) {
                 //Reward User
                 for (const user of users) {
-                    //Take exp off the user only in case the admin missclicked and approved the suggestion beforehand (we don't want to penalize the users for suggesting)
+                    //É retirado exp ao utilizador apenas se o admin aprobou a sugestão sem querer e emenda (normalmente o utilizador não é penalizado por uma boa sugestão)
                     if (user.username == userToReward && suggestion.approval == true) {
                         levelManager(user, -suggestionReward)
                     }

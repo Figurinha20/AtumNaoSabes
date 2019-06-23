@@ -98,12 +98,12 @@ export function getUserQuestions(categories) {
 
 
 
-
+//Função para selecionar uma questão apropriada
 export function questionSelector(questions, stage) {
 
   while (1) {
 
-    //função numero aleatorio inteiro entre minimo  0 maximo questions.length ; 
+    //função numero aleatorio inteiro entre minimo  0 maximo questions.length ; perigoso,
     let random = Math.floor(Math.random() * (questions.length - 0 + 1)) + 0
     if (random == questions.length) {
       random -= 1
@@ -129,9 +129,6 @@ export function gameOver(winCondition, reward) {
   let currentUser = sessionStorage.getItem("currentUser")
   let users = JSON.parse(localStorage.getItem("users"))
 
-
-  // Get the modal
-  let modal = document.querySelector("#endGameModal")
   let modalHtml = ""
 
   //check se ganhou
@@ -233,7 +230,7 @@ export function gameOver(winCondition, reward) {
 
 
 
-//Função para sempre que se recebe experiencia (o utilizador pode subir de nivel, tammbém faz o contrário para o quando o admin aceita uma sugestão sem querer)
+//Função para sempre que se recebe experiencia (o utilizador pode subir de nivel, também faz o contrário para o quando o admin aceita uma sugestão sem querer)
 export function levelManager(user, reward) {
 
   //adicionar experiencia e aumentar nivel se necessario (quando experiencia chega a 100)
@@ -254,11 +251,13 @@ export function levelManager(user, reward) {
 
 
 //função para desbloquear uma categoria (por ordem de menos recente a mais recente)
+//Vai buscar a coleção do user e compara com o array de todas  as categorias
+//se encontrar uma categoria nova adiciona à coleção e dá update à local storage
 function unlockCategory(managedUser) {
 
   let newCardCollection = getUserCollection(managedUser)
 
-
+  
   let categories = getAllCats()
 
   let newCategory = true
