@@ -6,7 +6,7 @@ import {
 } from "../controllers/controlsNavbar.js"
 
 
-//"corta-atalhos"
+//"corta-atalhos": Impedir que meninos malandros acedam a esta página sem ter conta necessária (neste caso admin)
 window.addEventListener("load", function (event) {
     let currentUser = sessionStorage.getItem("currentUser")
     let userDataArray
@@ -19,6 +19,7 @@ window.addEventListener("load", function (event) {
         location.href = "../html/index.html"
     }
 })
+
 
 let questions = JSON.parse(localStorage.getItem("questions"));
 

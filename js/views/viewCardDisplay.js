@@ -113,6 +113,9 @@ function loadDisplay() {
     //get da carta da session storage 
 
     displayedCard = JSON.parse(sessionStorage.getItem("displayCard"))
+    if(displayedCard == null){
+        location.href = "../html/catalog.html"
+    }
     comments = displayedCard.comments
     ratings = displayedCard.ratings
     mediasAudio = displayedCard.audios

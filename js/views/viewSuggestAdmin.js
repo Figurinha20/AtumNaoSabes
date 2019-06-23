@@ -9,7 +9,7 @@ import {
     getUserData
 } from "../controllers/controlsNavbar.js"
 
-//"corta-atalhos"
+//"corta-atalhos": Impedir que meninos malandros acedam a esta página sem ter conta necessária (neste caso admin)
 window.addEventListener("load", function (event) {
     let currentUser = sessionStorage.getItem("currentUser")
     let userDataArray

@@ -131,6 +131,7 @@ export function gameOver(winCondition, reward) {
 
 
   // Get the modal
+  let modal = document.querySelector("#endGameModal")
   let modalHtml = ""
 
   //check se ganhou
@@ -187,22 +188,21 @@ export function gameOver(winCondition, reward) {
 
     `
   }
+
   //injetar
   document.getElementById("endGameModalContent").innerHTML += modalHtml
 
   //show modal
   $('#endGameModal').modal('show')
 
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-      location.reload()
-    }
-  }
-
-
-
+  
+// When the user clicks anywhere outside of the modal, close it and reload the page
+  $("#endGameModal").on('hide.bs.modal', function(){
+    location.reload()
+  });
+ 
+  
+ 
 
   //variaveis para comparar 
   let initialLevel

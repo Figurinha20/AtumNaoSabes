@@ -8,6 +8,22 @@ import {
 } from "../controllers/controlQuiz.js"
 import {getUserCollection} from "../controllers/controlsCatalog.js"
 
+
+
+
+//"corta-atalhos": Impedir que meninos malandros acedam a esta página sem ter conta necessária (neste caso uma qualquer)
+window.addEventListener("load", function (event) {
+   let currentUser = sessionStorage.getItem("currentUser")
+  
+   if (currentUser == null) {
+       location.href = "../html/index.html"
+   } 
+})
+
+
+
+
+
 let currentQuestion;
 let audio = document.querySelector("#audio");
 console.log(audio)
