@@ -271,7 +271,7 @@ function loadComments() {
 function loadMedia() {
 
     let result = ""
-
+    
 
 
     if (mediasVideo != []) {
@@ -297,7 +297,7 @@ function loadMedia() {
             <iframe width="100%" height="300" scrolling="no" frameborder="no"  src="${audio}">
             </iframe>
             </div>`
-            counter++
+            
         }
 
     }
