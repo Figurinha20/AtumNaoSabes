@@ -81,6 +81,8 @@ function renderSuggestions(suggestions) {
             
     </div>
 
+    <hr>
+
     `
 
     }
