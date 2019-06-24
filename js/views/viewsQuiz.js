@@ -129,7 +129,7 @@ function gameProgress() {
 
 function resetButtons() {
    //reset buttons
-   document.querySeqctor("#opt1").checked = false
+   document.querySelector("#opt1").checked = false
    document.querySelector("#opt2").checked = false
    document.querySelector("#opt3").checked = false
    document.querySelector("#opt4").checked = false
